@@ -1,0 +1,93 @@
+%title cleansocket
+%toc cleansocket
+%template c
+
+== 概要 ==
+
+在我们写的程序里，有时候会用到一些别的工具，比如用到`ftp`之类的上传工具，当`ftp`上传出了问题，或者我们的程序本身出了问题之后。<br />
+这个时候我们的程序退出，而`ftp`会占用一直占用着进程的资源。<br />
+这个事情其实我也讲不明白，还没有完全理解，但是确实有这样一种情况产生。 <br />
+我的有一个程序遇到过这样的现象。然后大家看看图片吧。<br />
+
+[[images/pstree_wj.jpg]]
+
+图中的`udp 6110`通信端口本身是我们的自身写的程序占用，但是由于某种原因我们的程序退出来了。所以现在我们的程序用不了些端口。<br />
+`pstree ` 会发现是程序ftp调用的时候占用了。<br />
+
+== 算法 ==
+当程序运行时，利用netstat 找到占用此端口的进行号，然后先杀掉占用端口的进程再进行端口的绑定操作就可以了。<br />
+
+== 示例代码 ==
+{{{class="brush:c"
+
+static char cleanSocket(int port)
+{
+
+#define MAX_CLEAN_SOCKET_LOOP_NUM 100
+  FILE    *fd;
+  char    temp_file[256],str_port[64];
+  char    cmd[256], row[256], pResult[16][64];
+  int   i,j,loop_num,bingo;
+  int postmaster_bingo = 0;
+  int java_bingo = 0;
+
+  bzero(temp_file,256);
+  sprintf(temp_file, "/ram/netstat.%d.result",port);
+  sprintf(str_port, "%d",port);
+  for (loop_num=0;loop_num<MAX_CLEAN_SOCKET_LOOP_NUM;loop_num++)
+  {
+    sprintf(cmd, "rm -f %s", temp_file);
+    system(cmd);
+    sprintf(cmd, "netstat -apn|grep %d > %s", port, temp_file);
+    system(cmd);
+    fd = fopen(temp_file, "r");
+    if (fd==NULL)
+    {
+//       writeQuickLog("cleanSocket fail open ",temp_file);
+      return;
+    }
+    bingo = 0;
+    while (fgets(row, 256, fd) != NULL)
+    {
+        printf("cleanSocket: read line: %s\n", row);
+      if (!strstr(row,"udp")||!strstr(row,str_port))
+        continue;
+
+      printf("cleanSocket: %s\n", row);
+      bingo = 1;
+//       writeQuickLog("cleanSocket find not close 6102 ",row);
+      int para_num = parstr(row, (char *)pResult, " ", 16, 64);
+      int error_pid = 0;
+      for (j=0;j<para_num;j++)
+      {
+        char *pos = strstr(pResult[j],"/");
+        if (pos!=NULL)
+        {
+          *pos = 0;
+          error_pid = atoi(pResult[j]);
+        }
+      }
+//       writeQuickLog2("cleanStatSocket error_pid ",error_pid);
+//       writeQuickLog2("cleanStatSocket now beap_app_stat id ",getpid());
+      if (error_pid!=0&&error_pid!=getpid())
+      {
+          printf("cleanSocket: kill process[%d]\n", error_pid);
+        kill(error_pid, SIGKILL);
+//         writeQuickLog2("cleanStatSocket kill ",error_pid);
+      }
+    }
+    fclose(fd);
+    if (bingo==0)
+      break;
+  }
+  if (loop_num==MAX_CLEAN_SOCKET_LOOP_NUM)
+  {
+    //杀了100次仍然有,重启机器
+    writeQuickLog("loop_num==MAX_CLEAN_SOCKET_LOOP_NUM cleanStatSocket ","");
+  }
+  writeQuickLog("cleanStatSocket", "end");
+  return loop_num;
+}
+
+
+}}}

@@ -1,0 +1,91 @@
+/* liwei.com CSS
+ * page layout:
+ *
+ * |--------- navbar ------------|
+ * |xx| |------ topnav ----------|
+ * |xx| TITLE
+ * |xx| |* page-nav *|
+ * |xx| |************|
+ * |xx| |************|
+ * |xx| ~~~~~~~~~~~~~~~~~~~~~~~~
+ * |xx| ~~~~~~~~~~~~~~~~~~~~~~~~
+ * |xx| ~~~~~~~~~~~~~~~~~~~~~~~~
+ *      ~~~~~~~~~~~~~~~~~~~~~~~~ 
+ *      ~~~~~~~~~~~~~~~~~~~~~~~~ 
+ *      FEEDBACK
+ * ------------------------------
+ *           footer
+ */
+
+/* html basic elements */
+body    { font-family: Helvetica,Georgia,Times,sans-serif,Arial,Verdana,Helvetica;}
+p small { color:black; }
+h1,h2   { border-bottom:1px solid #CCCCCC; margin-bottom:8px; padding-bottom:4px; }
+img     { margin-right:4px; }
+/*dt,dd   { font-size: 15px; line-height: 22px; color:black; }*/
+/*dt      { margin:8px 0 8px 0; font-size:15px; }*/
+/*dd      { padding-left: 24px; }*/
+/*td      { color:black;}*/
+/*a       { padding:0 2px 0 2px; }*/
+code    { color:#007000; font-size:15px; border:1px; background-color:#ccc;  }
+/*pre, blockquote */
+        /*{ background-color: #F5F5F5; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 4px 4px 4px 4px; display: block; padding: 8px 8px 8px 12px; line-height: 20px; font-family: 'Courier New', Courier; }*/
+/*pre, blockquote */
+blockquote { background-color: #F5F5F5; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 4px 4px 4px 4px; display: block; padding: 8px 8px 8px 12px; line-height: 20px; font-family: 'Courier New', Courier; }
+a,a:hover,a:visited 
+        { color:#0645AD; }
+/* use .myhr to replace <hr/> */
+/*.myhr   { border-bottom:1px solid #CCCCCC;margin:14px 14px 14px 0px;}*/
+/* #content: page main filed
+ * external links in #content will show with a small image
+ */
+#content h1, #content h2, #content h3 
+        { text-shadow:2px 2px 2px #E6E6E6; }
+#content p, blockquote, pre, #content ul, #content li, #content ol 
+        { font-size: 14px; line-height: 22px; color:black;}
+/*#content a[href^="http://"], #content a[href^="https://"] */
+        /*{ background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFZJREFUeF59z4EJADEIQ1F36k7u5E7ZKXeUQPACJ3wK7UNokVxVk9kHnQH7bY9hbDyDhNXgjpRLqFlo4M2GgfyJHhjq8V4agfrgPQX3JtJQGbofmCHgA/nAKks+JAjFAAAAAElFTkSuQmCC") no-repeat scroll right center transparent; padding: 0 14px 0 0px;}*/
+/* feedback */
+.fbts           { text-align:right; display:block; }
+.fb             { border-bottom:1px dashed #CCCCCC; }
+/* page footer */
+.footer         { clear:both; text-align: center; margin-bottom:16px;}
+/* .page-nav: page toc list */
+.page-nav       { margin-right:36px; padding:12px 36px 12px 0; font-size: 13px; }
+.page-nav li    { list-style-type:circle; font-size:14px; line-height:21px; }
+.toc-title      { margin:12px 0 12px 24px; font-weight:bold; font-size:16px; }
+/* .navbar: top of page 
+ * .navbar form: Goolge custom search input
+ */
+.navbar form    { margin-bottom:4px; }
+.navbar .brand  { color:black; }
+/* .side-nav, e.g.:
+ * JavaScript
+ *  js_object 
+ *  js_array
+ *  js_intro
+ */
+/*.side-nav li    { list-style-type:none; text-indent:-24px; }*/
+/*.side-nav       { */
+    /*padding: 8px 0 0 8px; margin-left:0; */
+    /*background: #f5f9f0;*/
+    /*background: -moz-linear-gradient(top,  #f5f9f0 0%, #f9fcf7 100%);*/
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f9f0), color-stop(100%,#f9fcf7));*/
+    /*background: -webkit-linear-gradient(top,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*background: -o-linear-gradient(top,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*background: -ms-linear-gradient(top,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*background: linear-gradient(top,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', endColorstr='#f9fcf7',GradientType=0 );*/
+/*}*/
+/* .top-nav, e.g.: Index > Linux > OpennSSL */
+/*.top-nav        {*/
+    /*background: #f5f9f0;*/
+    /*background: -moz-linear-gradient(left,  #f5f9f0 0%, #f9fcf7 100%);*/
+    /*background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f5f9f0), color-stop(100%,#f9fcf7));*/
+    /*background: -webkit-linear-gradient(left,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*background: -o-linear-gradient(left,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*background: -ms-linear-gradient(left,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*background: linear-gradient(left,  #f5f9f0 0%,#f9fcf7 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', endColorstr='#f9fcf7',GradientType=1 );*/
+    /*border: 0;*/
+/*}*/

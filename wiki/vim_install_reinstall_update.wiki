@@ -1,0 +1,61 @@
+%toc vim. 安装 重装 升级 
+%title vim. 安装 重装 升级 
+%template vim
+
+== 写在前面 ==
+
+由于一直以来在一个很old的linux版本下搞开发，里面的vim固然也是一个很old的版本，
+
+今天在工作完成的情况下，升级了下vim。
+
+不过在升级之前请保证你的os之中安装了　 *ctags cscope perl* 　. 这样以便在以后做IDE时用到。
+
+== 步骤 ==
+
+这里有详细的步骤：
+
+ 
+
+ 1。去ftp.vim.org/pub/vim/unix/ 下载 vim-73.tar.bz2 文件。 或者到这里下载  [http://www.vim.org/download.php vim_download]
+
+ 2。`tar -jxvf vim-73.tar.bz2`
+
+ 3。`cd vim73/src`
+
+ 然后最好配置得全面一些，如下：
+
+{{{class="brush:bash"
+ ./configure --with-x --enable-cscope --enable-xim --enable-fontset --enable-multibyte --enable-pythoninterp --with-features=huge --enable-gui=gtk2 "--with-compiledby=liwei<liweilijie@gmail.com>"
+ }}}
+
+
+ 这些参数可以查看我的另一则文章。
+
+ 4。`sudo make`　#　翻译，要花几分钟时间，视CPU而定，一般不会报错，如有错，速email me.
+
+ 5. `sudo make install `
+
+ #安装，一般情况下到这里就可以，可是有时候根据有的系统安装可能不会完全，所以建议进行下面几部一定会安装完全。
+
+
+
+ 也可以像下面这样：（有些时候上面的操作不成功的情况下让我们自已动手来吧。）
+
+ 5。`sudo cp -rf vim /usr/bin/vim`
+
+ 6。`cd ..`
+
+ 7。`sudo cp -rf runtime  /usr/local/share/vim`
+
+ 最后查看版本：
+
+ 8。`vim --version`　　#　可以看到你的vim的编译选项与版本号。是不是最新了。开始享受吧。
+
+  
+
+  _最后，首先感谢我的女朋友－乖乖，一直默默地支持着我，对我不离不弃。然后衷诚地感谢bill，感谢bram._ 
+
+  _我希望自己有朝一日能利用我生命之中的一小段（一年两年）投身于vim的贡献工作之中，_
+
+  _希望能为乌干达的儿童献一份自己的温暖。_
+  

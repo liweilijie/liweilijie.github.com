@@ -1,0 +1,6 @@
+%title c可变参数
+%template c
+%toc c可变参数
+
+{{{
+}}}

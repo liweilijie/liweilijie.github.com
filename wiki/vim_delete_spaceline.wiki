@@ -1,0 +1,5 @@
+%toc vim 删除空行
+%title vim 删除空行
+%template vim
+
+`:g/^$/d`

@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+		</head>
+
+		<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+			<!--<div class="span10 well pricehover">-->
+
+				<!-- ==================== start navbar ================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fuid">
+							<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+								<a class="brand" href="#">Liwei.tk</a>
+								<div class="nav-collapse">
+									<ul class="nav">
+										<li><a href="index.html">Home</a></li>
+										<!-- Program sub projects  -->
+										<li class="dropdown active">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="c.html">C</a></li>
+											<li><a href="cpp.html">Cpp</a></li>
+											<li><a href="shell.html">Shell</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Others</li>
+											<li><a href="python.html">Python</a></li>
+											<li><a href="expect.html">Expect</a></li>
+											<li><a href="vc.html">Vc</a></li>
+										</ul>
+										</li>
+										<!-- Os sub projects  -->
+										<li class="dropdown">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="linux.html">Linux</a></li>
+											<li class="divider"></li>
+											<li><a href="windows.html">Windows</a></li>
+										</ul>
+										</li>
+
+										<!-- vim -->
+										<li><a href="vim.html">Vim</a></li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Nav header</li>
+											<li><a href="#">Separated link</a></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+									<form class="navbar-search pull-left" action="">
+										<input type="text" class="search-query span2" placeholder="Search">
+									</form>
+									<ul class="nav pull-right">
+										<li><a href="#">Link</a></li>
+										<li class="divider-vertical"></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+								</div><!-- /.nav-collapse -->
+							</div>
+						</div><!-- /navbar-inner -->
+					</div><!-- /navbar -->
+					<!--</div>-->
+
+				<div class="container">
+
+					<!--span2 + span10 that's really content-->
+					<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="c.html">C</a></h3>
+
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header">关于语法</li>
+									<li> <a href="c_cycle_single_link.html">单循环链表的实现</a></li>
+									<li> <a href="c_util_function_interfaces.html">util function interface</a></li>
+									<li> <a href="c_easy_error.html">只有两行的C程序至少有80%的人会判断错</a></li>
+									<li> <a href="c_variable_length_array.html">c柔性数组</a></li>
+									<li> <a href="c_counting_1_bits_c_implementations.html">计数一个整数中1的个数</a>
+									<li> <a href="c_memory_manager_detail.html">c内存管理</a></li>
+									<li> <a href="c_sscanf_detail.html">sscanf用法</a></li>
+									<li> <a href="c_sizeof_about_point.html">sizeof(指针)</a><li>
+									<li><a href="c_about_userlogin_api.html">c(api)实现用户登录信息</a></li>
+									<li class="nav-header">常用实例</li>
+									<li> <a href="c_debug_pthread_rwlock_t.html">compile时提示缺少pthread_rwlock_t类型定义</a></li> 
+									<li> <a href="c_debug_memcmp_struct.html">小心使用memcmp来比较struct</a></li>
+									<li> <a href="c_do_while_replase_if.html">用do...while(0)替代if多重判断</a></li>
+									<li> <a href="c_gettimeofday_backup_time.html">c利用gettimeofday得到精确时间</a></li>
+									<li> <a href="c_dynamic_two_dimensional_array.html">c动态申请二维数组</a></li>
+									<li> <a href="c_program_analyse_deeply.html">c语言深度剖析</a></li>
+									<li> <a href="c_macro_define_collect.html">c宏定义</a></li>
+									<li> <a href="c_changable_agrument.html">c可变参数</a></li>
+									<li class="nav-header">常用技巧</li>
+									<li> <a href="c_function_argument.html">linux c 函数参考</a></li>
+									<li> <a href="c_error.html">错误处理</a></li>
+									<li> <a href="c_string.h.html">string.h 函数大全</a></li>
+									<li> <a href="c_rand.html">c rand()</a></li>
+									<li> <a href="c_diff_memcpy_memmove.html"> memcpy() memmove() 区别</a></li>
+									<li> <a href="c_iconv_match_notice.html">慎用c语言中的iconv()</a></li>
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+
+						<!-- right contnet -->
+
+						<div class="span9" data-spy="scroll" >
+							<div class="gsearch"></div>
+							<div class="content">
+								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="c.html">C</a></div>
+								
+<h1>string.h 函数大全</h1>
+
+<p>
+string.h中的函数
+</p>
+
+<p>
+@函数名称:   strdup
+函数原型:   char *strdup(const char *s)
+函数功能:   字符串拷贝，目的空间由该函数分配 
+函数返回:   指向拷贝后的字符串指针
+参数说明:   src-待拷贝的源字符串
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;alloc.h&amp;gt;
+int main()
+{
+  char *dup_str, *string="abcde";
+  dup_str=strdup(string);
+  printf("%s", dup_str);
+  free(dup_str);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strcpy
+函数原型:   char* strcpy(char* str1,char* str2);
+函数功能:   把str2指向的字符串拷贝到str1中去
+函数返回:   返回str1,即指向str1的指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char string[10];
+  char *str1="abcdefghi";
+  strcpy(string,str1);
+  printf("the string is:%s\n",string);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strncpy
+函数原型:   char *strncpy(char *dest, const char *src，int count)
+函数功能:   将字符串src中的count个字符拷贝到字符串dest中去
+函数返回:   指向dest的指针
+参数说明:   dest-目的字符串，src-源字符串，count-拷贝的字符个数
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char string[10];
+  char *str1="abcdefghi";
+  strncpy(string,str1,3);
+  string[3]='\0';
+  printf("%s",string);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strcat
+函数原型:   char* strcat(char * str1,char * str2);
+函数功能:   把字符串str2接到str1后面,str1最后的'\0'被取消
+函数返回:   str1
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+int main()
+{
+  char buffer[80];
+</p>
+
+<p>
+  strcpy(buffer,"Hello ");
+  strcat(buffer,"world");
+  printf("%s\n",buffer);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strncat
+函数原型:   char *strncat(char *dest, const char *src, size_t maxlen)
+函数功能:   将字符串src中前maxlen个字符连接到dest中
+函数返回:
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+char buffer[80];
+</p>
+
+<p>
+int main()
+{
+  strcpy(buffer,"Hello ");
+  strncat(buffer,"world",8);
+  printf("%s\n",buffer);
+  strncat(buffer,"*************",4);
+  printf("%s\n",buffer);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strcmp
+函数原型:   int strcmp(char * str1,char * str2);
+函数功能:   比较两个字符串str1,str2.
+函数返回:   str1&amp;lt;str2,返回负数; str1=str2,返回 0; str1&amp;gt;str2,返回正数. 
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char *buf1="aaa", *buf2="bbb", *buf3="ccc";
+  int ptr;
+  ptr=strcmp(buf2, buf1);
+  if(ptr&amp;gt;0)
+</p>
+<blockquote>
+printf("buffer 2 is greater than buffer 1\n");
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("buffer 2 is less than buffer 1\n");
+</blockquote>
+<p>
+  ptr=strcmp(buf2, buf3);
+  if(ptr&amp;gt;0)
+</p>
+<blockquote>
+printf("buffer 2 is greater than buffer 3\n");
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("buffer 2 is less than buffer 3\n");
+</blockquote>
+<p>
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strncmp
+函数原型:   int strncmp(char *str1,char *str2,int count)
+函数功能:   对str1和str2中的前count个字符按字典顺序比较
+函数返回:   小于0：str1&amp;lt;str2，等于0：str1=str2，大于0：str1&amp;gt;str2
+参数说明:   str1,str2-待比较的字符串，count-比较的长度
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int ptr;
+  char *buf1="aaabbb",*buf2="bbbccc",*buf3="ccc";
+  ptr=strncmp(buf2,buf1,3);
+  if (ptr&amp;gt;0)
+</p>
+<blockquote>
+printf("buffer 2 is greater than buffer 1");
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("buffer 2 is less than buffer 1");
+ptr=strncmp(buf2,buf3,3);
+</blockquote>
+<p>
+  if (ptr&amp;gt;0)
+</p>
+<blockquote>
+printf("buffer 2 is greater than buffer 3");
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("buffer 2 is less than buffer 3");
+</blockquote>
+<p>
+  return(0);
+}
+</p>
+
+
+<p>
+@函数名称:   strpbrk
+函数原型:   char *strpbrk(const char *s1, const char *s2)
+函数功能:   得到s1中第一个“同时也出现在s2中”字符的位置指针
+函数返回:   位置指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+char *p="Find all vowels";
+</p>
+
+<p>
+while(p)
+{
+  printf("%s\n",p);
+  p=strpbrk(p+1,"aeiouAEIOU");
+}
+return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strcspn
+函数原型:   int strcspn(const char *s1, const char *s2)
+函数功能:   统计s1中从头开始直到第一个“来自s2中的字符”出现的长度
+函数返回:   长度
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+int main()
+{
+  printf("%d\n",strcspn("abcbcadef","cba"));
+  printf("%d\n",strcspn("xxxbcadef","cba"));
+  printf("%d\n",strcspn("123456789","cba"));
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strspn
+函数原型:   int strspn(const char *s1, const char *s2)
+函数功能:   统计s1中从头开始直到第一个“不来自s2中的字符”出现的长度
+函数返回:   位置指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;alloc.h&amp;gt;
+int main()
+{
+  printf("%d\n",strspn("out to lunch","aeiou"));
+  printf("%d\n",strspn("out to lunch","xyz"));
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strchr
+函数原型:   char* strchr(char* str,char ch);
+函数功能:   找出str指向的字符串中第一次出现字符ch的位置
+函数返回:   返回指向该位置的指针,如找不到,则返回空指针
+参数说明:   str-待搜索的字符串，ch-查找的字符
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char string[15];
+  char *ptr, c='r';
+  strcpy(string, "This is a string");
+  ptr=strchr(string, c);
+  if (ptr)
+</p>
+<blockquote>
+printf("The character %c is at position: %d\n",c,ptr-string);
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("The character was not found\n");
+</blockquote>
+<p>
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strrchr
+函数原型:   char *strrchr(const char *s, int c)
+函数功能:   得到字符串s中最后一个含有c字符的位置指针
+函数返回:   位置指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char string[15];
+  char *ptr,c='r';
+  strcpy(string,"This is a string");
+  ptr=strrchr(string,c);
+  if (ptr)
+</p>
+<blockquote>
+printf("The character %c is at position:%d",c,ptr-string);
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("The character was not found");
+</blockquote>
+<p>
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strstr
+函数原型:   char* strstr(char* str1,char* str2);
+函数功能:   找出str2字符串在str1字符串中第一次出现的位置(不包括str2的串结束符)
+函数返回:   返回该位置的指针,如找不到,返回空指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char *str1="Open Watcom C/C++",*str2="Watcom",*ptr;
+  ptr=strstr(str1,str2);
+  printf("The substring is:%s\n",ptr);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strrev
+函数原型:   char *strrev(char *s)
+函数功能:   将字符串中的所有字符颠倒次序排列
+函数返回:   指向s的指针 
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char *forward="string";
+  printf("Before strrev():%s",forward);
+  strrev(forward);
+  printf("After strrev(): %s",forward);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strnset
+函数原型:   char *strnset(char *s, int ch, size_t n)
+函数功能:   将字符串s中前n个字符设置为ch的值
+函数返回:   指向s的指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char *string="abcdefghijklmnopqrstuvwxyz";
+  char letter='x';
+  printf("string before strnset: %s",string);
+  strnset(string,letter,13);
+  printf("string after strnset: %s",string);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strset
+函数原型:   char *strset(char *s, int ch)
+函数功能:   将字符串s中所有字符设置为ch的值
+函数返回:   指向s的指针 
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char string[10]="123456789";
+  char symbol='c';
+  printf("Before strset(): %s", string);
+  strset(string, symbol);
+  printf("After strset(): %s", string);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strtok
+函数原型:   char *strtok(char *s1, const char *s2)
+函数功能:   分解s1字符串为用特定分隔符分隔的多个字符串(一般用于将英文句分解为单词)
+函数返回:   字符串s1中首次出现s2中的字符前的子字符串指针
+参数说明:   s2一般设置为s1中的分隔字符
+</p>
+<blockquote>
+规定进行子调用时（即分割s1的第二、三及后续子串）第一参数必须是NULL
+在每一次匹配成功后，将s1中分割出的子串位置替换为NULL(摘下链中第一个环)，因此s1被破坏了
+函数会记忆指针位置以供下一次调用
+</blockquote>
+        
+<p>
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char *p;
+  char *buffer;
+  char *delims={ " .," };
+</p>
+
+<p>
+  buffer=strdup("Find words, all of them.");
+  printf("%s\n",buffer);
+  p=strtok(buffer,delims);
+  while(p!=NULL){
+</p>
+<blockquote>
+printf("word: %s\n",p);
+p=strtok(NULL,delims);
+</blockquote>
+<p>
+  }
+  printf("%s\n",buffer);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strupr
+函数原型:   char *strupr(char *s)
+函数功能:   将字符串s中的字符变为大写
+函数返回:
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char *string="abcdefghijklmnopqrstuvwxyz",*ptr;
+  ptr=strupr(string);
+  printf("%s",ptr);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strlwr
+函数原型:   char *strlwr(char *s)
+函数功能:   将字符串中的字符变为小写字符
+函数返回:   指向s的指针
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include&amp;lt;string.h&amp;gt;
+int main()
+{
+  char str[]="HOW TO SAY?";
+  printf("%s",strlwr(str));
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strlen
+函数原型:   unsigned int strlen(char * str);
+函数功能:   统计字符串str中字符的个数(不包括终止符'\0')
+函数返回:   返回字符串的长度.
+参数说明:
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include&amp;lt;string.h&amp;gt;
+int main()
+{
+  char str[]="how are you!";
+  printf("the lence is:%d\n",strlen(str));
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   strerror
+函数原型:   char *strerror(int errnum)
+函数功能:   得到错误信息的内容信息
+函数返回:   错误提示信息字符串指针
+参数说明:   errnum-错误编号
+所属文件:   &amp;lt;string.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;errno.h&amp;gt;
+int main()
+{
+  char *buffer;
+  buffer=strerror(errno);
+  printf("Error: %s",buffer);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   memcpy
+函数原型:   void *memcpy(void *dest, const void *src, size_t n)
+函数功能:   字符串拷贝
+函数返回:   指向dest的指针
+参数说明:   src-源字符串，n-拷贝的最大长度
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char src[]="******************************";
+  char dest[]="abcdefghijlkmnopqrstuvwxyz0123456709";
+  char *ptr;
+  printf("destination before memcpy:%s\n",dest);
+  ptr=memcpy(dest,src,strlen(src));
+  if (ptr)
+</p>
+<blockquote>
+printf("destination after memcpy:%s\n",dest);
+</blockquote>
+<p>
+  else
+</p>
+<blockquote>
+printf("memcpy failed");
+</blockquote>
+<p>
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   memccpy
+函数原型:   void *memccpy(void *dest, const void *src, int c, size_t n)
+函数功能:   字符串拷贝，到指定长度或遇到指定字符时停止拷贝
+函数返回:
+参数说明:   src-源字符串指针，c-中止拷贝检查字符，n-长度,dest-拷贝底目的字符串指针
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char *src="This is the source string";
+  char dest[50];
+  char *ptr;
+  ptr=memccpy(dest,src,'c',strlen(src));
+  if (ptr)
+  {
+</p>
+<blockquote>
+*ptr='\0';
+printf("The character was found:%s",dest);
+</blockquote>
+<p>
+  }
+  else
+</p>
+<blockquote>
+printf("The character wasn't found");
+</blockquote>
+<p>
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   memchr
+函数原型:   void *memchr(const void *s, int c, size_t n)
+函数功能:   在字符串中第开始n个字符中寻找某个字符c的位置
+函数返回:   返回c的位置指针，返回NULL时表示未找到
+参数说明:   s-要搜索的字符串，c-要寻找的字符，n-指定长度
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char str[17];
+  char *ptr;
+  strcpy(str,"This is a string");
+  ptr=memchr(str,'r',strlen(str));
+  if (ptr)
+  printf("The character 'r' is at position: %d",ptr-str);
+  else
+  printf("The character was not found");
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   memcmp
+函数原型:   int memcmp(const void *s1, const void *s2,size_t n)
+函数功能:   按字典顺序比较两个串s1和s2的前n个字节 
+函数返回:   &amp;lt;0,=0,&amp;gt;0分别表示s1&amp;lt;,=,&amp;gt;s2
+参数说明:   s1,s2-要比较的字符串，n-比较的长度
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main() 
+{ 
+  char *buf1="ABCDE123"; 
+  char *buf2="abcde456"; 
+  int stat; 
+  stat=memcmp(buf1,buf2,5); 
+  printf("The strings to position 5 are "); 
+  if(stat) printf("not "); 
+  printf("the same\n"); 
+  return 0; 
+}
+</p>
+
+ 
+
+<p>
+@函数名称:   memicmp
+函数原型:   int memicmp(const void *s1, const void *s2, size_t n)
+函数功能:   按字典顺序、不考虑字母大小写对字符串s1,s2前n个字符比较
+函数返回:   &amp;lt;0,=0,&amp;gt;0分别表示s1&amp;lt;,=,&amp;gt;s2
+参数说明:   s1,s2-要比较的字符串，n-比较的长度
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+int main()
+{
+  char *buf1="ABCDE123";
+  char *buf2="abcde456";
+  int stat;
+  stat=memicmp(buf1,buf2,5);
+  printf("The strings to position 5 are ");
+  if(stat) printf("not");
+  printf("the same");
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   memmove
+函数原型:   void *memmove(void *dest, const void *src, size_t n)
+函数功能:   字符串拷贝
+函数返回:   指向dest的指针
+参数说明:   src-源字符串，n-拷贝的最大长度
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main()
+{
+  char dest[40]="abcdefghijklmnopqrstuvwxyz0123456789";
+  printf("destination prior to memmove:%s\n",dest);
+  memmove(dest+1,dest,35);
+  printf("destination after memmove:%s",dest);
+  return 0;
+}
+</p>
+
+
+<p>
+@函数名称:   memset
+函数原型:   void *memset(void *s, int c, size_t n)
+函数功能:   字符串中的n个字节内容设置为c
+函数返回:
+参数说明:   s-要设置的字符串，c-设置的内容，n-长度
+所属文件:   &amp;lt;string.h&amp;gt;,&amp;lt;mem.h&amp;gt;
+</p>
+
+<p>
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;mem.h&amp;gt;
+int main()
+{
+  char buffer[]="Hello world";
+  printf("Buffer before memset:%s\n",buffer);
+  memset(buffer,'*',strlen(buffer)-1);
+  printf("Buffer after memset:%s",buffer);
+  return 0;
+}
+</p>
+
+ 
+
+<p>
+Trackback: <a href="http://tb.blog.csdn.net/TrackBack.aspx?PostId=622987">http://tb.blog.csdn.net/TrackBack.aspx?PostId=622987</a>
+</p>
+
+							</div>
+						</div>
+					</div> <!-- really content end -->
+
+					<div class="row footer">
+						<hr />
+						<a href="index.html">首页</a>
+						<a href="about.html"> | 关于</a>
+						<a href="links.html"> | 链接</a>
+						<a href="contact.html"> | 链接</a>
+					</div>
+
+				</div>
+
+				<!-- Le javascript ================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<script src="assets/js/jquery.js"></script>
+				<script src="assets/js/google-code-prettify/prettify.js"></script>
+				<script src="assets/js/bootstrap-transition.js"></script>
+				<script src="assets/js/bootstrap-alert.js"></script>
+				<script src="assets/js/bootstrap-modal.js"></script>
+				<script src="assets/js/bootstrap-dropdown.js"></script>
+				<script src="assets/js/bootstrap-scrollspy.js"></script>
+				<script src="assets/js/bootstrap-tab.js"></script>
+				<script src="assets/js/bootstrap-tooltip.js"></script>
+				<script src="assets/js/bootstrap-popover.js"></script>
+				<script src="assets/js/bootstrap-button.js"></script>
+				<script src="assets/js/bootstrap-collapse.js"></script>
+				<script src="assets/js/bootstrap-carousel.js"></script>
+				<script src="assets/js/bootstrap-typeahead.js"></script>
+				<script src="assets/js/application.js"></script>
+				<script src="assets/js/liwei.js"></script>
+
+
+			</body>
+		</html>

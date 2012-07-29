@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+		</head>
+
+		<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+			<!--<div class="span10 well pricehover">-->
+
+				<!-- ==================== start navbar ================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fuid">
+							<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+								<a class="brand" href="#">Liwei.tk</a>
+								<div class="nav-collapse">
+									<ul class="nav">
+										<li><a href="index.html">Home</a></li>
+										<!-- Program sub projects  -->
+										<li class="dropdown active">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="c.html">C</a></li>
+											<li><a href="cpp.html">Cpp</a></li>
+											<li><a href="shell.html">Shell</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Others</li>
+											<li><a href="python.html">Python</a></li>
+											<li><a href="expect.html">Expect</a></li>
+											<li><a href="vc.html">Vc</a></li>
+										</ul>
+										</li>
+										<!-- Os sub projects  -->
+										<li class="dropdown">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="linux.html">Linux</a></li>
+											<li class="divider"></li>
+											<li><a href="windows.html">Windows</a></li>
+										</ul>
+										</li>
+
+										<!-- vim -->
+										<li><a href="vim.html">Vim</a></li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Nav header</li>
+											<li><a href="#">Separated link</a></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+									<form class="navbar-search pull-left" action="">
+										<input type="text" class="search-query span2" placeholder="Search">
+									</form>
+									<ul class="nav pull-right">
+										<li><a href="#">Link</a></li>
+										<li class="divider-vertical"></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+								</div><!-- /.nav-collapse -->
+							</div>
+						</div><!-- /navbar-inner -->
+					</div><!-- /navbar -->
+					<!--</div>-->
+
+				<div class="container">
+
+					<!--span2 + span10 that's really content-->
+					<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="c.html">C</a></h3>
+
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header">关于语法</li>
+									<li> <a href="c_cycle_single_link.html">单循环链表的实现</a></li>
+									<li> <a href="c_util_function_interfaces.html">util function interface</a></li>
+									<li> <a href="c_easy_error.html">只有两行的C程序至少有80%的人会判断错</a></li>
+									<li> <a href="c_variable_length_array.html">c柔性数组</a></li>
+									<li> <a href="c_counting_1_bits_c_implementations.html">计数一个整数中1的个数</a>
+									<li> <a href="c_memory_manager_detail.html">c内存管理</a></li>
+									<li> <a href="c_sscanf_detail.html">sscanf用法</a></li>
+									<li> <a href="c_sizeof_about_point.html">sizeof(指针)</a><li>
+									<li><a href="c_about_userlogin_api.html">c(api)实现用户登录信息</a></li>
+									<li class="nav-header">常用实例</li>
+									<li> <a href="c_debug_pthread_rwlock_t.html">compile时提示缺少pthread_rwlock_t类型定义</a></li> 
+									<li> <a href="c_debug_memcmp_struct.html">小心使用memcmp来比较struct</a></li>
+									<li> <a href="c_do_while_replase_if.html">用do...while(0)替代if多重判断</a></li>
+									<li> <a href="c_gettimeofday_backup_time.html">c利用gettimeofday得到精确时间</a></li>
+									<li> <a href="c_dynamic_two_dimensional_array.html">c动态申请二维数组</a></li>
+									<li> <a href="c_program_analyse_deeply.html">c语言深度剖析</a></li>
+									<li> <a href="c_macro_define_collect.html">c宏定义</a></li>
+									<li> <a href="c_changable_agrument.html">c可变参数</a></li>
+									<li class="nav-header">常用技巧</li>
+									<li> <a href="c_function_argument.html">linux c 函数参考</a></li>
+									<li> <a href="c_error.html">错误处理</a></li>
+									<li> <a href="c_string.h.html">string.h 函数大全</a></li>
+									<li> <a href="c_rand.html">c rand()</a></li>
+									<li> <a href="c_diff_memcpy_memmove.html"> memcpy() memmove() 区别</a></li>
+									<li> <a href="c_iconv_match_notice.html">慎用c语言中的iconv()</a></li>
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+
+						<!-- right contnet -->
+
+						<div class="span9" data-spy="scroll" >
+							<div class="gsearch"></div>
+							<div class="content">
+								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="c.html">C</a></div>
+								
+<h1>c宏定义</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">宏定义</a>
+<li><a href="#toc_0.2">例子</a>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">宏定义</h2>
+<p>
+宏定义了一个代表特定内容的标识符。
+</p>
+
+<p>
+ 预处理过程会把源代码中出现的宏标识符替换成宏定义时的值。
+</p>
+ 
+<p>
+ 宏最常见的用法是定义代表某个值的全局符号。
+</p>
+ 
+<p>
+ 宏的第二种用法是定义带参数的宏，这样的宏可以象函数一样被调用，
+</p>
+ 
+<p>
+ 但它是在调用语句处展开宏，并用调用时的实际参数来代替定义中的形式参数。
+</p>
+ 
+<h2 id="toc_0.2">例子</h2>
+
+<p>
+1.#define指令
+</p>
+
+<pre class="brush:c">
+#define MAX_NUM 10
+int array[MAX_NUM];
+for(i=0;i&lt;MAX_NUM;i++)  /*……*/
+#define VERSION "Version 1.0 Copyright(c) 2011"
+</pre>
+<p>
+2.带参数的#define指令
+</p>
+
+<pre class="brush:c">
+  　#define IS_EVEN(n)   ((n)%2==0)
+  　#define MAX(x,y)     ((x)&gt;(y) ? (x) :(y))
+    #define Cube(x) (x)*(x)*(x)
+    // 可以是任何数字表达式甚至函数调用来代替参数x。
+</pre>
+
+<p>
+3.#运算符
+</p>
+
+<p>
+<strong>#</strong> 的功能是将其后面的宏参数进行字符串化操作（Stringfication），
+</p>
+
+<p>
+简单说就是在对它所引用的宏变量通过替换后在其左右各加上一个双引号。
+</p>
+
+<p>
+<em>例如：</em>
+</p>
+<pre class="brush:c">
+			#define _STR(s)     #s 
+			#define WARN_IF(EXP)    \
+			do \
+			{  \
+				if (EXP)    \
+				fprintf(stderr, "Warning: " #EXP "\n"); 
+			}   \
+			while(0)
+</pre>
+<p>
+<em>那么实际使用中会出现下面所示的替换过程：</em>
+</p>
+<pre class="brush:c">
+			WARN_IF (divider == 0);
+      // 被替换为
+        do 
+				{
+          if (divider == 0)
+          fprintf(stderr, "Warning" "divider == 0" "\n");
+        } while(0);
+			// 这样每次divider（除数）为0的时候便会在标准错误流上输出一个提示信息。
+</pre>
+ 
+<p>
+<em>再例如下面的例子：</em>
+</p>
+
+<pre class="brush:c">
+　　　　　#define  FILL(a)   {a, #a}
+　　　　　enum IDD{OPEN, CLOSE}; 
+　　　　　typedef struct _MSG
+					{ 
+  　　　　　　IDD id; 
+  　　　　　　const char * msg; 
+　　　　　}MSG;
+　　　　　MSG _msg[] = {FILL(OPEN), FILL(CLOSE)}; 
+　　　　　//相当于： 
+　　　　　MSG _msg[] = {{OPEN, "OPEN"}, 
+              　　　　　　　{CLOSE, "CLOSE"}}; 
+</pre>
+
+<p>
+4.##运算符
+</p>
+
+<p>
+<code>##运算符用于把参数连接到一起。</code>
+</p>
+
+<p>
+<code>预处理程序把出现在##两侧的参数合并成一个符号。</code>
+</p>
+
+<p>
+<em>看下面的例子：</em>
+</p>
+<pre class="brush:c">
+					#define NUM(a,b,c) a##b##c
+					#define STR(a,b,c) a##b##c
+					int main(void)
+					{
+							printf("%d\n",NUM(1,2,3));
+							printf("%s\n",STR("aa","bb","cc"));
+							
+							return 0;
+					}
+</pre>
+<p>
+<strong>最后程序的输出为:</strong>
+</p>
+<pre class="brush:bash">
+                 123
+                 aabbcc
+</pre>
+<p>
+ 再看下面的例子：
+</p>
+<pre class="brush:c">
+ struct command
+    {
+     char * name;
+     void (*function) (void);
+    };
+    #define COMMAND(NAME) { NAME, NAME ## _command }
+   // 然后你就用一些预先定义好的命令来方便的初始化一个command结构的数组了：
+    struct command commands[] = {
+     COMMAND(quit),
+     COMMAND(help),
+     ...
+    }
+</pre>
+<blockquote>
+COMMAND宏在这里充当一个代码生成器的作用，这样可以在一定程度上减少代码密度，间接地也可以减少不留心所造成的错误。我们还可以n个##符号连接 n+1个Token。比如： 
+</blockquote>
+    
+<p>
+<code>#define LINK_MULTIPLE(a,b,c,d) a##_##b##_##c##_##d</code>
+</p>
+
+<p>
+<code>typedef struct _record_type LINK_MULTIPLE(name,company,position,salary);</code>
+</p>
+    
+<p>
+<em>这里这个语句将展开为：</em>
+</p>
+    
+<p>
+<code>typedef struct _record_type name_company_position_salary;</code>
+</p>
+
+<p>
+5.特殊的宏
+</p>
+
+<p>
+<code>#error指令将使编译器显示一条错误信息，然后停止编译。</code>
+</p>
+    
+<p>
+<code>#line指令可以改变编译器用来指出警告和错误信息的文件号和行号。</code>
+</p>
+    
+<p>
+<code>#pragma指令没有正式的定义。编译器可以自定义其用途。典型的用法是禁止或允许某些烦人的警告信息。</code>
+</p>
+    
+<p>
+ ...在C宏中称为Variadic Macro，也就是变参宏。
+</p>
+ 
+<hr />
+
+<p>
+6.预定义宏
+</p>
+
+<p>
+　　_<em>LINE</em>_　　 被编译的文件的行数
+</p>
+
+<p>
+　　_<em>FILE</em>_　　　被编译的文件的名字
+</p>
+
+<p>
+　　_<em>DATE</em>_　　　编译的日期（格式"Mmm dd yyyy"）
+</p>
+
+<p>
+　　_<em>TIME</em>_　　　编译的时间（格式"hh:mm:ss"）
+</p>
+
+<p>
+　　_<em>STDC</em>_　　　如果编译器接受标准C，那么值为1
+</p>
+
+<p>
+　　printf("Compiled on %s at %s\n", _<em>DATE</em>_, _<em>TIME</em>_);
+</p>
+
+<p>
+　　每次程序开始执行，程序都会显示，用于确认版本：
+</p>
+<blockquote>
+Compiled on Dec 23 1996 at 22:18:48
+</blockquote>
+<blockquote>
+下面的宏可以帮助我们查明错误的根源：
+</blockquote>
+<blockquote>
+#define CHECK_ZERO(divisor)  \
+if (divisor == 0)  \
+printf("*** Attempt to divide by zero on line %d  "  \
+"of file %s  ***\n",_<em>LINE</em>_, _<em>FILE</em>_)
+CHECK_ZERO宏应该在除法运算前被调用：
+CHECK_ZERO(j);k = i / j;
+如果j是0，会显示出如下形式的信息：
+*** Attempt to divide by zero on line 9 of file FOO.c ***
+通用的、用于错误检测的宏——assert宏；
+</blockquote>
+    
+<p>
+7.注意
+</p>
+<blockquote>
+宏名和参数的括号间不能有空格；
+</blockquote>
+<p>
+ 宏替换只作替换，不做计算，不做表达式求解；
+ 函数调用在编译后程序运行时进行，并且分配内存。宏替换在编译前进行，不分配内存；
+ 函数只有一个返回值，利用宏则可以设法得到多个值；
+ 宏展开使源程序变长，函数调用不会；
+ 宏展开不占运行时间，只占编译时间，函数调用占运行时间（分配内存、保留现场、值传递、返回值）；
+ 使用条件编译可以使目标程序变小，运行时间变短；
+ 预编译使问题或算法的解决方案增多，有助于我们选择合适的解决方案。
+</p>
+
+							</div>
+						</div>
+					</div> <!-- really content end -->
+
+					<div class="row footer">
+						<hr />
+						<a href="index.html">首页</a>
+						<a href="about.html"> | 关于</a>
+						<a href="links.html"> | 链接</a>
+						<a href="contact.html"> | 链接</a>
+					</div>
+
+				</div>
+
+				<!-- Le javascript ================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<script src="assets/js/jquery.js"></script>
+				<script src="assets/js/google-code-prettify/prettify.js"></script>
+				<script src="assets/js/bootstrap-transition.js"></script>
+				<script src="assets/js/bootstrap-alert.js"></script>
+				<script src="assets/js/bootstrap-modal.js"></script>
+				<script src="assets/js/bootstrap-dropdown.js"></script>
+				<script src="assets/js/bootstrap-scrollspy.js"></script>
+				<script src="assets/js/bootstrap-tab.js"></script>
+				<script src="assets/js/bootstrap-tooltip.js"></script>
+				<script src="assets/js/bootstrap-popover.js"></script>
+				<script src="assets/js/bootstrap-button.js"></script>
+				<script src="assets/js/bootstrap-collapse.js"></script>
+				<script src="assets/js/bootstrap-carousel.js"></script>
+				<script src="assets/js/bootstrap-typeahead.js"></script>
+				<script src="assets/js/application.js"></script>
+				<script src="assets/js/liwei.js"></script>
+
+
+			</body>
+		</html>

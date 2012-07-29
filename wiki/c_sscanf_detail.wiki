@@ -1,0 +1,121 @@
+%toc sscanf.用法
+%title sscanf.用法
+%template c
+
+
+大家都知道sscanf是一个很好用的函数，利用它可以从字符串中取出整数、浮点数和字符串等等。
+
+它的使用方法简单，特别对于整数和浮点数来说。
+但新手可能并不知道处理字符串时的一些高级用法，这里做个简要说明吧。
+
+== 1. 常见用法。 ==
+
+{{{class="brush:c"
+char str[512] = {0};
+
+sscanf("123456 ", "%s", str);
+
+printf("str=%s\n", str);
+}}}
+
+
+== 2. 取指定长度的字符串。 ==
+如在下例中，取最大长度为4字节的字符串。
+
+
+{{{class="brush:c"
+sscanf("123456 ", "%4s", str);
+printf("str=%s\n", str);
+}}}
+
+
+== 3. 取到指定字符为止的字符串。 ==
+如在下例中，取遇到空格为止字符串。
+
+{{{class="brush:c"
+sscanf("123456 abcdedf", "%[^ ]", str);
+printf("str=%s\n", str);
+}}}
+
+
+== 4. 取仅包含指定字符集的字符串。 ==
+如在下例中，取仅包含1到9和小写字母的字符串。
+
+{{{class="brush:c"
+sscanf("123456abcdedfBCDEF", "%[1-9a-z]", str);
+printf("str=%s\n", str);
+}}}
+
+
+== 5. 取到指定字符集为止的字符串。 ==
+如在下例中，取遇到大写字母为止的字符串。
+
+{{{class="brush:c"
+sscanf("123456abcdedfBCDEF", "%[^A-Z]", str);
+printf("str=%s\n", str);
+}}}
+
+== 6. test ==
+{{{class="brush:c"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+	char str[512];
+
+	/** 
+	 * TODO(liw): we alway use it as this style
+	 */
+	memset(str, '\0', sizeof str);
+	sscanf("123456", "%s", str);
+	printf("str:%s\n", str);
+
+	/** 
+	 * TODO(liw): assign the numbers by byte
+	 */
+	memset(str, '\0', sizeof str);
+	sscanf("123456", "%4s", str);
+	printf("just 4 bytes str:%s\n", str);
+
+	/** 
+	 * TODO(liw): get the string util the space
+	 */
+	memset(str, '\0', sizeof str);
+	sscanf("123456 abcdefg", "%[^ ]", str);
+	printf("space str:%s\n", str);
+
+	/** 
+	 * TODO(liw): get the byte if it is validate
+	 */
+	memset(str, '\0', sizeof str);
+	sscanf("123456abcdefsgBCDEF", "%[1-9a-z]", str);
+	printf("1astr:%s\n", str);
+
+	/** 
+	 * TODO(liw): get the byte util happend uppercase
+	 */
+	memset(str, '\0', sizeof str);
+	sscanf("123456abcdefgBCDEF", "%[^A-Z]", str);
+	printf("util the uppercase str:%s\n", str);
+
+	return 0;
+}
+}}}
+
+__result__
+
+{{{class="brush:bash"
+[root@liwei test]# vim sscanf_ad.c 
+[root@liwei test]# gcc -Wall -g -o ss sscanf_ad.c 
+[root@liwei test]# ./ss
+str:123456
+just 4 bytes str:1234
+space str:123456
+1astr:123456abcdefsg
+util the uppercase str:123456abcdefg
+[root@liwei test]# 
+
+}}}

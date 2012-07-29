@@ -1,0 +1,6 @@
+%toc linux c 函数参考
+%title linux c 函数参考
+%template c
+
+c 
+

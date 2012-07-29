@@ -1,0 +1,22 @@
+%title vim删除^M字符
+%toc vim删除^M字符
+%template vim
+
+当我在 *win* 下面编辑了程序之后，有时候会看到在行尾有`^M` 可恶的字符。<br />
+虽然，它并不影响程序<br />
+但是看起来不爽，那么如何删除呢？
+
+=== 方法一： ===
+
+{{{class="brush:bash"
+:%s/^M$//g
+}}}
+
+`^M` = `Ctrl+v` then `Ctrl+m`
+
+----
+=== 方法二： ===
+{{{class="brush:bash"
+:%s/\r//g
+
+}}}

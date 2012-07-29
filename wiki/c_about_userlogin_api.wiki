@@ -1,0 +1,79 @@
+%toc c-api 实现记录登录用户的信息
+%title c-api 实现记录登录用户的信息
+%template c
+
+_coders_:
+{{{class="brush:c"
+
+#include <stdio.h>
+#include <unistd.h>
+#include <utmp.h>
+#include <time.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+	char   *s,*c;
+	struct utmp *u;
+	char   sztime[20] = {0};
+
+/*
+ * char *getlogin(void);
+ * getlogin  returns a pointer to a string containing the name of the user
+ * logged in on the controlling terminal of the process, or a null pointer
+ * if  this  information  cannot  be determined.  The string is statically
+ * allocated and might be overwritten on subsequent calls to this function
+ * or to cuserid.
+ */
+	c = getlogin();
+
+/*
+ * #include <utmp.h>
+ * void setutent(void);
+ *
+ * setutent()  rewinds the file pointer to the beginning of the utmp file.
+ * It is generally a Good Idea to call it before any of  the  other  func-
+ * tions.
+ */
+	setutent();
+
+/*
+ * #include <utmp.h>
+ * 
+ * struct utmp *getutent(void);
+ *
+ * getutent() reads a line from the current  file  position  in  the  utmp
+ * file.  It returns a pointer to a structure containing the fields of the
+ * line.
+ */
+	u = getutent();
+
+	while(u != NULL)
+	{
+		if(u->ut_type == 7 && strcmp(u->ut_user,c) == 0)
+		{
+			printf("%-12s", u->ut_user);
+			printf("%-9s", u->ut_line);
+			s = ctime(&u->ut_time);
+			sprintf(sztime, s);
+			printf("(%s)\t", u->ut_host);
+			printf ("%s", sztime);
+		}
+
+		u = getutent();
+	}
+
+	return 0;
+}
+}}}
+
+_result_:
+{{{class="brush:bash"
+[root@liwei test]# gcc -Wall -g -o l login.c 
+[root@liwei test]# ./l
+root        pts/0    (192.168.61.16)	Mon Aug  8 01:26:51 2011
+root        pts/1    (192.168.61.16)	Mon Aug  8 01:35:43 2011
+root        pts/2    (192.168.61.16)	Tue Aug  9 07:34:59 2011
+[root@liwei test]# 
+
+}}}

@@ -1,0 +1,5 @@
+%toc core文件是由哪个程序产生的？
+%title core文件是由哪个程序产生的？
+%template c
+
+`file core.******`

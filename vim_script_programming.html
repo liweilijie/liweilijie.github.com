@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<!--<div class="span10 well pricehover">-->
+
+		<!-- ==================== start navbar ================== -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fuid">
+					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Liwei.tk</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li><a href="index.html">Home</a></li>
+								<!-- Program sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="c.html">C</a></li>
+									<li><a href="cpp.html">Cpp</a></li>
+									<li><a href="shell.html">Shell</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Others</li>
+									<li><a href="python.html">Python</a></li>
+									<li><a href="expect.html">Expect</a></li>
+									<li><a href="vc.html">Vc</a></li>
+								</ul>
+								</li>
+								<!-- Os sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="linux.html">Linux</a></li>
+									<li class="divider"></li>
+									<li><a href="windows.html">Windows</a></li>
+								</ul>
+								</li>
+
+								<!-- vim -->
+								<li class="active"><a href="vim.html">Vim</a></li>
+								<li><a href="#">Link</a></li>
+								<li><a href="#">Link</a></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Search">
+							</form>
+							<ul class="nav pull-right">
+								<li><a href="#">Link</a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+						</div><!-- /.nav-collapse -->
+					</div>
+				</div><!-- /navbar-inner -->
+			</div><!-- /navbar -->
+			<!--</div>-->
+
+		<div class="container">
+
+			<!--span2 + span10 that's really content-->
+			<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="vim.html">Vim</a></h3>
+								<ul class="nav nav-list">
+									<li class="nav-header">基本操作</li>
+									<li> <a href="http://vimcdoc.sourceforge.net/doc/help.html">vim帮助文档</a></li>
+									<li> <a href="vim_install_reinstall_update.html">vim 安装 重装 升级</a></li>
+									<li> <a href="vim_for_fc3_install.html">在fedora core 3 下面安装vim</a></li>
+									<li> <a href="vim_remote_edite_file.html">vim 远程操作文件</a></li>
+									<li> <a href="vim_delete_enter_of_win.html">在vim之中删除不爽的字符^M</a></li>
+									<li> <a href="vim_github_wiki.html">创建我的维基站点</a></li>
+									<li> <a href="vim_set_list.html">set list查看不可见字符</a></li>
+									<li> <a href="vim_convert_file_format.html">vim中转换文件的编码格式</a></li>
+									<li> <a href="vim_memo.html">vim.备忘</a></li>
+									<li> <a href="vim_example_quickly.html">vim快速编辑</a></li>
+									<li> <a href="vim_ereg_format.html">vim等号整理和指定区域查找替换</a></li>
+									<li> <a href="vim_gvim_conflict_ctrl_v.html">gvim的Ctrl+v粘贴/Visual块模式冲突</a></li>
+									<li> <a href="vim_replese_number.html">vim 将前几行的几个字符去掉</a></li>
+									<li> <a href="vim_sophisticated_example.html">vim 又见经典汇总</a></li>
+									<li> <a href="vim_script_programming.html">vim script programming</a></li>
+									<li> <a href="vim_match_mul_line.html">vim正则之多行匹配</a></li>
+									<li class="nav-header">应用相关</li>
+									<li> <a href="vim_motion.html">vim motion.高效编辑</a></li>
+									<li> <a href="vim_quick_reference_card.html">vim quick reference card</a></li>
+									<li> <a href="vim_global_delete_cmd.html">vim g 删除奇数行的解释</a></li>
+									<li> <a href="vim_ctrl_o.html">vim 打开最近打开的文件</a></li>
+									<li> <a href="vim_replace_total.html">vim 中常用的替换模式总结</a></li>
+									<li> <a href="vim_regex_detail.html">vim 正则表达式简解</a></li>
+									<li> <a href="vim_delete_spaceline.html">vim删除空行</a></li>
+									<li> <a href="vim_defined_vim_taglist.html">自定义taglist显示设置</a></li>
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li class="active"><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+				<!-- right contnet -->
+
+				<div class="span9" data-spy="scroll" >
+					<div class="gsearch"></div>
+					<div class="content">
+						<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="vim.html">Vim</a></div>
+						
+<h1>vim script prograimming</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.0.0.1">1. to run script</a>
+<li><a href="#toc_0.0.0.2">2. debugging</a>
+<li><a href="#toc_0.0.0.3">3. help</a>
+<li><a href="#toc_0.0.0.4">4. alias</a>
+<li><a href="#toc_0.0.0.5">5. variable</a>
+<li><a href="#toc_0.0.0.6">6. variable scope</a>
+<li><a href="#toc_0.0.0.7">7. condition</a>
+<li><a href="#toc_0.0.0.8">8. looping</a>
+<li><a href="#toc_0.0.0.9">9. function</a>
+<li><a href="#toc_0.0.0.10">10. function arguments</a>
+<li><a href="#toc_0.0.0.11">11. function scope</a>
+<li><a href="#toc_0.0.0.12">12. built-in function</a>
+<li><a href="#toc_0.0.0.13">13. autoload function</a>
+<li><a href="#toc_0.0.0.14">14. command</a>
+</ul>
+</ul>
+</ul>
+</ul>
+</div>
+
+
+<h4 id="toc_0.0.0.1">1. to run script</h4>
+
+<pre class="brush:bash">
+: source [filename]
+
+: source % # current file
+</pre>
+
+<h4 id="toc_0.0.0.2">2. debugging</h4>
+
+<pre class="brush:bash">
+:messages
+
+:set verbose=10 "verbose mode
+
+:verbose *command*
+</pre>
+
+<h4 id="toc_0.0.0.3">3. help</h4>
+
+
+<table>
+<tr>
+<th>
+section
+</th>
+<th>
+:help *  scetion *
+</th>
+</tr>
+<tr>
+<td>
+option
+</td>
+<td>
+:help 'option_name'
+</td>
+</tr>
+<tr>
+<td>
+mode
+</td>
+<td>
+:help [icv]_...
+</td>
+</tr>
+<tr>
+<td>
+command
+</td>
+<td>
+:help :command_name
+</td>
+</tr>
+</table>
+
+<h4 id="toc_0.0.0.4">4. alias</h4>
+
+<ul>
+<li>
+source =&gt; so
+
+<ul>
+<li>
+:so
+
+</ul>
+<li>
+function =&gt; func
+
+<ul>
+<li>
+:func Foo(bar)
+
+</ul>
+<li>
+endfunction =&gt; endf 
+
+<ul>
+<li>
+:endf
+
+</ul>
+</ul>
+	 
+<h4 id="toc_0.0.0.5">5. variable</h4>
+
+<ul>
+<li>
+let variable = 123
+
+<li>
+let string = "string"
+
+<li>
+let list = [1,2,3]
+
+<li>
+let strlist = ["bar" , "foo" ]
+
+<li>
+let dict = {'phone': '0123457' }
+
+<li>
+let dict.name = "Chopin"
+
+<li>
+echo dict
+
+</ul>
+ 
+<p>
+---- 
+</p>
+
+<h4 id="toc_0.0.0.6">6. variable scope</h4>
+<ul>
+<li>
+non-prefix = global
+
+<li>
+g:global
+
+<li>
+s: script
+
+<li>
+b: buffer
+
+<li>
+v: vim built-in
+
+<li>
+a: function arguments
+
+</ul>
+ 
+<pre class="brush:bash">
+let var = "string"
+let g:var_global = "global"
+let s:var_script = "script"
+let b:var_buffer = "buffer"
+</pre>
+ 
+<h4 id="toc_0.0.0.7">7. condition</h4>
+<pre class="brush:bash">
+if boo &gt; 2
+elseif str == "string"
+elseif str =~ [a-z]+
+endif
+</pre>
+
+<h4 id="toc_0.0.0.8">8. looping</h4>
+<pre class="brush:bash">
+while running == 1
+	echo "Run...."
+endwhile
+
+for i in [1,2,3,4]
+...
+endfor
+
+for i in range(1,10) "i = 1 ~ 10
+endfor
+
+</pre>
+
+<hr />
+
+<h4 id="toc_0.0.0.9">9. function</h4>
+
+<pre class="brush:bash;">
+fun! Test()
+	.. blah
+endf
+
+call Test() " no return value
+</pre>
+
+
+<pre class="brush:bash;">
+fun! Test()
+	.. blah
+	return 3
+endf
+
+let ret = Test() " return 3
+</pre>
+
+<h4 id="toc_0.0.0.10">10. function arguments</h4>
+
+<pre class="brush:bash;">
+fun! Foo(bar)
+	echo a:bar " non-modifiable
+endf
+
+fun! Foo(...)
+	echo a:000 " count of args
+	echo a:001 " arg1
+endf	
+</pre>
+
+<h4 id="toc_0.0.0.11">11. function scope</h4>
+
+<pre class="brush:bash;">
+fun! s:Foo() " script scope
+endf
+
+fun! g:Foo() " global scope
+endf
+
+fun! b:Foo() " buffer scope
+endf
+</pre>
+
+<h4 id="toc_0.0.0.12">12. built-in function</h4>
+<ul>
+<li>
+list related: add(), remove(), filter(), map(), len(), sort(), empty(), join(), range()...
+
+<li>
+dictionary related: keys(), values(), has_key(), has_value(), extend()...
+
+<li>
+string related: stridx(), strridx(), strlen(), substitute(), submatch(), strpart(), expand()...
+
+<li>
+buffer related: bufnr(), bufexists(), buflisted(), bufname(),..etc
+
+<li>
+window related: winbufnr(), bufwinnr(), winnr()
+
+<li>
+misc: getreg(), setreg(), system(), eventhandler(), getpid()...
+
+</ul>
+ 
+<hr />
+
+<h4 id="toc_0.0.0.13">13. autoload function</h4>
+<p>
+define your library function:
+</p>
+
+<p>
+	~/.vim/autoload/foo.vim
+</p>
+	
+<p>
+	fun! foo#blah()
+</p>
+	
+<p>
+	endf
+</p>
+	
+<p>
+in your script:	
+</p>
+
+<p>
+call foo#blah()
+</p>
+
+<hr />
+
+<h4 id="toc_0.0.0.14">14. command</h4>
+
+<p>
+<code>com! -range(flags) dowrite(command name) :write(execute)</code>
+</p>
+
+					</div>
+				</div>
+			</div> <!-- really content end -->
+
+			<div class="row footer">
+				<hr />
+				<a href="index.html">首页</a>
+				<a href="about.html"> | 关于</a>
+				<a href="links.html"> | 链接</a>
+				<a href="contact.html"> | 链接</a>
+			</div>
+
+		</div>
+
+		<!-- Le javascript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/bootstrap-transition.js"></script>
+		<script src="assets/js/bootstrap-alert.js"></script>
+		<script src="assets/js/bootstrap-modal.js"></script>
+		<script src="assets/js/bootstrap-dropdown.js"></script>
+		<script src="assets/js/bootstrap-scrollspy.js"></script>
+		<script src="assets/js/bootstrap-tab.js"></script>
+		<script src="assets/js/bootstrap-tooltip.js"></script>
+		<script src="assets/js/bootstrap-popover.js"></script>
+		<script src="assets/js/bootstrap-button.js"></script>
+		<script src="assets/js/bootstrap-collapse.js"></script>
+		<script src="assets/js/bootstrap-carousel.js"></script>
+		<script src="assets/js/bootstrap-typeahead.js"></script>
+		<script src="assets/js/application.js"></script>
+		<script src="assets/js/liwei.js"></script>
+
+
+	</body>
+</html>

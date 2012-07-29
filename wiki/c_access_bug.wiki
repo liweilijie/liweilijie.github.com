@@ -1,0 +1,7 @@
+%toc 小心access()
+%title 小心access()
+%template c
+
+在查看某文件或者文件夹存在时用 access();
+
+而判断某分区是否存在时不能用此函数。

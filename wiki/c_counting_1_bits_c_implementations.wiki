@@ -1,0 +1,5 @@
+%toc 计数整数中bit位为1的个数
+%title 计数整数中bit位为1的个数
+%template c
+
+[http://www.everything2.com/index.pl?node_id=1181258 counting 1 bits c implementations]

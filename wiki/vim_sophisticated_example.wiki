@@ -1,0 +1,5 @@
+%toc vim 经典汇总
+%title vim 经典汇总
+%template vim
+
+[http://ruby8.iteye.com/blog/659408 from]

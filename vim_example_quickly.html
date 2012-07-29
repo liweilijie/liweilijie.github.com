@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<!--<div class="span10 well pricehover">-->
+
+		<!-- ==================== start navbar ================== -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fuid">
+					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Liwei.tk</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li><a href="index.html">Home</a></li>
+								<!-- Program sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="c.html">C</a></li>
+									<li><a href="cpp.html">Cpp</a></li>
+									<li><a href="shell.html">Shell</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Others</li>
+									<li><a href="python.html">Python</a></li>
+									<li><a href="expect.html">Expect</a></li>
+									<li><a href="vc.html">Vc</a></li>
+								</ul>
+								</li>
+								<!-- Os sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="linux.html">Linux</a></li>
+									<li class="divider"></li>
+									<li><a href="windows.html">Windows</a></li>
+								</ul>
+								</li>
+
+								<!-- vim -->
+								<li class="active"><a href="vim.html">Vim</a></li>
+								<li><a href="#">Link</a></li>
+								<li><a href="#">Link</a></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Search">
+							</form>
+							<ul class="nav pull-right">
+								<li><a href="#">Link</a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+						</div><!-- /.nav-collapse -->
+					</div>
+				</div><!-- /navbar-inner -->
+			</div><!-- /navbar -->
+			<!--</div>-->
+
+		<div class="container">
+
+			<!--span2 + span10 that's really content-->
+			<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="vim.html">Vim</a></h3>
+								<ul class="nav nav-list">
+									<li class="nav-header">基本操作</li>
+									<li> <a href="http://vimcdoc.sourceforge.net/doc/help.html">vim帮助文档</a></li>
+									<li> <a href="vim_install_reinstall_update.html">vim 安装 重装 升级</a></li>
+									<li> <a href="vim_for_fc3_install.html">在fedora core 3 下面安装vim</a></li>
+									<li> <a href="vim_remote_edite_file.html">vim 远程操作文件</a></li>
+									<li> <a href="vim_delete_enter_of_win.html">在vim之中删除不爽的字符^M</a></li>
+									<li> <a href="vim_github_wiki.html">创建我的维基站点</a></li>
+									<li> <a href="vim_set_list.html">set list查看不可见字符</a></li>
+									<li> <a href="vim_convert_file_format.html">vim中转换文件的编码格式</a></li>
+									<li> <a href="vim_memo.html">vim.备忘</a></li>
+									<li> <a href="vim_example_quickly.html">vim快速编辑</a></li>
+									<li> <a href="vim_ereg_format.html">vim等号整理和指定区域查找替换</a></li>
+									<li> <a href="vim_gvim_conflict_ctrl_v.html">gvim的Ctrl+v粘贴/Visual块模式冲突</a></li>
+									<li> <a href="vim_replese_number.html">vim 将前几行的几个字符去掉</a></li>
+									<li> <a href="vim_sophisticated_example.html">vim 又见经典汇总</a></li>
+									<li> <a href="vim_script_programming.html">vim script programming</a></li>
+									<li> <a href="vim_match_mul_line.html">vim正则之多行匹配</a></li>
+									<li class="nav-header">应用相关</li>
+									<li> <a href="vim_motion.html">vim motion.高效编辑</a></li>
+									<li> <a href="vim_quick_reference_card.html">vim quick reference card</a></li>
+									<li> <a href="vim_global_delete_cmd.html">vim g 删除奇数行的解释</a></li>
+									<li> <a href="vim_ctrl_o.html">vim 打开最近打开的文件</a></li>
+									<li> <a href="vim_replace_total.html">vim 中常用的替换模式总结</a></li>
+									<li> <a href="vim_regex_detail.html">vim 正则表达式简解</a></li>
+									<li> <a href="vim_delete_spaceline.html">vim删除空行</a></li>
+									<li> <a href="vim_defined_vim_taglist.html">自定义taglist显示设置</a></li>
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li class="active"><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+				<!-- right contnet -->
+
+				<div class="span9" data-spy="scroll" >
+					<div class="gsearch"></div>
+					<div class="content">
+						<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="vim.html">Vim</a></div>
+						
+<h1>vim快速编辑</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.0.1">1 准备工作</a>
+<li><a href="#toc_0.0.2">2 查找替换</a>
+<li><a href="#toc_0.0.3">3 行的拼接</a>
+<li><a href="#toc_0.0.4">4 复制粘贴与重复动作</a>
+<li><a href="#toc_0.0.5">5 列操作</a>
+<li><a href="#toc_0.0.6">6 宏的录制</a>
+<li><a href="#toc_0.0.7">7 点命令</a>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h3 id="toc_0.0.1">1 准备工作</h3>
+
+<p>
+首先， 我们打开 vim， 输入一段文本， 用于今天的演示：
+</p>
+
+<pre class="brush:plain;">
+this is a test
+</pre>
+
+<h3 id="toc_0.0.2">2 查找替换</h3>
+
+<p>
+按几下 ESC 进入 Normal 模式， 输入以下命令：<code>:%s/ /\r/g</code> 。 
+</p>
+
+<p>
+回车后得到的效果如下：
+</p>
+
+<pre class="brush:plain;">
+this
+is
+a
+test
+</pre>
+
+<p>
+解说： 这条命令的作用是， 将文章中所有的空格替换为回车。 
+</p>
+
+<p>
+几乎所有的编辑器都支持查找替换， 
+</p>
+
+<p>
+但并不是所有的编辑器都支持把空格替换为回车， 因此这个功能在许多别的编辑器里做起来是比较繁琐的。
+</p>
+
+<h3 id="toc_0.0.3">3 行的拼接</h3>
+
+<p>
+刚才我们把一行文字打碎为 4 行了， 那如何再把它们拼接起来呢？ 
+</p>
+
+<p>
+当然， 我们可以通过前面说的查找替换的方式， 将回车再替换为空格， 实现行的拼接。 
+</p>
+
+<p>
+但是， 这里我们用的是另一种方式。
+</p>
+
+<p>
+按几下 ESC 进入 Normal 模式， 然后输入这段命令：*ggVG* 。 
+</p>
+
+<ul>
+<li>
+gg 表示跳到文本开头， 
+
+<li>
+V 表示进入行选择模式， 
+
+<li>
+G 表示选择到文章末尾。 
+
+</ul>
+
+<p>
+通过这 3 条命令， 总共 4 个按键， 我们选中了整篇文章。
+</p>
+
+<p>
+然后， 按下冒号 : 进入命令模式， 状态栏上出现： :'&lt;,'&gt;字样， 在它后面输入 <strong>j</strong> ， 然后回车， 
+</p>
+
+<p>
+可以看到， 整篇文章又被拼接起来了， 整个操作包括回车只按了 7 次键：
+</p>
+
+<pre class="brush:plain;">
+this is a test
+</pre>
+
+<h3 id="toc_0.0.4">4 复制粘贴与重复动作</h3>
+
+<p>
+按几下 ESC 确认当前处在 Normal 模式下， 然后按 yy， 即可将当前行复制到默认寄存器中 (相当于剪贴板)。 然后按下 12p， VIM 将执行粘贴动作 12 次， 屏幕上出现了 13 行这样的字符：
+</p>
+
+<pre class="brush:plain;">
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+this is a test
+</pre>
+
+<p>
+<strong>解说：</strong> 
+</p>
+
+<p>
+在 VIM 中， 复制和粘贴操作相当快捷。 
+</p>
+
+<p>
+另外， vim 中大部分命令都可以通过在命令前加数字重复若干遍。
+</p>
+
+<h3 id="toc_0.0.5">5 列操作</h3>
+
+<p>
+接下来我们把每一行的开头第一个字母改为大写。
+</p>
+
+<p>
+按几下 ESC 确认当前处在 Normal 模式下， 然后按 gg 跳到第一行， 按下 Ctrl + v 进入列选择模式 (如果你按下 <strong>Ctrl + v</strong>  没能进入列选择模式， 请看这里)， 然后按 <strong>G</strong> ， 跳到文章最后一行， 此时你应该看到， 文本的第一列被选中了， 而且只选中了第一列。 按下 <strong>U</strong> 键， 可以看到， 每行的第一个字母都变为大写了。 提示： 选中文本后按 <strong>u</strong> 可以将文本变为小写， 选中文本后按 <strong>~</strong> 可以翻转原有的大小写。
+</p>
+
+<pre class="brush:plain;">
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+This is a test
+</pre>
+
+<p>
+然后， 我们在每行的前面加上一个星号。 按下 gg 跳到第一行， 按 Ctrl + v 进入列选择模式， 再按 G， 选中全文的第一列， 然后按 <strong>I</strong> ， 进入列插入状态， 输入星号 *** ， 再按下 ESC， 你会看到， 所有行之前都出现了一个星号：
+</p>
+
+<pre class="brush:plain;">
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+*This is a test
+</pre>
+
+<p>
+<strong>解说：</strong> 
+</p>
+
+<p>
+对于编写程序的人来说， 把一段代码批量注释掉是一个很常见的操作， 使用列插入可以很容易地做到这一点。 另外， 列选择后按 x 删除被选中的块， 可以批量地解除注释。
+</p>
+
+<h3 id="toc_0.0.6">6 宏的录制</h3>
+
+<p>
+接下来， 我们要将文本的偶数行修改为： This is another test。 由于所有的偶数行都要进行同样的操作， 因此我们把这个操作录制下来， 然后重复播放若干遍， 就能很快地完成这项工作了。
+</p>
+
+<p>
+首先， 按几下 ESC 确认处在 Normal 模式下， 再按下 gg 跳到第一行， 准备开始操作: 
+</p>
+
+<ol>
+<li>
+我们首先按下 <strong>q</strong> 键， 然后再按一个其它字母， 将这个宏录制到该字母对应的寄存器下。 例如我们这里使用 <strong>m 寄存器</strong> ， 则按 qm。 此时 VIM 状态栏出现“ <strong>recording</strong> ”字样， 表明已经进入了录制状态。
+
+<li>
+然后， 我们把第二行的 a 修改为 another。 首先按 j 进入第二行， 然后按 $ 跳到行末， 再按两下 b 往前跳两个单词， 此时光标停在字母 a 上。 然后我们按下 caw 键删除 a 并进入插入状态， 然后输入 another ， 按 ESC 回到 Normal 状态， 按 j 进入下一行， 整个操作步骤就完成了。 
+
+<li>
+最后， 我们再按一下 q， 结束该宏的录制。
+
+</ol>
+
+<p>
+接下来我们播放这个宏， 完成整个操作步骤。 在键盘上输入 <strong>1000@m</strong> ， 表示将 m 寄存器里的宏播放 <strong>1000</strong>  次， 马上可以看到， 文章中所有偶数行的 a 都变成了 another。
+</p>
+
+<pre class="brush:bash;">
+*This is a test
+*This is another test
+*This is a test
+*This is another test
+*This is a test
+*This is another test
+*This is a test
+*This is another test
+*This is a test
+*This is another test
+*This is a test
+*This is another test
+*This is a test
+</pre>
+
+<p>
+<strong>解说</strong> ： 
+</p>
+
+<p>
+虽然我们指定播放 1000 次， 但事实上， 执行到第 6 次的时候， 光标挪到了屏幕最下方， 于是执行过程就自动停止了。 
+因此， 在批量操作的时候， 我们可以指定足够大的数字， 而不用担心出现问题。
+</p>
+
+<p>
+另外， 修改 a 的时候， 我们跳到行末后再使用 b 命令以单词为单位跳转， 而没使用 h 一个字母一个字母往回挪， 我们使用 caw 修改整个单词， 而不使用 s 命令删除单个字母并进入 Insert 模式。 
+</p>
+
+<p>
+这些细节可以保证录制得到的宏更具有一般性。
+</p>
+
+<h3 id="toc_0.0.7">7 点命令</h3>
+
+<p>
+接下来， 我们在每行的末尾加上一个感叹号 !。
+</p>
+
+<p>
+由于每行长度不同， 我们无法使用块选择方式批量尾部添加感叹号。 使用宏录制的方式是可以做到这点的， 但操作稍嫌繁琐了一些。 使用 <strong>点命令</strong> ， 可以非常方便地做到这一点。
+</p>
+
+<p>
+先按几下 ESC 确认当前出于 Normal 模式， 然后使用 gg 跳到第一行， 按 <strong>A</strong> 进行行尾插入， 输入 !， 然后按下 ESC 回到 Normal 状态， 第一行的感叹号就添加完毕了。
+</p>
+
+<p>
+然后， 我们按 j 进入第二行， 再按 <strong>.</strong> ， 可以看到， 第二行尾部也出现了感叹号。 反复按 j.j.j.， 直到每一行尾部都添加了感叹行为止。
+</p>
+
+<pre class="brush:bash;">
+*This is a test!
+*This is another test!
+*This is a test!
+*This is another test!
+*This is a test!
+*This is another test!
+*This is a test!
+*This is another test!
+*This is a test!
+*This is another test!
+*This is a test!
+*This is another test!
+*This is a test!
+</pre>
+
+<p>
+<strong>解说：</strong> 
+</p>
+
+<p>
+点命令的作用是， 重复最近一次所做的编辑操作。 由于在第一行里做的操作是行尾添加， 因此在第二行重复这个动作的时候， 也会在行尾添加同样的字符。 
+</p>
+
+<p>
+点命令功能不如宏强大， 但它使用起来比宏简便， 因此也有着广泛的用途。
+</p>
+
+					</div>
+				</div>
+			</div> <!-- really content end -->
+
+			<div class="row footer">
+				<hr />
+				<a href="index.html">首页</a>
+				<a href="about.html"> | 关于</a>
+				<a href="links.html"> | 链接</a>
+				<a href="contact.html"> | 链接</a>
+			</div>
+
+		</div>
+
+		<!-- Le javascript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/bootstrap-transition.js"></script>
+		<script src="assets/js/bootstrap-alert.js"></script>
+		<script src="assets/js/bootstrap-modal.js"></script>
+		<script src="assets/js/bootstrap-dropdown.js"></script>
+		<script src="assets/js/bootstrap-scrollspy.js"></script>
+		<script src="assets/js/bootstrap-tab.js"></script>
+		<script src="assets/js/bootstrap-tooltip.js"></script>
+		<script src="assets/js/bootstrap-popover.js"></script>
+		<script src="assets/js/bootstrap-button.js"></script>
+		<script src="assets/js/bootstrap-collapse.js"></script>
+		<script src="assets/js/bootstrap-carousel.js"></script>
+		<script src="assets/js/bootstrap-typeahead.js"></script>
+		<script src="assets/js/application.js"></script>
+		<script src="assets/js/liwei.js"></script>
+
+
+	</body>
+</html>

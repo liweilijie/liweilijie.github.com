@@ -1,0 +1,180 @@
+%toc c宏定义
+%title c宏定义
+%template c
+
+== 宏定义 ==
+宏定义了一个代表特定内容的标识符。
+
+ 预处理过程会把源代码中出现的宏标识符替换成宏定义时的值。
+ 
+ 宏最常见的用法是定义代表某个值的全局符号。
+ 
+ 宏的第二种用法是定义带参数的宏，这样的宏可以象函数一样被调用，
+ 
+ 但它是在调用语句处展开宏，并用调用时的实际参数来代替定义中的形式参数。
+ 
+== 例子 ==
+
+1.#define指令
+
+{{{class="brush:c"
+#define MAX_NUM 10
+int array[MAX_NUM];
+for(i=0;i<MAX_NUM;i++)  /*……*/
+#define VERSION "Version 1.0 Copyright(c) 2011"
+}}}
+2.带参数的#define指令
+
+{{{class="brush:c"
+  　#define IS_EVEN(n)   ((n)%2==0)
+  　#define MAX(x,y)     ((x)>(y) ? (x) :(y))
+    #define Cube(x) (x)*(x)*(x)
+    // 可以是任何数字表达式甚至函数调用来代替参数x。
+}}}
+
+3.#运算符
+
+*#* 的功能是将其后面的宏参数进行字符串化操作（Stringfication），
+
+简单说就是在对它所引用的宏变量通过替换后在其左右各加上一个双引号。
+
+_例如：_
+{{{class="brush:c"
+			#define _STR(s)     #s 
+			#define WARN_IF(EXP)    \
+			do \
+			{  \
+				if (EXP)    \
+				fprintf(stderr, "Warning: " #EXP "\n"); 
+			}   \
+			while(0)
+}}}
+_那么实际使用中会出现下面所示的替换过程：_
+{{{class="brush:c"
+			WARN_IF (divider == 0);
+      // 被替换为
+        do 
+				{
+          if (divider == 0)
+          fprintf(stderr, "Warning" "divider == 0" "\n");
+        } while(0);
+			// 这样每次divider（除数）为0的时候便会在标准错误流上输出一个提示信息。
+ }}}
+ 
+_再例如下面的例子：_
+
+{{{class="brush:c"
+　　　　　#define  FILL(a)   {a, #a}
+　　　　　enum IDD{OPEN, CLOSE}; 
+　　　　　typedef struct _MSG
+					{ 
+  　　　　　　IDD id; 
+  　　　　　　const char * msg; 
+　　　　　}MSG;
+　　　　　MSG _msg[] = {FILL(OPEN), FILL(CLOSE)}; 
+　　　　　//相当于： 
+　　　　　MSG _msg[] = {{OPEN, "OPEN"}, 
+              　　　　　　　{CLOSE, "CLOSE"}}; 
+}}}
+
+4.##运算符
+
+`##运算符用于把参数连接到一起。`
+
+`预处理程序把出现在##两侧的参数合并成一个符号。`
+
+_看下面的例子：_
+{{{class="brush:c"
+					#define NUM(a,b,c) a##b##c
+					#define STR(a,b,c) a##b##c
+					int main(void)
+					{
+							printf("%d\n",NUM(1,2,3));
+							printf("%s\n",STR("aa","bb","cc"));
+							
+							return 0;
+					}
+}}}
+*最后程序的输出为:*
+{{{class="brush:bash"
+                 123
+                 aabbcc
+}}}
+ 再看下面的例子：
+{{{class="brush:c"
+ struct command
+    {
+     char * name;
+     void (*function) (void);
+    };
+    #define COMMAND(NAME) { NAME, NAME ## _command }
+   // 然后你就用一些预先定义好的命令来方便的初始化一个command结构的数组了：
+    struct command commands[] = {
+     COMMAND(quit),
+     COMMAND(help),
+     ...
+    }
+}}}
+    COMMAND宏在这里充当一个代码生成器的作用，这样可以在一定程度上减少代码密度，间接地也可以减少不留心所造成的错误。我们还可以n个##符号连接 n+1个Token。比如： 
+    
+`#define LINK_MULTIPLE(a,b,c,d) a##_##b##_##c##_##d`
+
+`typedef struct _record_type LINK_MULTIPLE(name,company,position,salary);`
+    
+_这里这个语句将展开为：_
+    
+`typedef struct _record_type name_company_position_salary;`
+
+5.特殊的宏
+
+`#error指令将使编译器显示一条错误信息，然后停止编译。`
+    
+`#line指令可以改变编译器用来指出警告和错误信息的文件号和行号。`
+    
+`#pragma指令没有正式的定义。编译器可以自定义其用途。典型的用法是禁止或允许某些烦人的警告信息。`
+    
+ ...在C宏中称为Variadic Macro，也就是变参宏。
+ 
+----
+
+6.预定义宏
+
+　　__LINE__　　 被编译的文件的行数
+
+　　__FILE__　　　被编译的文件的名字
+
+　　__DATE__　　　编译的日期（格式"Mmm dd yyyy"）
+
+　　__TIME__　　　编译的时间（格式"hh:mm:ss"）
+
+　　__STDC__　　　如果编译器接受标准C，那么值为1
+
+　　printf("Compiled on %s at %s\n", __DATE__, __TIME__);
+
+　　每次程序开始执行，程序都会显示，用于确认版本：
+
+    Compiled on Dec 23 1996 at 22:18:48
+    
+    下面的宏可以帮助我们查明错误的根源：
+    
+    #define CHECK_ZERO(divisor)  \
+       if (divisor == 0)  \
+       printf("*** Attempt to divide by zero on line %d  "  \
+       "of file %s  ***\n",__LINE__, __FILE__)
+     CHECK_ZERO宏应该在除法运算前被调用：
+        CHECK_ZERO(j);k = i / j;
+    如果j是0，会显示出如下形式的信息：
+    *** Attempt to divide by zero on line 9 of file FOO.c ***
+    通用的、用于错误检测的宏——assert宏；
+    
+7.注意
+
+    宏名和参数的括号间不能有空格；
+ 宏替换只作替换，不做计算，不做表达式求解；
+ 函数调用在编译后程序运行时进行，并且分配内存。宏替换在编译前进行，不分配内存；
+ 函数只有一个返回值，利用宏则可以设法得到多个值；
+ 宏展开使源程序变长，函数调用不会；
+ 宏展开不占运行时间，只占编译时间，函数调用占运行时间（分配内存、保留现场、值传递、返回值）；
+ 使用条件编译可以使目标程序变小，运行时间变短；
+ 预编译使问题或算法的解决方案增多，有助于我们选择合适的解决方案。
+

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<!--<div class="span10 well pricehover">-->
+
+		<!-- ==================== start navbar ================== -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fuid">
+					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Liwei.tk</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li><a href="index.html">Home</a></li>
+								<!-- Program sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="c.html">C</a></li>
+									<li><a href="cpp.html">Cpp</a></li>
+									<li><a href="shell.html">Shell</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Others</li>
+									<li><a href="python.html">Python</a></li>
+									<li><a href="expect.html">Expect</a></li>
+									<li><a href="vc.html">Vc</a></li>
+								</ul>
+								</li>
+								<!-- Os sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="linux.html">Linux</a></li>
+									<li class="divider"></li>
+									<li><a href="windows.html">Windows</a></li>
+								</ul>
+								</li>
+
+								<!-- vim -->
+								<li class="active"><a href="vim.html">Vim</a></li>
+								<li><a href="#">Link</a></li>
+								<li><a href="#">Link</a></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Search">
+							</form>
+							<ul class="nav pull-right">
+								<li><a href="#">Link</a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+						</div><!-- /.nav-collapse -->
+					</div>
+				</div><!-- /navbar-inner -->
+			</div><!-- /navbar -->
+			<!--</div>-->
+
+		<div class="container">
+
+			<!--span2 + span10 that's really content-->
+			<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="vim.html">Vim</a></h3>
+								<ul class="nav nav-list">
+									<li class="nav-header">基本操作</li>
+									<li> <a href="http://vimcdoc.sourceforge.net/doc/help.html">vim帮助文档</a></li>
+									<li> <a href="vim_install_reinstall_update.html">vim 安装 重装 升级</a></li>
+									<li> <a href="vim_for_fc3_install.html">在fedora core 3 下面安装vim</a></li>
+									<li> <a href="vim_remote_edite_file.html">vim 远程操作文件</a></li>
+									<li> <a href="vim_delete_enter_of_win.html">在vim之中删除不爽的字符^M</a></li>
+									<li> <a href="vim_github_wiki.html">创建我的维基站点</a></li>
+									<li> <a href="vim_set_list.html">set list查看不可见字符</a></li>
+									<li> <a href="vim_convert_file_format.html">vim中转换文件的编码格式</a></li>
+									<li> <a href="vim_memo.html">vim.备忘</a></li>
+									<li> <a href="vim_example_quickly.html">vim快速编辑</a></li>
+									<li> <a href="vim_ereg_format.html">vim等号整理和指定区域查找替换</a></li>
+									<li> <a href="vim_gvim_conflict_ctrl_v.html">gvim的Ctrl+v粘贴/Visual块模式冲突</a></li>
+									<li> <a href="vim_replese_number.html">vim 将前几行的几个字符去掉</a></li>
+									<li> <a href="vim_sophisticated_example.html">vim 又见经典汇总</a></li>
+									<li> <a href="vim_script_programming.html">vim script programming</a></li>
+									<li> <a href="vim_match_mul_line.html">vim正则之多行匹配</a></li>
+									<li class="nav-header">应用相关</li>
+									<li> <a href="vim_motion.html">vim motion.高效编辑</a></li>
+									<li> <a href="vim_quick_reference_card.html">vim quick reference card</a></li>
+									<li> <a href="vim_global_delete_cmd.html">vim g 删除奇数行的解释</a></li>
+									<li> <a href="vim_ctrl_o.html">vim 打开最近打开的文件</a></li>
+									<li> <a href="vim_replace_total.html">vim 中常用的替换模式总结</a></li>
+									<li> <a href="vim_regex_detail.html">vim 正则表达式简解</a></li>
+									<li> <a href="vim_delete_spaceline.html">vim删除空行</a></li>
+									<li> <a href="vim_defined_vim_taglist.html">自定义taglist显示设置</a></li>
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li class="active"><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+				<!-- right contnet -->
+
+				<div class="span9" data-spy="scroll" >
+					<div class="gsearch"></div>
+					<div class="content">
+						<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="vim.html">Vim</a></div>
+						
+<h1>VIM QUICK REFERENCE CARD</h1>
+<p>
+VIM QUICK REFERENCE CARD
+</p>
+
+<p>
+<a href="http://tnerual.eriogerg.free.fr/vimqrc.html">from</a>
+</p>
+
+<p>
+Basic movement
+h l k j	character left, right; line up, down
+b w	word/token left, right
+ge e	end of word/token left, right
+{  }	beginning of previous, next paragraph
+( )	beginning of previous, next sentence
+0 gm	beginning, middle of line
+^  $	first, last character of line
+nG ngg	line n, default the last, first
+n%	percentage n of the file (n must be provided)
+n|	column n of current line
+%	match of next brace, bracket, comment, #define
+nH nL	line n from start, bottom of window
+M	middle line of window
+</p>
+
+<p>
+Insertion &amp; replace → insert mode
+i a	insert before, after cursor
+I A	insert at beginning, end of line
+gI	insert text in first column
+o O	open a new line below, above the current line
+rc	replace character under cursor with c
+grc	like r, but without affecting layout
+R	replace characters starting at the cursor
+gR	like R, but without affecting layout
+cm	change text of movement command m
+cc or S	change current line
+C	change to the end of line
+s	change one character and insert
+~	switch case and advance cursor
+g~m	switch case of movement command m
+gum gUm	lowercase, uppercase text of movement m
+&lt;m &gt;m	shift left, right text of movement m
+n&lt;&lt; n&gt;&gt;	shift n lines left, right
+</p>
+
+<p>
+Deletion
+x X	delete character under, before cursor
+dm	delete text of movement command m
+dd D	delete current line, to the end of line
+J gJ	join current line with next, without space
+:rd↵	delete range r lines
+:rdx↵	delete range r lines into register x
+</p>
+
+<p>
+Insert mode
+<sup><small>Vc </small></sup>Vn	insert char c literally, decimal value n
+^A	insert previously inserted text
+<sup><small>@	same as </small></sup>A and stop insert → command mode
+<sup><small>Rx </small></sup>R^Rx	insert content of register x, literally
+<sup><small>N </small></sup>P	text completion before, after cursor
+^W	delete word before cursor
+^U	delete all inserted character in current line
+<sup><small>D </small></sup>T	shift left, right one shift width
+^Kc1c2 or c1←c2	enter digraph \c1,c2\
+^Oc	execute c in temporary command mode
+<sup><small>X</small></sup>E <sup><small>X</small></sup>Y	scroll up, down
+&lt;esc&gt; or ^[	abandon edition → command mode
+</p>
+
+<p>
+Copying
+"x	use register x for next delete, yank, put
+:reg↵	show the content of all registers
+:reg x↵	show the content of registers x
+ym	yank the text of movement command m
+yy or Y	yank current line into register
+p P	put register after, before cursor position
+]p [p	like p, P with indent adjusted
+gp gP	like p, P leaving cursor after new text
+</p>
+
+<p>
+Advanced insertion
+g?m	perform rot13 encoding on movement m
+n<sup><small>A n</small></sup>X	+n, -n to number under cursor
+gqm	format lines of movement m to fixed width
+:rce w↵	center lines in range r to width w
+:rle i↵	left align lines in range r with indent i
+:rri w↵	right align lines in range r to width w
+!mc↵	filter lines of movement m through command c
+n!!c↵	filter n lines through command c
+:r!c↵	filter range r lines through command c
+</p>
+
+<p>
+Visual mode
+v V ^V	start/stop highlighting characters, lines, block
+o	exchange cursor position with start of highlighting
+gv	start highlighting on previous visual area
+aw as ap	select a word, a sentence, a paragraph
+ab aB	select a block ( ), a block { }
+</p>
+
+<p>
+Undoing, repeating &amp; registers
+u U	undo last command, restore last changed line
+.  ^R	repeat last changes, redo last undo
+n. 	repeat last changes with count replaced by n
+qc qC	record, append typed characters in register c
+q	stop recording
+@c	execute the content of register c
+@@	repeat previous @ command
+:@c↵	execute register c as an Ex command
+:rg/p/c↵	execute Ex command c on range r
+where pattern p matches
+</p>
+
+<p>
+Complex movement
+</p>
+<ul>
+<li>
++	line up, down on first non-blank character
+
+</ul>
+<p>
+B W	space-separated word left, right
+gE E	end of space-separated word left, right
+n_	down n-1 line on first non-blank character
+g0	beginning of screen line
+g^  g$	first, last character of screen line
+gk gj	 screen line up, down
+fc Fc	next, previous occurence of character c
+tc Tc	before next, previous occurence of c
+; ,	repeat last fFtT, in opposite direction
+<a href=" .html"> </a>	start of section backward, forward
+[] ][	end of section backward, forward
+[( ])	unclosed (, ) backward, forward
+[{  ]}	unclosed {, } backward, forward
+[m ]m	start of backward, forward Java method
+[# ]#	unclosed #if, #else, #endif backward, forward
+[* ]*	start, end of /* */ backward, forward
+</p>
+
+<p>
+Search &amp; substitution
+/s↵  ?s↵	search forward, backward for s
+/s/o↵  ?s?o↵	search fwd, bwd for s with offset o
+n or /↵	repeat forward last search
+N or ?↵	repeat backward last search
+</p>
+<ol>
+<li>
+*	search backward, forward for word under cursor
+
+</ol>
+<p>
+g# g*	same, but also find partial matches
+gd gD	local, global definition of symbol under cursor
+:rs/f/t/x↵	substitute f by t in range r
+x: g-all occurrences, c-confirm changes
+:rs x↵	repeat substitution with new r &amp; x
+</p>
+
+<p>
+Special characters in search patterns
+.   ^  $	any single character, start, end of line
+\&lt; \&gt;	start, end of word
+[c1-c2]	a single character in range c1..c2
+[^c1-c2]	a single character not in range
+\i \k \I \K	an identifier, keyword; excl. digits
+\f \p \F \P	a file name, printable char.; excl. digits
+\s \S	a white space, a non-white space
+\e \t \r \b	&lt;esc&gt;, &lt;tab&gt;, &lt;↵&gt;, &lt;←&gt;
+\= * \+	match 0..1, 0..∞, 1..∞ of preceding atoms
+\|	separate two branches ( ≡ or)
+\( \)	group patterns into an atom
+\&amp; \n	the whole matched pattern, nth () group
+\u \l	next character made upper, lowercase
+\c \C	ignore, match case on next pattern
+</p>
+
+<p>
+Offsets in search commands
+n or +n	n line downward in column 1
+-n	n line upward in column 1
+e+n e-n	n characters right, left to end of match
+s+n s-n	n characters right, left to start of match
+;sc	execute search command sc next
+</p>
+
+<p>
+Marks and motions
+mc	mark current position with mark c ∈[a..Z]
+<code>c </code>C	go to mark c in current, C in any file
+`0..9	go to last exit position
+`<code> </code>"	go to position before jump, at last edit
+<code>[ </code>]	go to start, end of previously operated text
+:marks↵	print the active marks list
+:jumps↵	print the jump list
+n^O	go to nth older position in jump list
+n^I	go to nth newer position in jump list
+</p>
+
+<p>
+Key mapping &amp; abbreviations
+:map c e↵	map c ↦ e in normal &amp; visual mode
+:map!  c e↵	map c ↦ e in insert &amp; cmd-line mode
+:unmap c↵  :unmap!  c↵	remove mapping c
+:mk f↵	write current mappings, settings... to file f
+:ab c e↵	add abbreviation for c ↦ e
+:ab c↵	show abbreviations starting with c
+:una c↵	remove abbreviation c
+</p>
+
+<p>
+Tags
+:ta t↵	jump to tag t
+:nta↵	jump to nth newer tag in list
+<sup><small>] </small></sup>T	jump to the tag under cursor, return from tag
+:ts t↵	list matching tags and select one for jump
+:tj t↵	jump to tag or select one if multiple matches
+:tags↵	print tag list
+:npo↵  :n^T↵	jump back from, to nth older tag
+:tl↵	jump to last matching tag
+^W}  :pt t↵	preview tag under cursor, tag t
+^W]	split window and show tag under cursor
+^Wz or :pc↵	close tag preview window
+</p>
+
+<p>
+Scrolling &amp; multi-windowing
+<sup><small>E </small></sup>Y	scroll line up, down
+<sup><small>D </small></sup>U	scroll half a page up, down
+<sup><small>F </small></sup>B	scroll page up, down
+zt or z↵	set current line at top of window
+zz or z. 	set current line at center of window
+zb or z-	set current line at bottom of window
+zh zl	scroll one character to the right, left
+zH zL	scroll half a screen to the right, left
+^Ws or :split↵	split window in two
+^Wn or :new↵	create new empty window
+^Wo or :on↵	make current window one on screen
+<sup><small>Wj </small></sup>Wk	move to window below, above
+<sup><small>Ww </small></sup>W^W	move to window below, above (wrap)
+</p>
+
+<p>
+Ex commands (↵)
+:e f	edit file f, unless changes have been made
+:e!  f	edit file f always (by default reload current)
+:wn :wN	write file and edit next, previous one
+:n :N	edit next, previous file in list
+:rw	write range r to current file
+:rw f	write range r to file f
+:rw&gt;&gt;f	append range r to file f
+:q :q!	quit and confirm, quit and discard changes
+:wq or :x or ZZ	write to current file and exit
+&lt;up&gt; &lt;down&gt;	recall commands starting with current
+:r f	insert content of file f below cursor
+:r!  c	insert output of command c below cursor
+:args	display the argument list
+:rco  a :rm  a	copy, move range r below line a
+</p>
+
+<p>
+Ex ranges
+, ; 	separates two lines numbers, set to first line
+n	an absolute line number n
+.   $	the current line, the last line in file
+% *	entire file, visual area
+'t	position of mark t
+/p/ ?p?	the next, previous line where p matches
++n -n	+n, -n to the preceding line number
+</p>
+
+<p>
+Folding
+zfm	create fold of movement m
+:rfo	create fold for range r
+zd zE	delete fold at cursor, all in window
+zo zc zO zC	open, close one fold; recursively
+[z ]z	move to start, end of current open fold
+zj zk	move down, up to start, end of next fold
+</p>
+
+<p>
+Miscellaneous
+:sh↵  :!c↵	start shell, execute command c in shell
+K	lookup keyword under cursor with man
+:make↵	start make, read errors and jump to first
+:cn↵  :cp↵	display the next, previous error
+:cl↵  :cf↵	list all errors, read errors from file
+<sup><small>L </small></sup>G	redraw screen, show filename and position
+g^G	show cursor column, line, and character position
+ga	show ASCII value of character under cursor
+gf	open file which filename is under cursor
+:redir&gt;f↵	redirect output to file f
+:mkview [f]	save view configuration [to file f]
+:loadview [f]	load view configuration [from file f]
+<sup><small>@ </small></sup>K <sup><small>_  \  Fn </small></sup>Fn	unmapped keys
+</p>
+
+					</div>
+				</div>
+			</div> <!-- really content end -->
+
+			<div class="row footer">
+				<hr />
+				<a href="index.html">首页</a>
+				<a href="about.html"> | 关于</a>
+				<a href="links.html"> | 链接</a>
+				<a href="contact.html"> | 链接</a>
+			</div>
+
+		</div>
+
+		<!-- Le javascript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/bootstrap-transition.js"></script>
+		<script src="assets/js/bootstrap-alert.js"></script>
+		<script src="assets/js/bootstrap-modal.js"></script>
+		<script src="assets/js/bootstrap-dropdown.js"></script>
+		<script src="assets/js/bootstrap-scrollspy.js"></script>
+		<script src="assets/js/bootstrap-tab.js"></script>
+		<script src="assets/js/bootstrap-tooltip.js"></script>
+		<script src="assets/js/bootstrap-popover.js"></script>
+		<script src="assets/js/bootstrap-button.js"></script>
+		<script src="assets/js/bootstrap-collapse.js"></script>
+		<script src="assets/js/bootstrap-carousel.js"></script>
+		<script src="assets/js/bootstrap-typeahead.js"></script>
+		<script src="assets/js/application.js"></script>
+		<script src="assets/js/liwei.js"></script>
+
+
+	</body>
+</html>

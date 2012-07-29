@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<!--<meta charset="utf-8" />-->
+		<title> 首页 李伟李杰 </title>
+		<link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css" /> 
+		<link type="text/css" rel="stylesheet" href="style.css" /> 
+		<meta name="author" content="berlinix">
+		<meta name="generator" content="VimWiki">
+		<meta name="description" content="Berlinix的个人主页。技术笔记（Linux、C/C++、PHP、Python、Mysql、VIM、网络、协议等），创业笔记，互联网观察、高效工作等多个门类。">
+		<meta name="keywords" content="UNIX,Linux,C,C++,Vim,Python,PHP,创业,编程语言">
+		<link type="image/ico" rel="shortcut icon" href="favicon.ico"/>
+	</head>
+	<body>
+
+		<!-- ========== start: navbar ==========  -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target="nav-collapse"></a>
+					<a class="brand" href="http://www.berlinix.com/index.html">首页</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="dropdown" id="menu-programming">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">程序设计<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="Programming.html">程序设计李杰</a></li>
+								<li class="divider"></li>
+								<li><a href="Python.html">Python</a></li>
+								<li><a href="Bash.html">Bash</a></li>
+								<li><a href="cpp.html">C++</a></li>
+								<li class="divider"></li>
+								<li><a href="PHP.html">PHP</a></li>
+								<li><a href="Javascript.html">Javascript</a></li>
+								<li><a href="HTML.html">HTML</a></li>
+								<li><a href="CSS.html">CSS</a></li>
+							</ul>
+							</li>
+							<li class="dropdown" id="menu-network">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="Network.html">计算机网络<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="Network.html">计算机网络</a></li>
+								<li class="divider"></li>
+								<li><a href="RFC.html">RFC阅读笔记</a></li>
+								<li><a href="HTTP.html">HTTP</a></li>
+								<li><a href="p2p.html">P2P</a></li>
+								<li><a href="SMTP.html">SMTP</a></li>
+							</ul>
+							</li>
+							<li class="dropdown" id="menu-linux">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">Linux<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="Linux.html">Linux学习笔记</a></li>
+								<li class="divider"></li>
+								<li><a href="Apache.html">Apache</a></li>
+								<li><a href="Mysql.html">Mysql</a></li>
+							</ul>
+							</li>
+							<li class="dropdown" id="menu-network">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">读书笔记<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="books.html">读书笔记</a></li>
+								<li><a href="notes.html">札记</a></li>
+								<li class="divider"></li>
+								<li><a href="history.html">历史</a></li>
+								<li><a href="geography.html">地理</a></li>
+								<li><a href="renwu.html">人物志</a></li>
+								<li class="divider"></li>
+								<li><a href="words_zh.html">中文单词本</a></li>
+								<li><a href="words_en.html">英语单词本</a></li>
+								<li class="divider"></li>
+								<li><a href="notes_weibo.html">微博笔记</a></li>
+							</ul>
+							</li>
+							<li><a href="Vim.html">Vim</a></li>
+							<li><a href="my_article.html">文章</a></li>
+							<li><a href="about.html">关于</a></li>
+						</ul>
+						<div class="navbar-text pull-right">
+							<form action="http://www.google.com/cse" class="form-search">
+								<input type="hidden" name="cx" value="006599569756970945709:_t1hsa8ok-8">
+								<input type="hidden" name="ie" value="GBK" />
+								<input type="text" class="input search-query" name="q">&nbsp;&nbsp;
+								<button type="submit" class="btn">&nbsp;搜索&nbsp;</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- end: navbar -->
+		<div class="container"> 
+			<div class="row">
+				<div class="span10" data-spy="scroll">
+					<div id="gsearch"></div>
+					<div id="content">
+						%content%
+					</div>
+				</div>
+			</div>
+			<div class="row footer">
+				<hr/>
+				<a href="http://www.berlinix.com/index.html">首页</a>&nbsp;|&nbsp;
+				<a href="about.html">关于</a>&nbsp;&nbsp;|&nbsp;
+				<a href="links.html">链接</a>&nbsp;&nbsp;|&nbsp;
+				<a href="contact.html">与我联系</a>
+			</div>
+		</div>
+
+
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi" async></script>
+		<script type="text/javascript" src="berlinix.js"></script>
+
+		<!-- Google -->
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-10189337-4']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			 })();
+</script>
+
+
+		</body>
+	</html>

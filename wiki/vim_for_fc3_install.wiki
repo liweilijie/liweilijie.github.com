@@ -1,0 +1,40 @@
+%toc 在fedora core 3 下安装vim
+%title 在fedora core 3 下安装vim
+%template vim
+
+== 序 ==
+由于公司用的系统太古老了。
+
+在用vim时，有些新的插件之类的根本用不了。
+
+也就是与vim配合的库不支持。
+
+不过还是可以通过一些修改变成强大的IDE的。至于强过sourceinsight.
+
+== install ==
+
+# ctags 安装
+	由于fc3 下面的ctags版本太低，支持vim的插件要求至少要5.6版本以上。于是考虑升级它。 
+	{{{class="brush:bash"
+		[root@localhost software]# ctags --version
+		Exuberant Ctags 5.5.4, Copyright (C) 1996-2003 Darren Hiebert
+			Compiled: Jun 16 2004, 19:13:19
+			Addresses: <dhiebert@users.sourceforge.net>, http://ctags.sourceforge.net
+			Optional compiled features: +wildcards, +regex
+		[root@localhost software]# rpm -e ctags
+		[root@localhost software]# rpm -i ctags-5.6-1.i386.rpm 
+		[root@localhost software]# ctags --version
+		Exuberant Ctags 5.6, Copyright (C) 1996-2004 Darren Hiebert
+			Compiled: May 29 2006, 23:53:30
+			Addresses: <dhiebert@users.sourceforge.net>, http://ctags.sourceforge.net
+			Optional compiled features: +wildcards, +regex
+	
+	}}}
+# cscope 安装 
+{{{class="brush:bash" 
+#./configure
+#make && make install
+}}}
+# perl 安装
+# 最后利用vim的源码进行安装即可
+ 

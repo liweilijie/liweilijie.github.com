@@ -1,0 +1,13 @@
+%toc vim
+%template vim
+%title vim
+
+= vim =
+
+hello world vim
+
+hello world vim
+
+hello world vim
+
+hello world vim

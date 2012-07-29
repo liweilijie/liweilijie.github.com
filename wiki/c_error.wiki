@@ -1,0 +1,5 @@
+%toc 错误处理
+%title 错误处理
+%template c
+
+[http://stackoverflow.com/questions/423248/what-size-should-i-allow-for-strerror-r strerror_r]

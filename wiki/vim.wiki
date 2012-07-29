@@ -1,0 +1,37 @@
+%toc vim
+%title vim
+%template vim_index01
+
+----
+
+# [http://vimcdoc.sourceforge.net/doc/help.html vim帮助文档]
+# [[vim_install_reinstall_update|vim 安装 重装 升级]]
+# [[vim_for_fc3_install|在fedora core 3 下面安装vim]]
+# [[vim_remote_edite_file|vim 远程操作文件]]
+# [[vim_delete_enter_of_win|在vim之中删除不爽的字符^M]]
+# [[vim_github_wiki|创建我的维基站点]]
+# [[vim_set_list|set list查看不可见字符]]
+# [[vim_convert_file_format|vim中转换文件的编码格式]]
+# [[vim_memo|vim.备忘]]
+# [[vim_example_quickly|vim快速编辑]]
+# [[vim_ereg_format|vim等号整理和指定区域查找替换]]
+# [[vim_gvim_conflict_ctrl_v|gvim的Ctrl+v粘贴/Visual块模式冲突]]
+# [[vim_replese_number|vim 将前几行的几个字符去掉]]
+# [[vim_sophisticated_example|vim 又见经典汇总]]
+# [[vim_script_programming|vim script programming]]
+# [[vim_match_mul_line|vim正则之多行匹配]]
+# [[vim_motion|vim motion.高效编辑]]
+# [[vim_quick_reference_card|vim quick reference card]]
+# [[vim_global_delete_cmd|vim g 删除奇数行的解释]]
+# [[vim_ctrl_o|vim 打开最近打开的文件]]
+# [[vim_replace_total|vim 中常用的替换模式总结]]
+# [[vim_regex_detail|vim 正则表达式简解]]
+# [[vim_delete_spaceline|vim删除空行]]
+# [[vim_defined_vim_taglist|自定义taglist显示设置]]
+ 
+ 
+
+----
+ 
+	[[vim_vim-archive-01| Next]] 
+ 

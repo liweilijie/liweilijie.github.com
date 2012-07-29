@@ -1,0 +1,171 @@
+%toc vim script prograimming
+%title vim script prograimming
+%template vim
+
+
+==== 1. to run script ====
+
+{{{class="brush:bash"
+: source [filename]
+
+: source % # current file
+}}}
+
+==== 2. debugging ====
+
+{{{class="brush:bash"
+:messages
+
+:set verbose=10 "verbose mode
+
+:verbose *command*
+}}}
+
+==== 3. help ====
+
+
+| section | :help *  scetion *  |
+|---------+---------------------|
+| option  | :help 'option_name' |
+| mode    | :help [icv]_...     |
+| command | :help :command_name |
+
+==== 4. alias ====
+
+* source => so
+	- :so
+* function => func
+	- :func Foo(bar)
+* endfunction => endf 
+	- :endf
+	 
+==== 5. variable ====	 
+
+- let variable = 123
+- let string = "string"
+- let list = [1,2,3]
+- let strlist = ["bar" , "foo" ]
+- let dict = {'phone': '0123457' }
+- let dict.name = "Chopin"
+- echo dict
+ 
+---- 
+
+==== 6. variable scope ====
+* non-prefix = global
+* g:global
+* s: script
+* b: buffer
+* v: vim built-in
+* a: function arguments
+ 
+{{{class="brush:bash"
+let var = "string"
+let g:var_global = "global"
+let s:var_script = "script"
+let b:var_buffer = "buffer"
+}}}
+ 
+==== 7. condition ====
+{{{class="brush:bash"
+if boo > 2
+elseif str == "string"
+elseif str =~ [a-z]+
+endif
+}}}
+
+==== 8. looping ====
+{{{class="brush:bash"
+while running == 1
+	echo "Run...."
+endwhile
+
+for i in [1,2,3,4]
+...
+endfor
+
+for i in range(1,10) "i = 1 ~ 10
+endfor
+
+}}}
+
+----
+
+==== 9. function ====
+
+{{{class="brush:bash;"
+fun! Test()
+	.. blah
+endf
+
+call Test() " no return value
+}}}
+
+
+{{{class="brush:bash;"
+fun! Test()
+	.. blah
+	return 3
+endf
+
+let ret = Test() " return 3
+}}}
+
+==== 10. function arguments ====
+
+{{{class="brush:bash;"
+fun! Foo(bar)
+	echo a:bar " non-modifiable
+endf
+
+fun! Foo(...)
+	echo a:000 " count of args
+	echo a:001 " arg1
+endf	
+}}}
+
+==== 11. function scope ====
+
+{{{class="brush:bash;"
+fun! s:Foo() " script scope
+endf
+
+fun! g:Foo() " global scope
+endf
+
+fun! b:Foo() " buffer scope
+endf
+}}}
+
+==== 12. built-in function ====
+- list related: add(), remove(), filter(), map(), len(), sort(), empty(), join(), range()...
+- dictionary related: keys(), values(), has_key(), has_value(), extend()...
+- string related: stridx(), strridx(), strlen(), substitute(), submatch(), strpart(), expand()...
+- buffer related: bufnr(), bufexists(), buflisted(), bufname(),..etc
+- window related: winbufnr(), bufwinnr(), winnr()
+- misc: getreg(), setreg(), system(), eventhandler(), getpid()...
+ 
+----
+
+==== 13. autoload function ==== 
+define your library function:
+
+	~/.vim/autoload/foo.vim
+	
+	fun! foo#blah()
+	
+	endf
+	
+in your script:	
+
+call foo#blah()
+
+----
+
+==== 14. command ====
+
+`com! -range(flags) dowrite(command name) :write(execute)`
+
+
+
+

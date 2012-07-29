@@ -1,0 +1,43 @@
+%toc 编译时缺少pthread_rwlock_t的定义
+%title 编译时缺少pthread_rwlock_t的定义
+%template c
+
+== 写在前面 ==
+最近在交叉编译一个程序的时候，提示pthread_rwlock_t缺少定义.
+
+检查了pthread.h文件，里边包含了pthreadtypes.h，并且有pthread_rwlock的操作函数：
+{{{class="brush:c"
+...
+#if defined __USE_UNIX98 || defined __USE_XOPEN2K
+/* Functions for handling read-write locks.  */
+
+/* Initialize read-write lock RWLOCK using attributes ATTR, or use
+   the default values if later is NULL.  */
+extern int pthread_rwlock_init (pthread_rwlock_t *__restrict __rwlock,
+                                __const pthread_rwlockattr_t *__restrict
+                                __attr) __THROW __nonnull ((1));
+...
+}}}
+
+== 解决方法 ==
+看样子应该声明一个unix98的开关才可以，乱查一气，在：<br />
+[http://h30097.www3.hp.com/docs/base_doc/DOCUMENTATION/V51B_HTML/MAN/MAN5/0170____.HTM]
+
+看到了如下一段：
+{{{class="brush:c"
+…
+Single UNIX Specification (1998):
+c89 -D _XOPEN_SOURCE=500 …
+cc -std1 -D_XOPEN_SOURCE=500 …
+…
+}}}
+
+然后使用这样的命令编译，果然就没有问题了。
+
+`arm-gcc  -Wall -W -g -o test test.c -pthread -D_XOPEN_SOURCE=500`
+
+或者：
+
+`arm-gcc  -Wall -W -g -o test test.c -pthread -D_GUN_SOURCE`
+
+_记录一下，以免忘记。_

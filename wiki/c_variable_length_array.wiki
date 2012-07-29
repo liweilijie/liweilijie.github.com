@@ -1,0 +1,234 @@
+%toc c柔性数组
+%title c柔性数组
+%template c
+
+
+{{{class="brush:c;"
+struct __type
+{
+	int cnt;
+	int data[0]; /* 这个，是什么啊！0个元素的数组？？？？编译器居然通过了！！！什么东西啊？？*/
+};
+}}}
+----
+
+{{{class="brush:plain"
+int data[0]; /* 定义一个数组0个元素，编译没有错，但是这个不能用于输入，因为是没有元素的数组 */
+}}}
+
+----
+
+所以当输入的时候，就等于越界了。
+----
+
+可以算算一下数组的大小：
+
+`sizeof(__type.data);` /* 这样可能有的编译器会报错，有的可能等于0； */
+
+----
+
+这是一种 *trick* ，用来做变长数组
+----
+
+这个叫做灵活数组成员
+
+
+*结构体变长的妙用——0个元素的数组*
+
+有时我们需要产生一个结构体，实现了一种可变长度的结构。如何来实现呢？
+看这个结构体的定义。
+== 定义 ==
+{{{class="brush:c;"
+typedef struct _type
+{
+ int nCnt;
+ int item[0];
+}type_a;
+}}}
+
+（有些编译器会报错无法编译可以改成：）
+
+{{{class="brush:c; collapse:true"
+typedef struct st_type
+{
+ int nCnt;
+ int item[];
+}type_a;
+}}}
+
+这样我们就可以定义一个可变长的结构，用`sizeof(type_a)`得到的只有4，就是`sizeof(nCnt)=sizeof(int)`那个0个元素的数组没有占用空间，而后我们可以进行变长操作了。
+
+== 运用 ==
+
+*C语言版：*
+{{{class="brush:c"
+type_a *p = (type_a*)malloc(sizeof(type_a)+100*sizeof(int));
+}}}
+
+*C++语言版:*
+{{{class="brush:cpp"
+type_a *p = (type_a*)new char[sizeof(type_a)+100*sizeof(int)];
+}}}
+
+这样我们就产生了一个长为100的type_a类型的东西用p->item[n]就能简单地访问可变长元素，原理十分简单，分配了比sizeof(type_a)多的内存后int item[];就有了其意义了，它指向的是int nCnt;后面的内容，是没有内存需要的，而在分配时多分配的内存就可以由其来操控，是个十分好用的技巧。
+
+== 释放： ==
+
+*C语言版：*
+{{{class="brush:c"
+free(p);
+}}}
+*C++语言版：*
+{{{class="brush:cpp"
+delete []p;
+}}}
+
+其实这个叫灵活数组成员(`fleible array member`)C89不支持这种东西，C99把它作为一种特例加入了标准。<br />
+但是，C99所支持的是incomplete type，而不是zero array，形同int item[0];这种形式是非法的，<br />
+C99支持的形式是形同int item[];只不过有些编译器把int item[0];作为非标准扩展来支持，<br />
+而且在C99发布之前已经有了这种非标准扩展了，C99发布之后，有些编译器把两者合而为一。<br />
+
+下面是C99中的相关内容：
+
+{{{class="brush:plain"
+
+6.7.2.1 Structure and union specifiers
+
+    As a special case, the last element of a structure with more 
+	than one named member may have an incomplete array type; 
+	this is called a flexible array member. With two exceptions, the flexible array member is ignored. 
+	First, the size of the structure shall be equal to the offset of the last 
+	element of an otherwise identical structure that replaces the 
+	flexible array member with an array of unspecified length.106) 
+	Second, when a . (or ->) operator has a left operand that is (a pointer to) a structure with a flexible array member 
+	and the right operand names that member, 
+	it behaves as if that member were replaced with the longest array (with the same element type) 
+	that would not make the structure larger than the object being accessed; 
+	the offset of the array shall remain that of the flexible array member, 
+	even if this would differ from that of the replacement array. 
+	If this array would have no elements, it behaves as if it had one element but the 
+	behavior is undefined if any attempt is made to access that element or to generate a pointer one past it.
+
+}}}
+---------------------------------------------------------------
+
+== 一般这样用 ==
+
+先定义一个指向该 *struct* 的指针 *p* 
+然后:
+{{{class="brush:c"
+p=malloc(sizeof( mytype)+ user_length);
+p->cnt = user_length;
+}}}
+
+这样就相当于有了一个可变长的数组，其长度保存在p->cnt当中。
+
+变长数组，不过这种实现变长数组的方法比较“晦涩”
+
+
+看看 *linux* 源码，特别 *tcp/ip* ，网络相关的．很多这样的应用．．
+
+变长数组！！
+没有什么特别的，和平常的内存分配一个样，
+我们以前使用
+{{{class="brush:c"
+Type* t = (Type*)malloc(sizeof(Type));
+}}}
+这个只是分配刚好存放Type的地方，其实我们也可以分配比Type类型少的内存，
+比如：
+{{{class="brush:c"
+typedef struct st_type
+{
+ int nCnt;
+ int item[4];
+}type_a;
+}}}
+
+
+{{{class="brush:c"
+type_a * a=(type_a*)malloc(4);//刚好分配了type_a::nCnt的空间而已！
+}}}
+那也肯定可以操作，只是item的空间没有存在而已，比如：
+
+{{{class="brush:c"
+a->nCnt = 2;
+cout<<a->nCnt<<endl;
+}}}
+
+------------------------------------------
+当然也可以分配多啊，剩下的东西怎么处理看程序员的操作啊！
+其实
+{{{class="brush:c"
+typedef struct st_type
+{
+ int nCnt;
+ int item[0];
+}type_a;
+}}}
+
+`type_a* a = (type_a*)malloc(104);` <br />
+的意思中item只是给编译器一个地址的起始，多了这个内存就是 *多余* 了拉！<br />
+但多余的内存和我们可能有用 .
+
+
+== 下面是我做实验时的一段测试代码： ==
+{{{class="brush:c"
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct _type
+{
+  int count;
+  int item[0]; /** if can not compiled then replace: int item[] */
+}type_a;
+
+int main(void)
+{
+
+  printf("sizeof(type_a): %d\n", sizeof(type_a)); /** sizeof(type_a):4 */
+  type_a *p = (type_a *)malloc(sizeof(type_a)+10*sizeof(int));
+  p->count = 0;
+
+/** sign values. */
+  int i = 0;
+  while (i < 10)
+  {
+    p->item[i] = i;
+    p->count++;
+    i++;
+  }
+  i = 0;
+
+  while(i < p->count)
+  {
+    printf("p->item[%d]:%d\n", i, p->item[i]);
+    i++;
+  }
+
+  free(p); /** remember free the space.*/
+
+  return 0;
+}
+
+
+}}}
+
+*结果*:
+{{{class="brush:bash"
+[root@liwei test]# vim array.c 
+[root@liwei test]# gcc -Wall -g -o a array.c 
+[root@liwei test]# ./a
+sizeof(type_a): 4
+p->item[0]:0
+p->item[1]:1
+p->item[2]:2
+p->item[3]:3
+p->item[4]:4
+p->item[5]:5
+p->item[6]:6
+p->item[7]:7
+p->item[8]:8
+p->item[9]:9
+[root@liwei test]# 
+
+}}}

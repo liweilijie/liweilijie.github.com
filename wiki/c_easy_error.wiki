@@ -1,0 +1,22 @@
+%toc 只有两行的C程序至少有80%的人会判断错
+%title 只有两行的C程序至少有80%的人会判断错
+%template c
+
+{{{class="brush:c"
+#include<stdio.h>;
+void main()
+{
+    char *ptr = "csdn";
+	printf( "%c\n",*(ptr++));
+}
+
+#include<stdio.h>;
+void main()
+{
+    int i = 10;
+	i << 1;
+	i >> 5;
+	printf( "%d\n", i);
+}
+
+}}}

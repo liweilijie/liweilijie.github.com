@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+		</head>
+
+		<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+			<!--<div class="span10 well pricehover">-->
+
+				<!-- ==================== start navbar ================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fuid">
+							<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+								<a class="brand" href="#">Liwei.tk</a>
+								<div class="nav-collapse">
+									<ul class="nav">
+										<li><a href="index.html">Home</a></li>
+										<!-- Program sub projects  -->
+										<li class="dropdown active">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="c.html">C</a></li>
+											<li><a href="cpp.html">Cpp</a></li>
+											<li><a href="shell.html">Shell</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Others</li>
+											<li><a href="python.html">Python</a></li>
+											<li><a href="expect.html">Expect</a></li>
+											<li><a href="vc.html">Vc</a></li>
+										</ul>
+										</li>
+										<!-- Os sub projects  -->
+										<li class="dropdown">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="linux.html">Linux</a></li>
+											<li class="divider"></li>
+											<li><a href="windows.html">Windows</a></li>
+										</ul>
+										</li>
+
+										<!-- vim -->
+										<li><a href="vim.html">Vim</a></li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Nav header</li>
+											<li><a href="#">Separated link</a></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+									<form class="navbar-search pull-left" action="">
+										<input type="text" class="search-query span2" placeholder="Search">
+									</form>
+									<ul class="nav pull-right">
+										<li><a href="#">Link</a></li>
+										<li class="divider-vertical"></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+								</div><!-- /.nav-collapse -->
+							</div>
+						</div><!-- /navbar-inner -->
+					</div><!-- /navbar -->
+					<!--</div>-->
+
+				<div class="container">
+
+					<!--span2 + span10 that's really content-->
+					<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="c.html">C</a></h3>
+
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header">关于语法</li>
+									<li> <a href="c_cycle_single_link.html">单循环链表的实现</a></li>
+									<li> <a href="c_util_function_interfaces.html">util function interface</a></li>
+									<li> <a href="c_easy_error.html">只有两行的C程序至少有80%的人会判断错</a></li>
+									<li> <a href="c_variable_length_array.html">c柔性数组</a></li>
+									<li> <a href="c_counting_1_bits_c_implementations.html">计数一个整数中1的个数</a>
+									<li> <a href="c_memory_manager_detail.html">c内存管理</a></li>
+									<li> <a href="c_sscanf_detail.html">sscanf用法</a></li>
+									<li> <a href="c_sizeof_about_point.html">sizeof(指针)</a><li>
+									<li><a href="c_about_userlogin_api.html">c(api)实现用户登录信息</a></li>
+									<li class="nav-header">常用实例</li>
+									<li> <a href="c_debug_pthread_rwlock_t.html">compile时提示缺少pthread_rwlock_t类型定义</a></li> 
+									<li> <a href="c_debug_memcmp_struct.html">小心使用memcmp来比较struct</a></li>
+									<li> <a href="c_do_while_replase_if.html">用do...while(0)替代if多重判断</a></li>
+									<li> <a href="c_gettimeofday_backup_time.html">c利用gettimeofday得到精确时间</a></li>
+									<li> <a href="c_dynamic_two_dimensional_array.html">c动态申请二维数组</a></li>
+									<li> <a href="c_program_analyse_deeply.html">c语言深度剖析</a></li>
+									<li> <a href="c_macro_define_collect.html">c宏定义</a></li>
+									<li> <a href="c_changable_agrument.html">c可变参数</a></li>
+									<li class="nav-header">常用技巧</li>
+									<li> <a href="c_function_argument.html">linux c 函数参考</a></li>
+									<li> <a href="c_error.html">错误处理</a></li>
+									<li> <a href="c_string.h.html">string.h 函数大全</a></li>
+									<li> <a href="c_rand.html">c rand()</a></li>
+									<li> <a href="c_diff_memcpy_memmove.html"> memcpy() memmove() 区别</a></li>
+									<li> <a href="c_iconv_match_notice.html">慎用c语言中的iconv()</a></li>
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+
+						<!-- right contnet -->
+
+						<div class="span9" data-spy="scroll" >
+							<div class="gsearch"></div>
+							<div class="content">
+								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="c.html">C</a></div>
+								
+<h1>cleansocket</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">概要</a>
+<li><a href="#toc_0.2">算法</a>
+<li><a href="#toc_0.3">示例代码</a>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">概要</h2>
+
+<p>
+在我们写的程序里，有时候会用到一些别的工具，比如用到<code>ftp</code>之类的上传工具，当<code>ftp</code>上传出了问题，或者我们的程序本身出了问题之后。<br />
+这个时候我们的程序退出，而<code>ftp</code>会占用一直占用着进程的资源。<br />
+这个事情其实我也讲不明白，还没有完全理解，但是确实有这样一种情况产生。 <br />
+我的有一个程序遇到过这样的现象。然后大家看看图片吧。<br />
+</p>
+
+<p>
+<a href="images/pstree_wj.jpg"><img src="images/pstree_wj.jpg" /></a>
+</p>
+
+<p>
+图中的<code>udp 6110</code>通信端口本身是我们的自身写的程序占用，但是由于某种原因我们的程序退出来了。所以现在我们的程序用不了些端口。<br />
+<code>pstree </code> 会发现是程序ftp调用的时候占用了。<br />
+</p>
+
+<h2 id="toc_0.2">算法</h2>
+<p>
+当程序运行时，利用netstat 找到占用此端口的进行号，然后先杀掉占用端口的进程再进行端口的绑定操作就可以了。<br />
+</p>
+
+<h2 id="toc_0.3">示例代码</h2>
+<pre class="brush:c">
+
+static char cleanSocket(int port)
+{
+
+#define MAX_CLEAN_SOCKET_LOOP_NUM 100
+  FILE    *fd;
+  char    temp_file[256],str_port[64];
+  char    cmd[256], row[256], pResult[16][64];
+  int   i,j,loop_num,bingo;
+  int postmaster_bingo = 0;
+  int java_bingo = 0;
+
+  bzero(temp_file,256);
+  sprintf(temp_file, "/ram/netstat.%d.result",port);
+  sprintf(str_port, "%d",port);
+  for (loop_num=0;loop_num&lt;MAX_CLEAN_SOCKET_LOOP_NUM;loop_num++)
+  {
+    sprintf(cmd, "rm -f %s", temp_file);
+    system(cmd);
+    sprintf(cmd, "netstat -apn|grep %d &gt; %s", port, temp_file);
+    system(cmd);
+    fd = fopen(temp_file, "r");
+    if (fd==NULL)
+    {
+//       writeQuickLog("cleanSocket fail open ",temp_file);
+      return;
+    }
+    bingo = 0;
+    while (fgets(row, 256, fd) != NULL)
+    {
+        printf("cleanSocket: read line: %s\n", row);
+      if (!strstr(row,"udp")||!strstr(row,str_port))
+        continue;
+
+      printf("cleanSocket: %s\n", row);
+      bingo = 1;
+//       writeQuickLog("cleanSocket find not close 6102 ",row);
+      int para_num = parstr(row, (char *)pResult, " ", 16, 64);
+      int error_pid = 0;
+      for (j=0;j&lt;para_num;j++)
+      {
+        char *pos = strstr(pResult[j],"/");
+        if (pos!=NULL)
+        {
+          *pos = 0;
+          error_pid = atoi(pResult[j]);
+        }
+      }
+//       writeQuickLog2("cleanStatSocket error_pid ",error_pid);
+//       writeQuickLog2("cleanStatSocket now beap_app_stat id ",getpid());
+      if (error_pid!=0&amp;&amp;error_pid!=getpid())
+      {
+          printf("cleanSocket: kill process[%d]\n", error_pid);
+        kill(error_pid, SIGKILL);
+//         writeQuickLog2("cleanStatSocket kill ",error_pid);
+      }
+    }
+    fclose(fd);
+    if (bingo==0)
+      break;
+  }
+  if (loop_num==MAX_CLEAN_SOCKET_LOOP_NUM)
+  {
+    //杀了100次仍然有,重启机器
+    writeQuickLog("loop_num==MAX_CLEAN_SOCKET_LOOP_NUM cleanStatSocket ","");
+  }
+  writeQuickLog("cleanStatSocket", "end");
+  return loop_num;
+}
+
+
+</pre>
+
+							</div>
+						</div>
+					</div> <!-- really content end -->
+
+					<div class="row footer">
+						<hr />
+						<a href="index.html">首页</a>
+						<a href="about.html"> | 关于</a>
+						<a href="links.html"> | 链接</a>
+						<a href="contact.html"> | 链接</a>
+					</div>
+
+				</div>
+
+				<!-- Le javascript ================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<script src="assets/js/jquery.js"></script>
+				<script src="assets/js/google-code-prettify/prettify.js"></script>
+				<script src="assets/js/bootstrap-transition.js"></script>
+				<script src="assets/js/bootstrap-alert.js"></script>
+				<script src="assets/js/bootstrap-modal.js"></script>
+				<script src="assets/js/bootstrap-dropdown.js"></script>
+				<script src="assets/js/bootstrap-scrollspy.js"></script>
+				<script src="assets/js/bootstrap-tab.js"></script>
+				<script src="assets/js/bootstrap-tooltip.js"></script>
+				<script src="assets/js/bootstrap-popover.js"></script>
+				<script src="assets/js/bootstrap-button.js"></script>
+				<script src="assets/js/bootstrap-collapse.js"></script>
+				<script src="assets/js/bootstrap-carousel.js"></script>
+				<script src="assets/js/bootstrap-typeahead.js"></script>
+				<script src="assets/js/application.js"></script>
+				<script src="assets/js/liwei.js"></script>
+
+
+			</body>
+		</html>

@@ -1,0 +1,46 @@
+%title 创建我的个人wiki
+%toc 利用vimwiki创建我的wiki
+%template vim
+
+== 为什么用github==
+
+为什么用 *github* ，其实你在用的过程之中就会发现了。为了你的博客文章的安全性，还有在写博客时会频繁地改动代码更新服务器等等.用`git`来管理太省心了。
+
+== 创建站点 ==
+
+首先创建一个 *repository* 。
+
+[[images/create_wiki_liweilijie.png]]
+
+接着会提示你怎么操作，如下操作即可。
+
+{{{class="brush:bash; collapse:true;"
+
+Global setup:
+ Set up git
+  git config --global user.name "liweilijie"
+  git config --global user.email liweilijie@gmail.com
+        
+Next steps:
+  mkdir liweilijie.github.com
+  cd liweilijie.github.com
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:liweilijie/liweilijie.github.com.git
+  git push -u origin master
+      
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:liweilijie/liweilijie.github.com.git
+  git push -u origin master
+      
+Importing a Subversion Repo?
+  Click here
+      
+When you're done:
+  Continue
+
+}}}
+

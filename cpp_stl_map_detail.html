@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+		</head>
+
+		<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+			<!--<div class="span10 well pricehover">-->
+
+				<!-- ==================== start navbar ================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fuid">
+							<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+								<a class="brand" href="#">Liwei.tk</a>
+								<div class="nav-collapse">
+									<ul class="nav">
+										<li><a href="index.html">Home</a></li>
+										<!-- Program sub projects  -->
+										<li class="dropdown active">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="c.html">C</a></li>
+											<li><a href="cpp.html">Cpp</a></li>
+											<li><a href="shell.html">Shell</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Others</li>
+											<li><a href="python.html">Python</a></li>
+											<li><a href="expect.html">Expect</a></li>
+											<li><a href="vc.html">Vc</a></li>
+										</ul>
+										</li>
+										<!-- Os sub projects  -->
+										<li class="dropdown">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="linux.html">Linux</a></li>
+											<li class="divider"></li>
+											<li><a href="windows.html">Windows</a></li>
+										</ul>
+										</li>
+
+										<!-- vim -->
+										<li><a href="vim.html">Vim</a></li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Nav header</li>
+											<li><a href="#">Separated link</a></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+									<form class="navbar-search pull-left" action="">
+										<input type="text" class="search-query span2" placeholder="Search">
+									</form>
+									<ul class="nav pull-right">
+										<li><a href="#">Link</a></li>
+										<li class="divider-vertical"></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+								</div><!-- /.nav-collapse -->
+							</div>
+						</div><!-- /navbar-inner -->
+					</div><!-- /navbar -->
+					<!--</div>-->
+
+				<div class="container">
+
+					<!--span2 + span10 that's really content-->
+					<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="c.html">Cpp</a></h3>
+
+								<ul class="nav nav-pills nav-stacked">
+									<li> <a href="cpp_stl_map_detail.html">c++ stl map详解</a></li>
+									<li> <a href="cpp_stl_map_key_by_struct.html">c++ stl map自定义类做为键值</a></li>
+									<li> <a href="cpp_about_inline_detail.html">c++ 有关inline的解释</a></li>
+									<li> <a href="cpp_string.html">c++ string类</a></li>
+									<li> <a href="cpp_map_detail.html">stl 中 map 用法详解</a></li>
+									<li> <a href="cpp_switch_case_jump_error.html">switch error jump to case label</a></li>
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+
+						<!-- right contnet -->
+
+						<div class="span9" data-spy="scroll" >
+							<div class="gsearch"></div>
+							<div class="content">
+								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="cpp.html">cpp</a></div>
+								
+<h1>c++ stl map详解</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">1、map简介</a>
+<li><a href="#toc_0.2">2、map的功能</a>
+<li><a href="#toc_0.3">3、使用map</a>
+<li><a href="#toc_0.4">4、在map中插入元素</a>
+<li><a href="#toc_0.5">5、查找并获取map中的元素</a>
+<li><a href="#toc_0.6">6、从map中删除元素</a>
+<li><a href="#toc_0.7">7、map 示例</a>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">1、map简介</h2>
+
+<p>
+<a href="http://www.cplusplus.com/reference/stl/map/">stl_map</a>
+</p>
+
+<p>
+map是一类 <strong>关联式容器</strong> 。它的特点是 <strong>增加</strong> 和 <strong>删除</strong> 节点对迭代器的影响很小，除了那个操作节点，对其他的节点都没有什么影响。
+</p>
+
+<p>
+<em>对于迭代器来说，可以修改实值，而不能修改key。</em>
+</p>
+
+<hr />
+
+<h2 id="toc_0.2">2、map的功能</h2>
+
+<p>
+自动建立 <strong>Key － value</strong> 的对应。 <strong>key</strong>  和 <strong>value</strong> 可以是 <strong>任意</strong> 你需要的类型。
+</p>
+
+<p>
+根据key值 <strong>快速查找</strong> 记录，查找的复杂度基本是Log(N)，如果有1000个记录，最多查找10次，1,000,000个记录，最多查找20次。
+</p>
+
+<p>
+<strong>快速插入</strong> <code>Key - Value</code> 记录。
+</p>
+
+<p>
+<strong>快速删除</strong> 记录
+</p>
+
+<p>
+根据Key 修改value记录。
+</p>
+
+<p>
+遍历所有记录。
+</p>
+
+<h2 id="toc_0.3">3、使用map</h2>
+
+<p>
+使用map得包含map类所在的头文件
+</p>
+
+<p>
+<code>#include &lt;map&gt;</code> <em>//注意，STL头文件没有扩展名.h</em>
+</p>
+
+<p>
+<strong>map对象是模板类</strong> ，需要关键字和存储对象两个模板参数：
+</p>
+
+<pre class="brush:cpp;">
+std:map&lt;int, string&gt; personnel;
+</pre>
+
+<p>
+<em>这样就定义了一个用int作为索引,并拥有相关联的指向string的指针.</em>
+</p>
+
+<pre class="brush:cpp">
+map&lt;Key,T&gt;::iterator it;
+(*it).first;             // the key value (of type Key)
+(*it).second;            // the mapped value (of type T)
+(*it);                   // the "element value" (of type pair&lt;const Key,T&gt;) 
+</pre>
+
+<p>
+<em>Naturally, any other direct access operator, such as -&gt; or [] can be used, for example:</em>
+</p>
+
+<pre class="brush:cpp">
+it-&gt;first;               // same as (*it).first   (the key value)
+it-&gt;second;              // same as (*it).second  (the mapped value) 
+</pre>
+
+<p>
+为了使用方便，可以对模板类进行一下类型定义，
+</p>
+
+<pre class="brush:cpp;">
+typedef map&lt;int, CString&gt; map_int_cstring;
+
+map_int_cstring enum_map;
+</pre>
+
+<h2 id="toc_0.4">4、在map中插入元素</h2>
+
+<p>
+改变map中的条目非常简单，因为 <strong>map类</strong> 已经对 <strong>[]</strong> 操作符进行了 <strong>重载</strong> .
+</p>
+
+<pre class="brush:cpp">
+enum_map[1] = "One";
+
+enum_map[2] = "Two";
+
+.....
+</pre>
+
+<p>
+这样非常直观，但存在一个性能的问题。
+插入2时,先在enum_map中查找主键为2的项，没发现，
+然后将一个新的对象插入enumMap，键是2，值是一个空字符串，插入完成后，将字符串赋为"Two"; 该方法会将每个值都赋为缺省值，
+然后再赋为显示的值，如果元素是类对象，则开销比较大。
+</p>
+
+<p>
+<em>我们可以用以下方法来避免开销：</em>
+</p>
+
+<pre class="brush:cpp">
+enum_map.insert(map&lt;int, CString&gt; :: value_type(2, "Two"))
+</pre>
+
+<hr />
+
+<h2 id="toc_0.5">5、查找并获取map中的元素</h2>
+
+<p>
+下标操作符给出了获得一个值的最简单方法：
+</p>
+
+<pre class="brush:cpp">
+CString tmp = enum_map[2];
+</pre>
+
+<p>
+<em>但是,只有当map中有这个键的实例时才对，否则会自动插入一个实例，值为初始化值。</em>
+</p>
+
+<p>
+我们可以使用 <strong>find()</strong> 和 <strong>count()</strong> 方法来发现一个键是否存在。
+</p>
+
+<p>
+查找map中是否包含某个关键字条目用 <strong>find()</strong> 方法，传入的参数是要查找的 <strong>key</strong> ，
+</p>
+
+<p>
+在这里需要提到的是 <strong>begin()</strong> 和 <strong>end()</strong> 两个成员，分别代表map对象中第一个条目和最后一个条目，这两个数据的 <strong>类型是iterator</strong> .
+</p>
+
+<pre class="brush:cpp">
+int n_find_key = 2; //要查找的key
+
+//定义一个条目变量(实际是指针)
+map_int_cstring::iterator it= enum_map.find(n_find_key);
+
+if(it == enum_map.end()) 
+{
+
+//没找到....
+}
+else 
+{
+//找到....
+
+}
+</pre>
+
+<p>
+通过map对象的方法获取的iterator数据类型是一个 <strong>std::pair</strong> 对象，
+</p>
+
+<p>
+包括两个数据 <strong>iterator-&gt;first</strong>  和 <strong>iterator-&gt;second</strong>  分别代表关键字和存储的数据.
+</p>
+
+<h2 id="toc_0.6">6、从map中删除元素</h2>
+
+<p>
+移除某个map中某个条目用 <strong>erase()</strong>.
+</p>
+
+<p>
+该成员方法的定义如下
+</p>
+
+
+<pre class="brush:cpp">
+iterator erase(iterator it); //通过一个条目对象删除
+iterator erase(iterator first, iterator last); //删除一个范围
+size_type erase(const Key&amp; key); //通过关键字删除
+clear()就相当于 enum_map.erase(enum_map.begin(), enum_map.end());
+</pre>
+
+
+<h2 id="toc_0.7">7、map 示例</h2>
+
+<p>
+<em>以下是对 c++  中 stl map 的插入，查找，遍历及删除的例子：</em>
+</p>
+
+
+<pre class="brush:cpp; collapse: true;">
+
+#include &lt;map&gt; 
+#include &lt;string&gt; 
+#include &lt;iostream&gt; 
+using namespace std; 
+
+void map_insert(map &lt; string, string &gt; *mapStudent, string index, string x) 
+{ 
+	mapStudent-&gt;insert(map &lt; string, string &gt;::value_type(index, x)); 
+} 
+
+int main(int argc, char **argv) 
+{ 
+	map &lt; string, string &gt; mapS; 
+
+	//insert element 
+	map_insert(&amp;mapS, "192.168.0.128", "xiong"); 
+	map_insert(&amp;mapS, "192.168.200.3", "feng"); 
+	map_insert(&amp;mapS, "192.168.200.33", "xiongfeng"); 
+
+	map &lt; string, string &gt;::iterator iter; 
+
+	cout &lt;&lt; "We Have Third Element:" &lt;&lt; endl; 
+	cout &lt;&lt; "-----------------------------" &lt;&lt; endl; 
+
+	//find element 
+	iter = mapS.find("192.168.0.33"); 
+	if (iter != mapS.end()) 
+	{ 
+		cout &lt;&lt; "find the elememt" &lt;&lt; endl; 
+		cout &lt;&lt; "It is:" &lt;&lt; iter-&gt;second &lt;&lt; endl; 
+	} 
+	else 
+	{ 
+		cout &lt;&lt; "not find the element" &lt;&lt; endl; 
+	} 
+
+	//see element 
+	for (iter = mapS.begin(); iter != mapS.end(); iter++) 
+	{ 
+
+		cout &lt;&lt; "| " &lt;&lt; iter-&gt;first &lt;&lt; " | " &lt;&lt; iter-&gt;second &lt;&lt; " |" &lt;&lt; endl; 
+
+	} 
+	cout &lt;&lt; "-----------------------------" &lt;&lt; endl; 
+
+	map_insert(&amp;mapS, "192.168.30.23", "xf"); 
+
+	cout &lt;&lt; "After We Insert One Element:" &lt;&lt; endl; 
+	cout &lt;&lt; "-----------------------------" &lt;&lt; endl; 
+	for (iter = mapS.begin(); iter != mapS.end(); iter++) 
+	{ 
+
+		cout &lt;&lt; "| " &lt;&lt; iter-&gt;first &lt;&lt; " | " &lt;&lt; iter-&gt;second &lt;&lt; " |" &lt;&lt; endl;
+	} 
+
+	cout &lt;&lt; "-----------------------------" &lt;&lt; endl; 
+
+	//delete element 
+	iter = mapS.find("192.168.200.33"); 
+	if (iter != mapS.end()) 
+	{ 
+		cout &lt;&lt; "find the element:" &lt;&lt; iter-&gt;first &lt;&lt; endl; 
+		cout &lt;&lt; "delete element:" &lt;&lt; iter-&gt;first &lt;&lt; endl; 
+		cout &lt;&lt; "=================================" &lt;&lt; endl; 
+		mapS.erase(iter); 
+	} 
+	else 
+	{ 
+		cout &lt;&lt; "not find the element" &lt;&lt; endl; 
+	} 
+
+	for (iter = mapS.begin(); iter != mapS.end(); iter++) 
+	{ 
+
+		cout &lt;&lt; "| " &lt;&lt; iter-&gt;first &lt;&lt; " | " &lt;&lt; iter-&gt;second &lt;&lt; " |" &lt;&lt; endl; 
+
+	} 
+
+	cout &lt;&lt; "=================================" &lt;&lt; endl; 
+
+	return 0; 
+}
+
+</pre>
+
+<p>
+<em>运行结果：</em>
+</p>
+
+<pre class="brush:bash; collapse: true;">
+[root@liwei test]# vim stl_map.cpp 
+[root@liwei test]# g++ -Wall -g -o map stl_map.cpp 
+[root@liwei test]# ./map 
+We Have Third Element:
+-----------------------------
+not find the element
+| 192.168.0.128 | xiong |
+| 192.168.200.3 | feng |
+| 192.168.200.33 | xiongfeng |
+-----------------------------
+After We Insert One Element:
+-----------------------------
+| 192.168.0.128 | xiong |
+| 192.168.200.3 | feng |
+| 192.168.200.33 | xiongfeng |
+| 192.168.30.23 | xf |
+-----------------------------
+find the element:192.168.200.33
+delete element:192.168.200.33
+=================================
+| 192.168.0.128 | xiong |
+| 192.168.200.3 | feng |
+| 192.168.30.23 | xf |
+=================================
+[root@liwei test]# 
+
+</pre>
+
+							</div>
+						</div>
+					</div> <!-- really content end -->
+
+					<div class="row footer">
+						<hr />
+						<a href="index.html">首页</a>
+						<a href="about.html"> | 关于</a>
+						<a href="links.html"> | 链接</a>
+						<a href="contact.html"> | 链接</a>
+					</div>
+
+				</div>
+
+				<!-- Le javascript ================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<script src="assets/js/jquery.js"></script>
+				<script src="assets/js/google-code-prettify/prettify.js"></script>
+				<script src="assets/js/bootstrap-transition.js"></script>
+				<script src="assets/js/bootstrap-alert.js"></script>
+				<script src="assets/js/bootstrap-modal.js"></script>
+				<script src="assets/js/bootstrap-dropdown.js"></script>
+				<script src="assets/js/bootstrap-scrollspy.js"></script>
+				<script src="assets/js/bootstrap-tab.js"></script>
+				<script src="assets/js/bootstrap-tooltip.js"></script>
+				<script src="assets/js/bootstrap-popover.js"></script>
+				<script src="assets/js/bootstrap-button.js"></script>
+				<script src="assets/js/bootstrap-collapse.js"></script>
+				<script src="assets/js/bootstrap-carousel.js"></script>
+				<script src="assets/js/bootstrap-typeahead.js"></script>
+				<script src="assets/js/application.js"></script>
+				<script src="assets/js/liwei.js"></script>
+
+
+			</body>
+		</html>

@@ -1,0 +1,176 @@
+%toc c rand()
+%title c rand()
+%template c
+
+在C语言中,rand()函数可以用来产生随机数，但是这不是真真意义上的随机数，是一个伪随机数，
+是根据一个数，我们可以称它为种子，为基准以某个递推公式推算出来的一系数，当这系列数很大的时候，就符合正态公布，从而相当于产生了随机数，
+但这不是真正的随机数，当计算机正常开机后，这个种子的值是定了的，除非你破坏了系统，为了改变这个种子的值，
+C提供了srand()函数，它的原形是void srand( int a)。
+可能大家都知道C语言中的随机函数random，可是random函数并不是ANSI C标准，所以说，random函数不能在gcc,vc等编译器下编译通过。
+rand()会返回一随机数值，范围在0至RAND_MAX 间。返回0至RAND_MAX之间的随机数值，RAND_MAX定义在stdlib.h，
+(其值至少为32767)我运算的结果是一个不定的数，要看你定义的变量类型，int整形的话就是32767。 在调用此函数产生随机数前，必须先利用srand()设好随机数种子，如果未设随机数种子，rand()在调用时会自动设随机数种子为1。一般用for语句来设置种子的个数。具体见下面的例子。
+
+一 如何产生不可预见的随机序列呢
+利用srand((unsigned int)(time(NULL))是一种方法，因为每一次运行程序的时间是不同的。
+在C语言里所提供的随机数发生器的用法：现在的C编译器都提供了一个基于ANSI标准的伪随机数发生器函数，用来生成随机数。
+它们就是rand()和srand()函数。这二个函数的工作过程如下：
+1) 首先给srand()提供一个种子，它是一个unsigned int类型，其取值范围从0~65535；
+2) 然后调用rand()，它会根据提供给srand()的种子值返回一个随机数(在0到32767之间)
+3) 根据需要多次调用rand()，从而不间断地得到新的随机数；
+4) 无论什么时候，都可以给srand()提供一个新的种子，从而进一步“随机化”rand()的输出结果。
+下面是0~32767之间的随机数程序：
+
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <time.h> //使用当前时钟做种子 
+
+void main( void ) 
+{int i; 
+srand( (unsigned)time( NULL ) ); //初始化随机数 
+for( i = 0; i < 10;i++ ) //打印出10个随机数 
+printf( " %d\n", rand() ); 
+}
+根据上面的程序可以很容易得到0~1之间的随机数：
+
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <time.h> 
+main( ) 
+{int i; 
+srand( (unsigned)time( NULL ) ); 
+for( i = 0; i < 10;i++ ) 
+printf( "%5.2f\n", rand()/32767.0); 
+}
+而产生1~100之间的随机数可以这样写：
+
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <time.h> 
+main( ) 
+{int i; 
+srand( (unsigned)time( NULL ) ); 
+for( i = 0; i < 10;i++ ) 
+printf( "%d\n", rand()%100+1); 
+}
+come from http://hi.baidu.com/akaneyu 
+
+二，三个通用的随机数发生器，推荐用第三个
+函数名: rand
+功 能: 随机数发生器
+用 法: void rand(void);
+程序例:
+
+#include <stdlib.h> 
+#include <stdio.h> 
+
+int main(void) 
+{ 
+int i; 
+
+printf("Ten random numbers from 0 to 99\n\n"); 
+for(i=0; i<10; i++) 
+printf("%d\n", rand() % 100); 
+return 0; 
+}
+
+函数名: random
+功 能: 随机数发生器
+用 法: int random(int num);
+程序例:
+
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <time.h> 
+
+/* prints a random number in the range 0 to 99 */ 
+int main(void) 
+{ 
+randomize(); 
+printf("Random number in the 0-99 range: %d\n", random (100)); 
+return 0; 
+}
+
+函数名: randomize 这个比较好！
+功 能: 初始化随机数发生器
+用 法: void randomize(void);
+程序例:
+
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <time.h> 
+
+int main(void) 
+{ 
+int i; 
+
+randomize(); 
+printf("Ten random numbers from 0 to 99\n\n"); 
+for(i=0; i<10; i++) 
+printf("%d\n", rand() % 100); 
+return 0; 
+}
+
+在《计算机常用算法》中有介绍随机数的生成算法
+三 如何产生设定范围内的随机数
+由于rand产生的随机数从0到rand_max，而rand_max是一个很大的数，那么如何产生从X~Y的数呢？
+从X到Y，有Y－X＋1个数，所以要产生从X到Y的数，只需要这样写：
+k=rand()%(Y-X+1)+X;
+这样，就可以产生你想要的任何范围内的随机数了。
+四，产生不重复的随机数
+1）
+
+#include <stdlib.h> 
+#include <stdio.h> 
+#include<stdio.h> 
+#include <time.h> 
+swap(int *pm,int *pn) /*必须用指针进行交换*/ 
+{ 
+int temp; 
+temp=*pm; 
+*pm=*pn; 
+*pn=temp; 
+} 
+
+int main(void) 
+{ 
+int i,a[513]; 
+/*int *pa,*pb;*/ 
+srand( (unsigned)time( NULL ) ); /*定义这个可以产生不同的随机数*/ 
+for(i=1; i<=512; i++){a[i]=i;printf("%4d",a[i]);} 
+for(i=512; i>=1; i--) 
+{ 
+/* pa=&a[i]; pb=&a[rand()%i+1];*/ 
+swap(&a[i], &a[rand()%i+1]); /*加一是从一到i的随机，就不会包含0*/ 
+/*不用再定义指针，这样结论是一样的*/ 
+} 
+printf("\n") ; 
+for(i=1; i<=64; i++) 
+printf("%4d",a[i] ); 
+getch(); /*wintc的输出*/ 
+}
+2）
+view plain
+#include <stdlib.h> 
+#include <stdio.h> 
+#include<stdio.h> 
+
+
+int main(void) 
+{ 
+int a[100]={0}; int i,m; 
+for(i=1; i<=99; ++i) 
+printf("%4d",a[i] ); 
+
+srand( (unsigned)time( NULL ) ); 
+
+for(i=1; i<=99; i++) 
+{ 
+while(a[m=rand()%100+1]); 
+a = i; 
+} 
+for(i=1; i<=99; ++i) 
+printf("%4d",a[i] ); 
+
+getch(); 
+}
+

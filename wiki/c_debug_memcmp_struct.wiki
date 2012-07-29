@@ -1,0 +1,60 @@
+%toc 小心使用memcmp来比较struct
+%title 小心使用memcmp来比较struct
+%template c
+
+== 前言 ==
+比较两个整数时，cpu做一次减法就知道是否相等。<br />
+比较两个字符串值，strcmp()利用指针移动来比较。 <br />
+而当比较两个结构体时，只能利用 *memcmp()* 来对内存里面的所有值进行比较了。
+
+一定要注意这里指的 *所有*. <br />
+而我们常常会忘记所有这个概念。 
+会有很多情况会让我们遗忘这些操作：<br />
+- 比如没有考虑到内存对齐。
+- 比如没有考虑到内存中的值是否是受我们控制。
+- ....
+
+== 例子 ==
+{{{class="brush:c; highlight: [15];"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* define the memcmp struct type. */
+typedef struct _type 
+{
+	short p;
+	int q;
+}mem_stru_type;
+
+int main(int argc, char *argv[])
+{
+	mem_stru_type a = {
+		.p = 0, /* 由于对齐的原因，在a变量的栈帧结构内存之中的后两个字节的内容将会是随机数。*/
+		.q = 0,
+	};
+
+	mem_stru_type b;
+
+	memset(&b, 0, sizeof(b));
+
+	/* use memcmp() to compare struct variable a and b */
+	if (0 == memcmp(&a, &b, sizeof(a)))
+		printf("a==b\n");
+	else
+		printf("a!=b\n");
+
+	return 0;
+}
+
+
+}}}
+
+== 结果 ==
+{{{class="brush:bash"
+# a==b /* 我郁闷。始终没有试出结果来。呵呵……*/
+}}}
+
+== 写在最后 ==
+其实只要我们做个有心人，在声明struct变量后对应 *bzero(0)* 就不会有一些神奇的事情发生了。

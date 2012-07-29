@@ -1,0 +1,56 @@
+%toc sizeof(指针)
+%title sizeof(指针)
+%template c
+
+{{{class="brush:c"
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) 
+{ 
+    char *p; /* sizeof(p)=4，凡是指针的sizeof都是4 */
+    
+    char *q[20]; /* q是含有20个指向字符型指针的数组，每个指针sizeof为4，所以sizeof(q)=4*20=80 */
+    
+    char *m[20][20]; /* m是二维数组，元素为指针，sizeof(m)=4*20*20=1600 */
+    
+    int (*n)[10]; /* n 是数组指针，既然是指针，则sizeof(n)=4 */
+    
+    struct tt
+    {         
+        char aaa;  /* 承上启下而知，这里会占用空间 4 字节。由于32位结构而定 */       
+        double bbb; /* sizeof(double) = 8 */ 
+        int type ;  /* sizeof(int) = 4 */      
+    }; 
+    struct tt t; /* 考虑到数据对齐，sizeof(t)=4+8+4=16 */
+    
+    printf("sizeof(p):%d\n \
+			sizeof(q):%d\n \
+			sizeof(m):%d\n \
+			sizeof(n):%d\n \
+			sizeof(t):%d\n",\
+			sizeof(p),\
+			sizeof(q),\
+			sizeof(m),\
+			sizeof(n),\
+			sizeof(t));
+    
+    return 0; 
+}
+}}}
+
+_result:_
+
+{{{class="brush:bash"
+[root@liwei test]# vim sizeof_about_point.c
+[root@liwei test]# gcc -Wall -g -o s sizeof_about_point.c 
+[root@liwei test]# ./s
+sizeof(p):4
+             sizeof(q):80
+             sizeof(m):1600
+             sizeof(n):4
+             sizeof(t):16
+[root@liwei test]# vim sizeof_about_point.c 
+[root@liwei test]# 
+
+}}}

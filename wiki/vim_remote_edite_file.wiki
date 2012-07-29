@@ -1,0 +1,33 @@
+%toc 目录
+%title 目录
+%template vim
+
+----
+
+== 说明 ==
+其实往往远程操作一个文件是没有必要的。尤其是用`vim`的时候，利用`scp`将文件下载到本地编辑，当保存好后再上传到远端，而这些过程会消耗一定的系统缓存资源，也会浪费一些网络，不过有时候在内网内是可以接受的，尤其是今天我在写博文时发现要利用到我的开发机上的一个代码，而在当前的`vim`屏幕下面，我并不想切换。于是要是能直接在`vim`之中导入远端的代码多好。这样就可以利用到`vim`的远程操作文件的功能。
+
+----
+
+== 命令格式 ==
+
+* `vim scp://user@host/[absolution_path_of_file]`
+* `gvim scp://user@host/[absolution_path_of_file]`
+
+
+- *for-example* :
+{{{class="brush:bash"
+#vim scp://root@125.88.108.7//etc/issue
+}}}
+
+- 比如我刚刚举的例子，想要导入远程的源代码文件：
+{{{class="brush:bash"
+:r scp://root@192.168.61.1//root/hash.c
+}}}
+
+是不是很方便。
+当然你也可以写在脚本之中便于操作。
+
+
+
+

@@ -1,0 +1,284 @@
+%toc 慎用c语言中的iconv()
+%title 慎用c语言中的iconv()
+%template c
+
+==== 原谅我这一生不羁放纵爱自由 ====
+_我只是想说依旧深爱着我的linux,我的c,我的vim, 因为我享受着他们，自由自在地进着人生地每一步_
+
+今天在程序里面发现一个bug,这有待上层提供线索，找到这个问题让我明白是为什么会有这样的问题。
+
+在这里想说匹配字符串尤其是转化编码之后再匹配时一定要慎用字符串函数。
+
+==== 神奇的strstr() ====
+先看它给的神奇manpage是如何的欺骗我们的：
+{{{class="brush:plain; collapse: true; Title: manpages;"
+STRSTR(3)                  Linux Programmer’s Manual                 STRSTR(3)
+
+NAME
+       strstr - locate a substring
+
+SYNOPSIS
+       #include <string.h>
+
+       char *strstr(const char *haystack, const char *needle);
+
+DESCRIPTION
+       The  strstr() function finds the first occurrence of the substring nee-
+       dle in the string haystack.  The terminating ‘\0’  characters  are  not
+       compared.
+
+RETURN VALUE
+       The  strstr()  function  returns a pointer to the beginning of the sub-
+       string, or NULL if the substring is not found.
+
+BUGS
+       Early versions of Linux libc (like 4.5.26) would  not  allow  an  empty
+       argument.  Later  versions  (like  4.6.27)  work  correctly, and return
+       haystack when needle is empty.
+
+CONFORMING TO
+       ISO 9899
+
+SEE ALSO
+       index(3), memchr(3), rindex(3), strchr(3), strpbrk(3), strsep(3),  str-
+       spn(3), strtok(3)
+
+GNU                               1993-04-12                         STRSTR(3)
+
+}}}
+
+- 它这里说到'\0'情况下，如果这里要匹配的内容第一个就是'\0'它会如何处理呢？
+- 它这里也说到empty,这里的empty是指NULL的意思吗？
+
+测试代码：
+{{{class="brush:c;" 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+	char a[20] = "abcdef123";
+	char b[10];
+	char *p = NULL, *t = NULL;
+	memset(b, '\0', sizeof b);
+
+	/**
+	 * if the string is empty
+	 * and the values is 0
+	 * so it can to match
+	 */
+	if ((p = strstr(a, b)) != NULL)
+		printf("success strstr a:<%s> && b:<%s> and p:<%s>\n", a, b, p);
+	else
+		printf("failed strstr a:<%s> && b:<%s>\n", a, b);
+
+	/**
+	 * if the match string is NULL and core dump
+	 * to exit()
+	 */
+	if ((p = strstr(a, t)) != NULL)
+		printf("success strstr \n");
+	else
+		printf("failed strstr\n");
+
+	return 0;
+}
+}}}
+
+结果：
+{{{class="brush:bash;"
+gcc -Wall -g -o strstr strstr.c
+[root@liwei wjpt_test]# ./strstr 
+success strstr a:<abcdef123> && b:<> and p:<abcdef123>
+段错误
+}}}
+
+
+
+strstr的实现:
+{{{class="brush:c;"
+typedef unsigned chartype;
+
+char *
+strstr (phaystack, pneedle)
+     const char *phaystack;
+     const char *pneedle;
+{
+	const unsigned char *haystack, *needle;
+	chartype b;
+	const unsigned char *rneedle;
+
+	haystack = (const unsigned char *) phaystack;
+
+/*
+ * 在这里如果pneedle里面的内容为'\0'那么b==0,这个时候if不成立直接 goto foundneedle
+ * 于是返回的内容不是NULL认为匹配到。
+ * 
+ * 这么大的问题为什么不在manpage里面写明白呢？
+ */
+	if ((b = *(needle = (const unsigned char *) pneedle)))
+	{
+		chartype c;
+		haystack--;		/* possible ANSI violation */
+
+		{
+			chartype a;
+			do
+				if (!(a = *++haystack))
+					goto ret0;
+			while (a != b);
+		}
+
+		if (!(c = *++needle))
+			goto foundneedle;
+		++needle;
+		goto jin;
+
+		for (;;)
+		{
+			{
+				chartype a;
+				if (0)
+					jin:{
+						if ((a = *++haystack) == c)
+							goto crest;
+					}
+				else
+					a = *++haystack;
+				do
+				{
+					for (; a != b; a = *++haystack)
+					{
+						if (!a)
+							goto ret0;
+						if ((a = *++haystack) == b)
+							break;
+						if (!a)
+							goto ret0;
+					}
+				}
+				while ((a = *++haystack) != c);
+			}
+crest:
+			{
+				chartype a;
+				{
+					const unsigned char *rhaystack;
+					if (*(rhaystack = haystack-- + 1) == (a = *(rneedle = needle)))
+						do
+						{
+							if (!a)
+								goto foundneedle;
+							if (*++rhaystack != (a = *++needle))
+								break;
+							if (!a)
+								goto foundneedle;
+						}
+						while (*++rhaystack == (a = *++needle));
+					needle = rneedle;	/* took the register-poor aproach */
+				}
+				if (!a)
+					break;
+			}
+		}
+	}
+foundneedle:
+	return (char *) haystack;
+ret0:
+	return 0;
+}
+}}}
+
+
+
+==== 当转换编码出错时继续匹配问题 ====
+{{{class="brush:c;"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <iconv.h>
+
+char iconv_utf8_gb2312(char *to, int to_len, char *from, int from_len);
+
+
+typedef struct _match
+{
+	char match1[64];
+	char gb2312_match1[128];
+}match_type;
+
+#define ICONV_MATCH(a,b) \
+{\
+	if (strcmp(a.b, "NONE"))\
+		iconv_utf8_gb2312(a.gb2312_##b, 128, a.b, 64);\
+}\
+
+char iconv_utf8_gb2312(char *to, int to_len, char *from, int from_len)
+{
+  iconv_t   cd;
+  int       _to_len, _from_len;
+
+  cd = iconv_open("GB2312", "UTF-8");
+  if ((int)cd == -1)
+    return 0;
+  _to_len = to_len;
+  _from_len = from_len + 1;
+  iconv(cd, &from, &_from_len, &to, &_to_len);
+  iconv_close(cd);
+
+  return 1;
+}
+
+int main(void)
+{
+	match_type match_test;
+	memset(&match_test, '\0', sizeof(match_type));
+	strncpy(match_test.match1, "買到槍", strlen("買到槍"));
+	/** strncpy(match_test.match1, "卖到枪", strlen("卖到枪"));*/
+
+	ICONV_MATCH(match_test, match1);
+	printf("utf8:<%s> &&gd2312:<%s>\n", match_test.match1, match_test.gb2312_match1);
+
+	printf("start to match1....\n");
+	char tmp_string[1024] = "Libnet核心数据结构 -  AlphaJay的个人空间 - 开源中";
+	if (strstr(tmp_string, match_test.match1) != NULL)
+		printf("success match1:<%s> && tmp_string: <%s>\n", match_test.match1, tmp_string);
+	else
+		printf("failed match1:<%s> && tmp_string: <%s>\n", match_test.match1, tmp_string);
+
+	printf("start to gb2312_match1....\n");
+	if (strstr(tmp_string, match_test.gb2312_match1) != NULL)
+		printf("success match1:<%s> && tmp_string: <%s>\n", match_test.gb2312_match1, tmp_string);
+	else
+		printf("failed match1:<%s> && tmp_string: <%s>\n", match_test.gb2312_match1, tmp_string);
+
+	return 0;
+}
+}}}
+
+result:
+{{{class="brush:bash;"
+gcc -Wall -g -o iconv_match iconv_match.c
+[root@liwei wjpt_test]# ./iconv_match 
+utf8:<買到槍> &&gd2312:<>
+start to match1....
+failed match1:<買到槍> && tmp_string: <Libnet核心数据结构 -  AlphaJay的个人空间 - 开源中>
+start to gb2312_match1....
+success match1:<> && tmp_string: <Libnet核心数据结构 -  AlphaJay的个人空间 - 开源中>
+[root@liwei wjpt_test]# vim iconv_match.c 
+[root@liwei wjpt_test]# make
+
+
+
+gcc -Wall -g -o iconv_match iconv_match.c
+[root@liwei wjpt_test]# ./iconv_match 
+utf8:<卖到枪> &&gd2312:<����ǹ>
+start to match1....
+failed match1:<卖到枪> && tmp_string: <Libnet核心数据结构 -  AlphaJay的个人空间 - 开源中>
+start to gb2312_match1....
+failed match1:<����ǹ> && tmp_string: <Libnet核心数据结构 -  AlphaJay的个人空间 - 开源中>
+[root@liwei wjpt_test]# vim iconv_match.c 
+}}}

@@ -1,0 +1,38 @@
+%toc 自定义taglist显示设置
+%title 自定义taglist显示设置
+%template vim
+
+`#vim ~/.vim/plugin/taglist.vim`
+
+{{{class="brush:bash;"
+
+" c language
+let s:tlist_def_c_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;' .
+                           \ 'v:variable;f:function'
+
+" c++ language
+let s:tlist_def_cpp_settings = 'c++;n:namespace;v:variable;d:macro;t:typedef;' .
+
+
+
+
+}}}
+
+`ctags --list-kinds` 可以查看帮助，这里面的意思。
+
+
+改为:
+{{{class="brush:bash;"
+
+" c language fixed by liw 
+"let s:tlist_def_c_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;' .
+"                           \ 'v:variable;f:function'
+let s:tlist_def_c_settings = 'c;f:function;d:macro;g:enum;s:struct;u:union;t:typedef;v:variable'
+
+" c++ language
+let s:tlist_def_cpp_settings = 'c++;f:function;n:namespace;v:variable;d:macro;t:typedef;' .
+                             \ 'c:class;g:enum;s:struct;u:union'
+
+}}}
+
+[http://sinolog.it/?p=1206 from]

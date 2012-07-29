@@ -1,0 +1,112 @@
+%toc 目录
+%title 目录
+%template c
+
+----
+== 需求概述 ==
+由于工作的需要，很简单的一个单循环列表就可以搞定一些事情。
+现需求如下：
+   * 从一个配置文件里读取以空格分开的端口号。此端口号个数不定。
+   * 读取后在请求通信连接时要求端口号如果不成功的情况下，尝试下一个端口号。直到成功为止，如果不成功则继续尝试。
+   * 要求循环尝试。
+    
+----
+== 关键技术与算法 ==    
+这里很简单地用一个循环的单链表即可以实现所有的操作。
+算法：首先创建一个首节点，此节点为首节点，不会存放真正的数据，然后顺序将文件之中保存的端口号读取到内在，再`malloc`节点，连接到链表中，直到连接完成。然后再将尾节点指向首节点，最后`free`首节点。这样的一个链表就是一个循环链表了，由于是循环链表无所谓头与尾，当然，如果你确实需要首尾信息，可以设备一个`head`指针即可。
+    
+----
+
+== 核心代码 ==
+{{{class="brush:c; collapse:true;"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <time.h>
+#include <unistd.h>
+
+/** 
+ * TODO(1st): define the type
+ * context the num or password.
+ */
+typedef struct j_node* node;
+struct j_node
+{
+	int password, num;
+	node next;
+};
+
+/**
+ * @brief create <++ to create the cycle single link and it has the node num is n.
+ *
+ * @param n<++> the node number.
+ *
+ * @return : return point of the first node.
+ */
+node create(int n)
+{
+	if (n < 0)
+		return NULL;
+
+	node p, head, q;
+	int i = 1, key;
+
+	/** malloc the tmp head to manage the link*/
+	head = (node)malloc(sizeof(*head));
+	p = head;
+	p->password = -1;
+	p->next = NULL;
+
+	srand(time(NULL));
+	/** insert the number to the link*/
+	for (i = 0; i < n; i++)
+	{
+		key = rand()%1000;
+		printf("i:%d key:%d\n", i, key);
+		q = p;
+		p = (node)malloc(sizeof(*head));
+		p->num = i; p->password = key;
+		q->next = p;
+	}
+	p->next = NULL;
+	p->next = head->next; /** the end node point to the first node*/ 
+	free(head); /** free the tmp node*/ 
+	head = p->next;
+	return head;
+}
+
+/**
+ * @brief print_link <++> print the cycle link forerver
+ *
+ * @param t<++> the link node
+ */
+void print_link(node t)
+{
+	while ((t) != NULL)
+	{
+		printf("t[%d]:%d\n", t->num, t->password);
+		t=t->next;
+		sleep(1);
+	}
+}
+int main(void)
+{
+	node t = create(10); /** create the ten node */ 
+	print_link(t); /** print the cycle link forerver */ 
+
+	return 0;
+}
+}}}
+
+----
+
+== 结果演示 ==
+[[images/cycle_single_link.png]]
+
+
+== 示例扩展 ==
+
+当然在这里还可以扩展成一个带头节点的顺序链表，在我的项目里面由于涉及到一些逻辑上的问题，比如说链表为空时，意思只有头节点时，我也会对其作相应的操作，所以在轮询链表结构时用到了`do.....while();`来实现，这是一个相当好的例子，显示了while语句在某些方面的妙用。。
+    
+	

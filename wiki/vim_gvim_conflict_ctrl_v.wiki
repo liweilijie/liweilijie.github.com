@@ -1,0 +1,48 @@
+%toc gvim的Ctrl+v粘贴/Visual块模式冲突
+%title gvim的Ctrl+v粘贴/Visual块模式冲突
+%template vim
+
+*在Windows平台的gvim中，Ctrl+V是无法实现进入Visual块模式的，因为Ctrl+V也有粘贴的作用。*
+
+_Vim的帮助里面已经有解释：_
+
+{{{class="brush:plain;"
+						*CTRL-V* *blockwise-visual*
+CTRL-V			start Visual mode blockwise.  
+						Note: Under Windows CTRL-V could be mapped to paste text, 
+						it doesn't work to start Visual mode then, see |CTRL-V-alternative|.
+
+}}}
+
+*然后转到CTRL-V-alternative：*
+
+{{{class="brush:plain;"
+					*CTRL-V-alternative* 
+*CTRL-Q*	
+Since CTRL-V is used to paste, you can't use it to start a blockwise Visual selection.  
+You can use CTRL-Q instead.  
+You can also use CTRL-Q in Insert mode and Command-line mode to get the old meaning of CTRL-V.  
+But CTRL-Q doesn't work for terminals when it's used for control flow.
+}}}
+
+这里可以看得出来可以用 *ctrl-q*  来代替。
+
+*如果非要使用Ctrl+V，可以将的map删除掉：*
+
+修改 vim/vim73/mswin.vim, 修改如下:
+
+{{{class="brush:plain;"
+" CTRL-V and SHIFT-Insert are Paste
+map "+gP
+
+改成(把 map 刪掉就對了).
+
+" CTRL-V and SHIFT-Insert are Paste
+"map "+gP
+
+}}}
+就可以用 Ctrl + v 了.
+
+ 
+
+

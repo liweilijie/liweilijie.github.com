@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<!--<div class="span10 well pricehover">-->
+
+		<!-- ==================== start navbar ================== -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fuid">
+					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Liwei.tk</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li><a href="index.html">Home</a></li>
+								<!-- Program sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="c.html">C</a></li>
+									<li><a href="cpp.html">Cpp</a></li>
+									<li><a href="shell.html">Shell</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Others</li>
+									<li><a href="python.html">Python</a></li>
+									<li><a href="expect.html">Expect</a></li>
+									<li><a href="vc.html">Vc</a></li>
+								</ul>
+								</li>
+								<!-- Os sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="linux.html">Linux</a></li>
+									<li class="divider"></li>
+									<li><a href="windows.html">Windows</a></li>
+								</ul>
+								</li>
+
+								<!-- vim -->
+								<li class="active"><a href="vim.html">Vim</a></li>
+								<li><a href="#">Link</a></li>
+								<li><a href="#">Link</a></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Search">
+							</form>
+							<ul class="nav pull-right">
+								<li><a href="#">Link</a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+						</div><!-- /.nav-collapse -->
+					</div>
+				</div><!-- /navbar-inner -->
+			</div><!-- /navbar -->
+			<!--</div>-->
+
+		<div class="container">
+
+			<!--span2 + span10 that's really content-->
+			<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="vim.html">Vim</a></h3>
+								<ul class="nav nav-list">
+									<li class="nav-header">基本操作</li>
+									<li> <a href="http://vimcdoc.sourceforge.net/doc/help.html">vim帮助文档</a></li>
+									<li> <a href="vim_install_reinstall_update.html">vim 安装 重装 升级</a></li>
+									<li> <a href="vim_for_fc3_install.html">在fedora core 3 下面安装vim</a></li>
+									<li> <a href="vim_remote_edite_file.html">vim 远程操作文件</a></li>
+									<li> <a href="vim_delete_enter_of_win.html">在vim之中删除不爽的字符^M</a></li>
+									<li> <a href="vim_github_wiki.html">创建我的维基站点</a></li>
+									<li> <a href="vim_set_list.html">set list查看不可见字符</a></li>
+									<li> <a href="vim_convert_file_format.html">vim中转换文件的编码格式</a></li>
+									<li> <a href="vim_memo.html">vim.备忘</a></li>
+									<li> <a href="vim_example_quickly.html">vim快速编辑</a></li>
+									<li> <a href="vim_ereg_format.html">vim等号整理和指定区域查找替换</a></li>
+									<li> <a href="vim_gvim_conflict_ctrl_v.html">gvim的Ctrl+v粘贴/Visual块模式冲突</a></li>
+									<li> <a href="vim_replese_number.html">vim 将前几行的几个字符去掉</a></li>
+									<li> <a href="vim_sophisticated_example.html">vim 又见经典汇总</a></li>
+									<li> <a href="vim_script_programming.html">vim script programming</a></li>
+									<li> <a href="vim_match_mul_line.html">vim正则之多行匹配</a></li>
+									<li class="nav-header">应用相关</li>
+									<li> <a href="vim_motion.html">vim motion.高效编辑</a></li>
+									<li> <a href="vim_quick_reference_card.html">vim quick reference card</a></li>
+									<li> <a href="vim_global_delete_cmd.html">vim g 删除奇数行的解释</a></li>
+									<li> <a href="vim_ctrl_o.html">vim 打开最近打开的文件</a></li>
+									<li> <a href="vim_replace_total.html">vim 中常用的替换模式总结</a></li>
+									<li> <a href="vim_regex_detail.html">vim 正则表达式简解</a></li>
+									<li> <a href="vim_delete_spaceline.html">vim删除空行</a></li>
+									<li> <a href="vim_defined_vim_taglist.html">自定义taglist显示设置</a></li>
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li class="active"><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li class="nav-header">Sidebar</li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+									<!--<li><a href="#">vim</a></li>-->
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+				<!-- right contnet -->
+
+				<div class="span9" data-spy="scroll" >
+					<div class="gsearch"></div>
+					<div class="content">
+						<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="vim.html">Vim</a></div>
+						
+<h1>vim.备忘</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">取代及还原</a>
+<li><a href="#toc_0.2">简单重排功能</a>
+<li><a href="#toc_0.3">yank</a>
+<li><a href="#toc_0.4">使用不同的编码重载文件</a>
+<ul>
+<li><a href="#toc_0.4.1">4. 粘贴代码时取消自动缩进</a>
+</ul>
+</ul>
+</ul>
+</div>
+
+<p>
+<a href="http://doc.linuxpk.com/type1090_3.html">fromlinuxpk</a>
+<em>这里只是流水帐似的备忘哦。</em>
+</p>
+
+<p>
+vim的基本模式(6种):
+</p>
+<ol>
+<li>
+常态模式
+
+<li>
+插入模式
+
+<li>
+命令列模式
+
+<li>
+反白模式
+
+<li>
+选择模式
+
+<li>
+Ex模式
+
+</ol>
+
+<p>
+^ 移至行首第一个非空白字元。<br />
+$ 移动行尾。<br />
+gg 移至档首(全文第一行之第一个非空白字元处)。<br />
+G 移至档尾(全文最后一行的第一个非空白字元处)。<br />
+</p>
+
+<p>
+在regular expression之中，^是匹配行首，$是匹配行尾。<br />
+</p>
+
+<p>
+gg是vim的扩充功能，在vi之中可以用1G来移动至档首。G之原意是goto的意思。
+</p>
+
+<p>
+w 移至次一个字首。<br />
+W 同上，但是会忽略一些标点符号。<br />
+e 移至次一个字字尾。<br />
+E 同上，但是会忽略一些标点符号。<br />
+b 移至前一个字字首。<br />
+B 同上，但是会忽略一些标点符号。
+n| 移至第n个字元处。n是从头算起的。
+</p>
+
+<p>
+特殊的移动：
+句子是以. ! ? 为区格的。段落是以空白行为区格的。
+) 移至下一个句子首。
+( 移至上一个句子首。
+} 移至下一个段落首。
+{ 移至上一个段落首。
+% 这是匹配{}, [], ()用的。
+</p>
+
+<p>
+何谓插入常态模式？
+</p>
+
+<p>
+x 删除游标所在处之字元。
+X 删除游标前之字元。
+dd dw
+dG 删至档尾。
+d1G 删至档首。或dgg.
+D 删至行尾。
+d0 d^ 删至行首。
+</p>
+
+<h2 id="toc_0.1">取代及还原</h2>
+<ul>
+<li>
+r 取代游标所在处之字元。
+
+<li>
+R 进入取代模式，取代字元至ESC为止。
+
+<li>
+cc 取代整行内容，或等同于S亦可。
+
+<li>
+cw 替换一个单词。
+
+<li>
+C 取代至行尾，即游标所在处以后的字都会被替换。或c$
+
+<li>
+c0 c^ 取代至行首。
+
+<li>
+s 替换一个字元为你所输入的字串，和R不同，R是覆盖的取代，s则是插入式的取代。
+
+<li>
+3r 按了3r后，你输入一个英文字，则三个字元皆会被你所输入的英文取代。
+
+<li>
+5J 将5行合并成一行。
+
+<li>
+5i A 然后按Esc,插入五个A,中文也可以。
+
+<li>
+2i sys Esc 插入syssys. 中文也可以！
+
+<li>
+5G 游标移至第五行，是从档首开始起算。和:5作用相同。
+
+</ul>
+
+<hr />
+
+<h2 id="toc_0.2">简单重排功能</h2>
+<ul>
+<li>
+:ce(enter) 本行文字置中。
+
+<li>
+:ri(ght) 本行文字靠右。
+
+<li>
+:le(ft) 本行文字靠左。
+
+<li>
+gqap 整段重排。或gqip,在段落中任何地方都可以使用。
+
+<li>
+gqq 本行重排。
+
+<li>
+gqQ 全文重排。
+
+</ul>
+ 
+<h2 id="toc_0.3">yank</h2>
+<p>
+yy 复制一行，或者Y也一样。
+y^ 复制至行首。
+y$ 复制至行尾。
+p 粘贴至游标下。
+P 粘贴到游标上。
+"ayy 将本行文字复制至a缓冲区
+</p>
+
+
+<h2 id="toc_0.4">使用不同的编码重载文件</h2>
+<p>
+有时候vim打开文件，发现有乱码。想换一种编码重新再载入文件，怎么换呢？只要用下面的命令就可以了：
+</p>
+
+<pre class="brush:bash;">
+:edit! ++enc=&lt;encoding&gt;
+</pre>
+<p>
+比如：
+</p>
+
+<pre class="brush:bash;">
+:edit! ++enc=gb2312
+</pre>
+
+<h3 id="toc_0.4.1">4. 粘贴代码时取消自动缩进</h3>
+<p>
+VIM在粘贴代码时会自动缩进，把代码搞得一团糟糕，甚至可能因为某行的一个注释造成后面的代码全部被注释掉，我知道有同学这个时候会用vi去打开文件再粘贴上去（鄙人以前就是这样），其实需要先设置一下
+</p>
+
+<p>
+<code>set paste</code>
+</p>
+
+<p>
+然后再进入插入模式粘贴，代码就不会被自动缩进。可是敲代码的时候需要自动缩进，又得改回来:
+</p>
+
+<p>
+<code>set nopaste</code>
+</p>
+
+<p>
+最方便的方法就是在.vimrc中加一句：
+</p>
+
+<p>
+<code>set pastetoggle=&lt;F9&gt;</code>
+</p>
+
+<p>
+以后在插入模式下，只要按F9键就可以切换自动缩进。
+</p>
+
+					</div>
+				</div>
+			</div> <!-- really content end -->
+
+			<div class="row footer">
+				<hr />
+				<a href="index.html">首页</a>
+				<a href="about.html"> | 关于</a>
+				<a href="links.html"> | 链接</a>
+				<a href="contact.html"> | 链接</a>
+			</div>
+
+		</div>
+
+		<!-- Le javascript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/bootstrap-transition.js"></script>
+		<script src="assets/js/bootstrap-alert.js"></script>
+		<script src="assets/js/bootstrap-modal.js"></script>
+		<script src="assets/js/bootstrap-dropdown.js"></script>
+		<script src="assets/js/bootstrap-scrollspy.js"></script>
+		<script src="assets/js/bootstrap-tab.js"></script>
+		<script src="assets/js/bootstrap-tooltip.js"></script>
+		<script src="assets/js/bootstrap-popover.js"></script>
+		<script src="assets/js/bootstrap-button.js"></script>
+		<script src="assets/js/bootstrap-collapse.js"></script>
+		<script src="assets/js/bootstrap-carousel.js"></script>
+		<script src="assets/js/bootstrap-typeahead.js"></script>
+		<script src="assets/js/application.js"></script>
+		<script src="assets/js/liwei.js"></script>
+
+
+	</body>
+</html>

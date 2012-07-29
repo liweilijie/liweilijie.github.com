@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+		</head>
+
+		<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+			<!--<div class="span10 well pricehover">-->
+
+				<!-- ==================== start navbar ================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fuid">
+							<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+								<a class="brand" href="#">Liwei.tk</a>
+								<div class="nav-collapse">
+									<ul class="nav">
+										<li><a href="index.html">Home</a></li>
+										<!-- Program sub projects  -->
+										<li class="dropdown active">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="c.html">C</a></li>
+											<li><a href="cpp.html">Cpp</a></li>
+											<li><a href="shell.html">Shell</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Others</li>
+											<li><a href="python.html">Python</a></li>
+											<li><a href="expect.html">Expect</a></li>
+											<li><a href="vc.html">Vc</a></li>
+										</ul>
+										</li>
+										<!-- Os sub projects  -->
+										<li class="dropdown">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="linux.html">Linux</a></li>
+											<li class="divider"></li>
+											<li><a href="windows.html">Windows</a></li>
+										</ul>
+										</li>
+
+										<!-- vim -->
+										<li><a href="vim.html">Vim</a></li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Nav header</li>
+											<li><a href="#">Separated link</a></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+									<form class="navbar-search pull-left" action="">
+										<input type="text" class="search-query span2" placeholder="Search">
+									</form>
+									<ul class="nav pull-right">
+										<li><a href="#">Link</a></li>
+										<li class="divider-vertical"></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+								</div><!-- /.nav-collapse -->
+							</div>
+						</div><!-- /navbar-inner -->
+					</div><!-- /navbar -->
+					<!--</div>-->
+
+				<div class="container">
+
+					<!--span2 + span10 that's really content-->
+					<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="c.html">C</a></h3>
+
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header">关于语法</li>
+									<li> <a href="c_cycle_single_link.html">单循环链表的实现</a></li>
+									<li> <a href="c_util_function_interfaces.html">util function interface</a></li>
+									<li> <a href="c_easy_error.html">只有两行的C程序至少有80%的人会判断错</a></li>
+									<li> <a href="c_variable_length_array.html">c柔性数组</a></li>
+									<li> <a href="c_counting_1_bits_c_implementations.html">计数一个整数中1的个数</a>
+									<li> <a href="c_memory_manager_detail.html">c内存管理</a></li>
+									<li> <a href="c_sscanf_detail.html">sscanf用法</a></li>
+									<li> <a href="c_sizeof_about_point.html">sizeof(指针)</a><li>
+									<li><a href="c_about_userlogin_api.html">c(api)实现用户登录信息</a></li>
+									<li class="nav-header">常用实例</li>
+									<li> <a href="c_debug_pthread_rwlock_t.html">compile时提示缺少pthread_rwlock_t类型定义</a></li> 
+									<li> <a href="c_debug_memcmp_struct.html">小心使用memcmp来比较struct</a></li>
+									<li> <a href="c_do_while_replase_if.html">用do...while(0)替代if多重判断</a></li>
+									<li> <a href="c_gettimeofday_backup_time.html">c利用gettimeofday得到精确时间</a></li>
+									<li> <a href="c_dynamic_two_dimensional_array.html">c动态申请二维数组</a></li>
+									<li> <a href="c_program_analyse_deeply.html">c语言深度剖析</a></li>
+									<li> <a href="c_macro_define_collect.html">c宏定义</a></li>
+									<li> <a href="c_changable_agrument.html">c可变参数</a></li>
+									<li class="nav-header">常用技巧</li>
+									<li> <a href="c_function_argument.html">linux c 函数参考</a></li>
+									<li> <a href="c_error.html">错误处理</a></li>
+									<li> <a href="c_string.h.html">string.h 函数大全</a></li>
+									<li> <a href="c_rand.html">c rand()</a></li>
+									<li> <a href="c_diff_memcpy_memmove.html"> memcpy() memmove() 区别</a></li>
+									<li> <a href="c_iconv_match_notice.html">慎用c语言中的iconv()</a></li>
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+
+						<!-- right contnet -->
+
+						<div class="span9" data-spy="scroll" >
+							<div class="gsearch"></div>
+							<div class="content">
+								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="c.html">C</a></div>
+								
+<h1>c柔性数组</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">定义</a>
+<li><a href="#toc_0.2">运用</a>
+<li><a href="#toc_0.3">释放：</a>
+<li><a href="#toc_0.4">一般这样用</a>
+<li><a href="#toc_0.5">下面是我做实验时的一段测试代码：</a>
+</ul>
+</ul>
+</div>
+
+
+<pre class="brush:c;">
+struct __type
+{
+	int cnt;
+	int data[0]; /* 这个，是什么啊！0个元素的数组？？？？编译器居然通过了！！！什么东西啊？？*/
+};
+</pre>
+<hr />
+
+<pre class="brush:plain">
+int data[0]; /* 定义一个数组0个元素，编译没有错，但是这个不能用于输入，因为是没有元素的数组 */
+</pre>
+
+<hr />
+
+<p>
+所以当输入的时候，就等于越界了。
+<hr />
+</p>
+
+<p>
+可以算算一下数组的大小：
+</p>
+
+<p>
+<code>sizeof(__type.data);</code> /* 这样可能有的编译器会报错，有的可能等于0； */
+</p>
+
+<hr />
+
+<p>
+这是一种 <strong>trick</strong> ，用来做变长数组
+<hr />
+</p>
+
+<p>
+这个叫做灵活数组成员
+</p>
+
+
+<p>
+<strong>结构体变长的妙用——0个元素的数组</strong>
+</p>
+
+<p>
+有时我们需要产生一个结构体，实现了一种可变长度的结构。如何来实现呢？
+看这个结构体的定义。
+</p>
+<h2 id="toc_0.1">定义</h2>
+<pre class="brush:c;">
+typedef struct _type
+{
+ int nCnt;
+ int item[0];
+}type_a;
+</pre>
+
+<p>
+（有些编译器会报错无法编译可以改成：）
+</p>
+
+<pre class="brush:c; collapse:true">
+typedef struct st_type
+{
+ int nCnt;
+ int item[];
+}type_a;
+</pre>
+
+<p>
+这样我们就可以定义一个可变长的结构，用<code>sizeof(type_a)</code>得到的只有4，就是<code>sizeof(nCnt)=sizeof(int)</code>那个0个元素的数组没有占用空间，而后我们可以进行变长操作了。
+</p>
+
+<h2 id="toc_0.2">运用</h2>
+
+<p>
+<strong>C语言版：</strong>
+</p>
+<pre class="brush:c">
+type_a *p = (type_a*)malloc(sizeof(type_a)+100*sizeof(int));
+</pre>
+
+<p>
+<strong>C++语言版:</strong>
+</p>
+<pre class="brush:cpp">
+type_a *p = (type_a*)new char[sizeof(type_a)+100*sizeof(int)];
+</pre>
+
+<p>
+这样我们就产生了一个长为100的type_a类型的东西用p-&gt;item[n]就能简单地访问可变长元素，原理十分简单，分配了比sizeof(type_a)多的内存后int item[];就有了其意义了，它指向的是int nCnt;后面的内容，是没有内存需要的，而在分配时多分配的内存就可以由其来操控，是个十分好用的技巧。
+</p>
+
+<h2 id="toc_0.3">释放：</h2>
+
+<p>
+<strong>C语言版：</strong>
+</p>
+<pre class="brush:c">
+free(p);
+</pre>
+<p>
+<strong>C++语言版：</strong>
+</p>
+<pre class="brush:cpp">
+delete []p;
+</pre>
+
+<p>
+其实这个叫灵活数组成员(<code>fleible array member</code>)C89不支持这种东西，C99把它作为一种特例加入了标准。<br />
+但是，C99所支持的是incomplete type，而不是zero array，形同int item[0];这种形式是非法的，<br />
+C99支持的形式是形同int item[];只不过有些编译器把int item[0];作为非标准扩展来支持，<br />
+而且在C99发布之前已经有了这种非标准扩展了，C99发布之后，有些编译器把两者合而为一。<br />
+</p>
+
+<p>
+下面是C99中的相关内容：
+</p>
+
+<pre class="brush:plain">
+
+6.7.2.1 Structure and union specifiers
+
+    As a special case, the last element of a structure with more 
+	than one named member may have an incomplete array type; 
+	this is called a flexible array member. With two exceptions, the flexible array member is ignored. 
+	First, the size of the structure shall be equal to the offset of the last 
+	element of an otherwise identical structure that replaces the 
+	flexible array member with an array of unspecified length.106) 
+	Second, when a . (or -&gt;) operator has a left operand that is (a pointer to) a structure with a flexible array member 
+	and the right operand names that member, 
+	it behaves as if that member were replaced with the longest array (with the same element type) 
+	that would not make the structure larger than the object being accessed; 
+	the offset of the array shall remain that of the flexible array member, 
+	even if this would differ from that of the replacement array. 
+	If this array would have no elements, it behaves as if it had one element but the 
+	behavior is undefined if any attempt is made to access that element or to generate a pointer one past it.
+
+</pre>
+<hr />
+
+<h2 id="toc_0.4">一般这样用</h2>
+
+<p>
+先定义一个指向该 <strong>struct</strong> 的指针 <strong>p</strong> 
+然后:
+</p>
+<pre class="brush:c">
+p=malloc(sizeof( mytype)+ user_length);
+p-&gt;cnt = user_length;
+</pre>
+
+<p>
+这样就相当于有了一个可变长的数组，其长度保存在p-&gt;cnt当中。
+</p>
+
+<p>
+变长数组，不过这种实现变长数组的方法比较“晦涩”
+</p>
+
+
+<p>
+看看 <strong>linux</strong> 源码，特别 <strong>tcp/ip</strong> ，网络相关的．很多这样的应用．．
+</p>
+
+<p>
+变长数组！！
+没有什么特别的，和平常的内存分配一个样，
+我们以前使用
+</p>
+<pre class="brush:c">
+Type* t = (Type*)malloc(sizeof(Type));
+</pre>
+<p>
+这个只是分配刚好存放Type的地方，其实我们也可以分配比Type类型少的内存，
+比如：
+</p>
+<pre class="brush:c">
+typedef struct st_type
+{
+ int nCnt;
+ int item[4];
+}type_a;
+</pre>
+
+
+<pre class="brush:c">
+type_a * a=(type_a*)malloc(4);//刚好分配了type_a::nCnt的空间而已！
+</pre>
+<p>
+那也肯定可以操作，只是item的空间没有存在而已，比如：
+</p>
+
+<pre class="brush:c">
+a-&gt;nCnt = 2;
+cout&lt;&lt;a-&gt;nCnt&lt;&lt;endl;
+</pre>
+
+<hr />
+<p>
+当然也可以分配多啊，剩下的东西怎么处理看程序员的操作啊！
+其实
+</p>
+<pre class="brush:c">
+typedef struct st_type
+{
+ int nCnt;
+ int item[0];
+}type_a;
+</pre>
+
+<p>
+<code>type_a* a = (type_a*)malloc(104);</code> <br />
+的意思中item只是给编译器一个地址的起始，多了这个内存就是 <strong>多余</strong> 了拉！<br />
+但多余的内存和我们可能有用 .
+</p>
+
+
+<h2 id="toc_0.5">下面是我做实验时的一段测试代码：</h2>
+<pre class="brush:c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct _type
+{
+  int count;
+  int item[0]; /** if can not compiled then replace: int item[] */
+}type_a;
+
+int main(void)
+{
+
+  printf("sizeof(type_a): %d\n", sizeof(type_a)); /** sizeof(type_a):4 */
+  type_a *p = (type_a *)malloc(sizeof(type_a)+10*sizeof(int));
+  p-&gt;count = 0;
+
+/** sign values. */
+  int i = 0;
+  while (i &lt; 10)
+  {
+    p-&gt;item[i] = i;
+    p-&gt;count++;
+    i++;
+  }
+  i = 0;
+
+  while(i &lt; p-&gt;count)
+  {
+    printf("p-&gt;item[%d]:%d\n", i, p-&gt;item[i]);
+    i++;
+  }
+
+  free(p); /** remember free the space.*/
+
+  return 0;
+}
+
+
+</pre>
+
+<p>
+<strong>结果</strong>:
+</p>
+<pre class="brush:bash">
+[root@liwei test]# vim array.c 
+[root@liwei test]# gcc -Wall -g -o a array.c 
+[root@liwei test]# ./a
+sizeof(type_a): 4
+p-&gt;item[0]:0
+p-&gt;item[1]:1
+p-&gt;item[2]:2
+p-&gt;item[3]:3
+p-&gt;item[4]:4
+p-&gt;item[5]:5
+p-&gt;item[6]:6
+p-&gt;item[7]:7
+p-&gt;item[8]:8
+p-&gt;item[9]:9
+[root@liwei test]# 
+
+</pre>
+
+							</div>
+						</div>
+					</div> <!-- really content end -->
+
+					<div class="row footer">
+						<hr />
+						<a href="index.html">首页</a>
+						<a href="about.html"> | 关于</a>
+						<a href="links.html"> | 链接</a>
+						<a href="contact.html"> | 链接</a>
+					</div>
+
+				</div>
+
+				<!-- Le javascript ================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<script src="assets/js/jquery.js"></script>
+				<script src="assets/js/google-code-prettify/prettify.js"></script>
+				<script src="assets/js/bootstrap-transition.js"></script>
+				<script src="assets/js/bootstrap-alert.js"></script>
+				<script src="assets/js/bootstrap-modal.js"></script>
+				<script src="assets/js/bootstrap-dropdown.js"></script>
+				<script src="assets/js/bootstrap-scrollspy.js"></script>
+				<script src="assets/js/bootstrap-tab.js"></script>
+				<script src="assets/js/bootstrap-tooltip.js"></script>
+				<script src="assets/js/bootstrap-popover.js"></script>
+				<script src="assets/js/bootstrap-button.js"></script>
+				<script src="assets/js/bootstrap-collapse.js"></script>
+				<script src="assets/js/bootstrap-carousel.js"></script>
+				<script src="assets/js/bootstrap-typeahead.js"></script>
+				<script src="assets/js/application.js"></script>
+				<script src="assets/js/liwei.js"></script>
+
+
+			</body>
+		</html>

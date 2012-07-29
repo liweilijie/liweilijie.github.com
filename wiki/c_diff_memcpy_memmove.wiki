@@ -1,0 +1,76 @@
+%toc  memcpy() memmove() 区别
+%title  memcpy() memmove() 区别
+%template c
+
+*memcpy()* 和 *memmove()* 都是把一个内存块拷贝到另一个内存块，其区别为：
+* *memcpy()* 不考虑源内存块和 目标内存块 是否重叠的情况.
+* *memmove()* 则考虑了这一情况,当遇到这种情况的时候，拷贝是 *从最高位开始* ，这样就保证source中还没拷贝的块不会因为dest的原因被修改。
+ 
+*C代码：*
+{{{class="brush:c;"
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <assert.h>  
+
+/** 
+ *mymemcpy 把source 复制到dest， 返回dest的头指针， count 是指针长度 
+ **/  
+void * mymemcpy(void * dest, const void * source, size_t count)  
+{  
+	assert(dest != NULL || source != NULL);  
+	void * ret = dest; //记录dest初始地址  
+	while(count--)  
+	{  
+		*(char *)dest = *(char *)source;  
+		//*dest = *source;  void * 只知道所指内容的起始地址，不知道所指内容的大小（占几个字节），所以无法正确引用  
+		dest = (char *)dest + 1;  
+		source =(char *)source + 1;  
+	}  
+	return ret;  
+}  
+
+
+/**  
+ * memcpy 没有考虑当source 和dest 有以下内存地址重叠的情况：  
+ *                source |         |  
+ *                           dest|        |  
+ *  即source向dest复制的时候，会改变source后面需要复制的内容。  
+ *  解决办法，当这种情况出现时，可以考虑从最高位向最低位复制。  
+ **/  
+void * mymemmove(void * dest, const void * source, size_t count)  
+{  
+	assert(dest != NULL || source != NULL);  
+
+	void * ret = dest;  
+
+	if(dest < source || dest > (char *) source + count -1) //不会出现重叠情况  
+	{  
+		while(count--)  
+		{  
+			*(char *) dest = * (char *) source;  
+			dest = (char *)dest + 1;  
+			source = (char *)source + 1;  
+		}  
+	}  
+	else  
+	{  
+		while(count--)  
+		{  
+			*((char *) dest + count) = *((char *) source + count );  
+		}  
+	}  
+	return ret;  
+}  
+
+int main()  
+{  
+	char a[] = "abcdefgh";  
+	//mymemcpy(a+2, a, 4);  
+	mymemmove(a+2, a, 4);  
+
+	printf("%s\n",a);  
+
+	return 0;  
+} 
+
+}}}

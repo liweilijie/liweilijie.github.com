@@ -1,0 +1,49 @@
+%toc switch error jump to case label
+%template cpp
+
+在实际的开发之中遇到这样的错误：
+
+{{{class="brush:bash"
+CBeapInfo.cpp:720: error: jump to case label
+CBeapInfo.cpp:524: error:   crosses initialization of `stru_cmd_info cmd_info'
+CBeapInfo.cpp:541: warning: destructor needed for `cmd_info'
+CBeapInfo.cpp:541: warning: where case label appears here
+CBeapInfo.cpp:541: warning: (enclose actions of previous case statements requiring destructors in their own scope
+}}}
+
+这让我很郁闷，这是为什么呢？
+
+后来我将一个局部变量( *stru_cmd_info cmd_info* )提出来就可以了。程序如下：
+
+{{{class="brush:c"
+//.....
+stru_cmd_info cmd_info;
+if (service_type&select_cmdno.service_types)
+{
+	switch (i)
+	{
+	//type: http-title(1-1) content: keyword NULL NULL
+	case 0: 
+	//stru_cmd_info cmd_info;
+	cmd_info.cmd_time = now;
+	cmd_info.cmd_type = T_SELECT;
+	cmd_info.cmd_status = CMD_S_IDLE;
+
+	memset(tmp_str, '\0', sizeof(tmp_str));
+	//....
+	
+	//type: http-title(1-1) content: keyword NULL NULL
+	case 0: 
+	//stru_cmd_info cmd_info;
+	cmd_info.cmd_time = now;
+	cmd_info.cmd_type = T_SELECT;
+	cmd_info.cmd_status = CMD_S_IDLE;
+
+	memset(tmp_str, '\0', sizeof(tmp_str));
+	//....
+	}
+}
+//....
+
+
+}}}

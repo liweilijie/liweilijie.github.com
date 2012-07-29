@@ -1,0 +1,13 @@
+%toc c-program
+%title c-program
+%template c
+
+----
+
+# [[c_strncpy_coredump|strncpy有使用时coredumps]]
+# [[c_which_module_create_core_file|core文件是由哪个程序产生的？]]
+# [[c_access_bug|小心access()]]
+
+----
+
+	[[c|PREVIOUS]]

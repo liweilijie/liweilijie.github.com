@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+<!-- add the google analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25233855-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+		</head>
+
+		<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+			<!--<div class="span10 well pricehover">-->
+
+				<!-- ==================== start navbar ================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fuid">
+							<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+								<a class="brand" href="#">Liwei.tk</a>
+								<div class="nav-collapse">
+									<ul class="nav">
+										<li><a href="index.html">Home</a></li>
+										<!-- Program sub projects  -->
+										<li class="dropdown active">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="c.html">C</a></li>
+											<li><a href="cpp.html">Cpp</a></li>
+											<li><a href="shell.html">Shell</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Others</li>
+											<li><a href="python.html">Python</a></li>
+											<li><a href="expect.html">Expect</a></li>
+											<li><a href="vc.html">Vc</a></li>
+										</ul>
+										</li>
+										<!-- Os sub projects  -->
+										<li class="dropdown">
+										<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="linux.html">Linux</a></li>
+											<li class="divider"></li>
+											<li><a href="windows.html">Windows</a></li>
+										</ul>
+										</li>
+
+										<!-- vim -->
+										<li><a href="vim.html">Vim</a></li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">Nav header</li>
+											<li><a href="#">Separated link</a></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+									<form class="navbar-search pull-left" action="">
+										<input type="text" class="search-query span2" placeholder="Search">
+									</form>
+									<ul class="nav pull-right">
+										<li><a href="#">Link</a></li>
+										<li class="divider-vertical"></li>
+										<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+										</li>
+									</ul>
+								</div><!-- /.nav-collapse -->
+							</div>
+						</div><!-- /navbar-inner -->
+					</div><!-- /navbar -->
+					<!--</div>-->
+
+				<div class="container">
+
+					<!--span2 + span10 that's really content-->
+					<div class="row">
+
+						<!--left nav-->
+						<div class="span3 side-nav">
+							<div class="well sidebar-nav">
+								<h3><a href="c.html">C</a></h3>
+
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header">关于语法</li>
+									<li> <a href="c_cycle_single_link.html">单循环链表的实现</a></li>
+									<li> <a href="c_util_function_interfaces.html">util function interface</a></li>
+									<li> <a href="c_easy_error.html">只有两行的C程序至少有80%的人会判断错</a></li>
+									<li> <a href="c_variable_length_array.html">c柔性数组</a></li>
+									<li> <a href="c_counting_1_bits_c_implementations.html">计数一个整数中1的个数</a>
+									<li> <a href="c_memory_manager_detail.html">c内存管理</a></li>
+									<li> <a href="c_sscanf_detail.html">sscanf用法</a></li>
+									<li> <a href="c_sizeof_about_point.html">sizeof(指针)</a><li>
+									<li><a href="c_about_userlogin_api.html">c(api)实现用户登录信息</a></li>
+									<li class="nav-header">常用实例</li>
+									<li> <a href="c_debug_pthread_rwlock_t.html">compile时提示缺少pthread_rwlock_t类型定义</a></li> 
+									<li> <a href="c_debug_memcmp_struct.html">小心使用memcmp来比较struct</a></li>
+									<li> <a href="c_do_while_replase_if.html">用do...while(0)替代if多重判断</a></li>
+									<li> <a href="c_gettimeofday_backup_time.html">c利用gettimeofday得到精确时间</a></li>
+									<li> <a href="c_dynamic_two_dimensional_array.html">c动态申请二维数组</a></li>
+									<li> <a href="c_program_analyse_deeply.html">c语言深度剖析</a></li>
+									<li> <a href="c_macro_define_collect.html">c宏定义</a></li>
+									<li> <a href="c_changable_agrument.html">c可变参数</a></li>
+									<li class="nav-header">常用技巧</li>
+									<li> <a href="c_function_argument.html">linux c 函数参考</a></li>
+									<li> <a href="c_error.html">错误处理</a></li>
+									<li> <a href="c_string.h.html">string.h 函数大全</a></li>
+									<li> <a href="c_rand.html">c rand()</a></li>
+									<li> <a href="c_diff_memcpy_memmove.html"> memcpy() memmove() 区别</a></li>
+									<li> <a href="c_iconv_match_notice.html">慎用c语言中的iconv()</a></li>
+								</ul>
+							</div> <!-- ...well -->
+						</div> <!-- --span  -->
+
+						<!-- right contnet -->
+
+						<div class="span9" data-spy="scroll" >
+							<div class="gsearch"></div>
+							<div class="content">
+								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="c.html">C</a></div>
+								
+<h1>c rand()</h1>
+
+<p>
+在C语言中,rand()函数可以用来产生随机数，但是这不是真真意义上的随机数，是一个伪随机数，
+是根据一个数，我们可以称它为种子，为基准以某个递推公式推算出来的一系数，当这系列数很大的时候，就符合正态公布，从而相当于产生了随机数，
+但这不是真正的随机数，当计算机正常开机后，这个种子的值是定了的，除非你破坏了系统，为了改变这个种子的值，
+C提供了srand()函数，它的原形是void srand( int a)。
+可能大家都知道C语言中的随机函数random，可是random函数并不是ANSI C标准，所以说，random函数不能在gcc,vc等编译器下编译通过。
+rand()会返回一随机数值，范围在0至RAND_MAX 间。返回0至RAND_MAX之间的随机数值，RAND_MAX定义在stdlib.h，
+(其值至少为32767)我运算的结果是一个不定的数，要看你定义的变量类型，int整形的话就是32767。 在调用此函数产生随机数前，必须先利用srand()设好随机数种子，如果未设随机数种子，rand()在调用时会自动设随机数种子为1。一般用for语句来设置种子的个数。具体见下面的例子。
+</p>
+
+<p>
+一 如何产生不可预见的随机序列呢
+利用srand((unsigned int)(time(NULL))是一种方法，因为每一次运行程序的时间是不同的。
+在C语言里所提供的随机数发生器的用法：现在的C编译器都提供了一个基于ANSI标准的伪随机数发生器函数，用来生成随机数。
+它们就是rand()和srand()函数。这二个函数的工作过程如下：
+1) 首先给srand()提供一个种子，它是一个unsigned int类型，其取值范围从0~65535；
+2) 然后调用rand()，它会根据提供给srand()的种子值返回一个随机数(在0到32767之间)
+3) 根据需要多次调用rand()，从而不间断地得到新的随机数；
+4) 无论什么时候，都可以给srand()提供一个新的种子，从而进一步“随机化”rand()的输出结果。
+下面是0~32767之间的随机数程序：
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include &lt;time.h&gt; //使用当前时钟做种子 
+</p>
+
+<p>
+void main( void ) 
+{int i; 
+srand( (unsigned)time( NULL ) ); //初始化随机数 
+for( i = 0; i &lt; 10;i++ ) //打印出10个随机数 
+printf( " %d\n", rand() ); 
+}
+根据上面的程序可以很容易得到0~1之间的随机数：
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include &lt;time.h&gt; 
+main( ) 
+{int i; 
+srand( (unsigned)time( NULL ) ); 
+for( i = 0; i &lt; 10;i++ ) 
+printf( "%5.2f\n", rand()/32767.0); 
+}
+而产生1~100之间的随机数可以这样写：
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include &lt;time.h&gt; 
+main( ) 
+{int i; 
+srand( (unsigned)time( NULL ) ); 
+for( i = 0; i &lt; 10;i++ ) 
+printf( "%d\n", rand()%100+1); 
+}
+come from <a href="http://hi.baidu.com/akaneyu">http://hi.baidu.com/akaneyu</a> 
+</p>
+
+<p>
+二，三个通用的随机数发生器，推荐用第三个
+函数名: rand
+功 能: 随机数发生器
+用 法: void rand(void);
+程序例:
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+</p>
+
+<p>
+int main(void) 
+{ 
+int i; 
+</p>
+
+<p>
+printf("Ten random numbers from 0 to 99\n\n"); 
+for(i=0; i&lt;10; i++) 
+printf("%d\n", rand() % 100); 
+return 0; 
+}
+</p>
+
+<p>
+函数名: random
+功 能: 随机数发生器
+用 法: int random(int num);
+程序例:
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include &lt;time.h&gt; 
+</p>
+
+<p>
+/* prints a random number in the range 0 to 99 */ 
+int main(void) 
+{ 
+randomize(); 
+printf("Random number in the 0-99 range: %d\n", random (100)); 
+return 0; 
+}
+</p>
+
+<p>
+函数名: randomize 这个比较好！
+功 能: 初始化随机数发生器
+用 法: void randomize(void);
+程序例:
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include &lt;time.h&gt; 
+</p>
+
+<p>
+int main(void) 
+{ 
+int i; 
+</p>
+
+<p>
+randomize(); 
+printf("Ten random numbers from 0 to 99\n\n"); 
+for(i=0; i&lt;10; i++) 
+printf("%d\n", rand() % 100); 
+return 0; 
+}
+</p>
+
+<p>
+在《计算机常用算法》中有介绍随机数的生成算法
+三 如何产生设定范围内的随机数
+由于rand产生的随机数从0到rand_max，而rand_max是一个很大的数，那么如何产生从X~Y的数呢？
+从X到Y，有Y－X＋1个数，所以要产生从X到Y的数，只需要这样写：
+k=rand()%(Y-X+1)+X;
+这样，就可以产生你想要的任何范围内的随机数了。
+四，产生不重复的随机数
+1）
+</p>
+
+<p>
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include&lt;stdio.h&gt; 
+#include &lt;time.h&gt; 
+swap(int *pm,int *pn) /<strong>必须用指针进行交换</strong>/ 
+{ 
+int temp; 
+temp=*pm; 
+*pm=*pn; 
+*pn=temp; 
+} 
+</p>
+
+<p>
+int main(void) 
+{ 
+int i,a[513]; 
+/*int *pa,<strong>pb;</strong>/ 
+srand( (unsigned)time( NULL ) ); /<strong>定义这个可以产生不同的随机数</strong>/ 
+for(i=1; i&lt;=512; i++){a[i]=i;printf("%4d",a[i]);} 
+for(i=512; i&gt;=1; i--) 
+{ 
+/* pa=&amp;a[i]; pb=&amp;a[rand()%i+1];*/ 
+swap(&amp;a[i], &amp;a[rand()%i+1]); /<strong>加一是从一到i的随机，就不会包含0</strong>/ 
+/<strong>不用再定义指针，这样结论是一样的</strong>/ 
+} 
+printf("\n") ; 
+for(i=1; i&lt;=64; i++) 
+printf("%4d",a[i] ); 
+getch(); /<strong>wintc的输出</strong>/ 
+}
+2）
+view plain
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#include&lt;stdio.h&gt; 
+</p>
+
+
+<p>
+int main(void) 
+{ 
+int a[100]={0}; int i,m; 
+for(i=1; i&lt;=99; ++i) 
+printf("%4d",a[i] ); 
+</p>
+
+<p>
+srand( (unsigned)time( NULL ) ); 
+</p>
+
+<p>
+for(i=1; i&lt;=99; i++) 
+{ 
+while(a[m=rand()%100+1]); 
+a = i; 
+} 
+for(i=1; i&lt;=99; ++i) 
+printf("%4d",a[i] ); 
+</p>
+
+<p>
+getch(); 
+}
+</p>
+
+							</div>
+						</div>
+					</div> <!-- really content end -->
+
+					<div class="row footer">
+						<hr />
+						<a href="index.html">首页</a>
+						<a href="about.html"> | 关于</a>
+						<a href="links.html"> | 链接</a>
+						<a href="contact.html"> | 链接</a>
+					</div>
+
+				</div>
+
+				<!-- Le javascript ================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+				<script src="assets/js/jquery.js"></script>
+				<script src="assets/js/google-code-prettify/prettify.js"></script>
+				<script src="assets/js/bootstrap-transition.js"></script>
+				<script src="assets/js/bootstrap-alert.js"></script>
+				<script src="assets/js/bootstrap-modal.js"></script>
+				<script src="assets/js/bootstrap-dropdown.js"></script>
+				<script src="assets/js/bootstrap-scrollspy.js"></script>
+				<script src="assets/js/bootstrap-tab.js"></script>
+				<script src="assets/js/bootstrap-tooltip.js"></script>
+				<script src="assets/js/bootstrap-popover.js"></script>
+				<script src="assets/js/bootstrap-button.js"></script>
+				<script src="assets/js/bootstrap-collapse.js"></script>
+				<script src="assets/js/bootstrap-carousel.js"></script>
+				<script src="assets/js/bootstrap-typeahead.js"></script>
+				<script src="assets/js/application.js"></script>
+				<script src="assets/js/liwei.js"></script>
+
+
+			</body>
+		</html>

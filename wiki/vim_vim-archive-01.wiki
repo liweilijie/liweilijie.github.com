@@ -1,0 +1,13 @@
+%toc vim.continue 
+%title vim.continue 
+%template vim_index02
+
+----
+
+# [[vim_yank|vim复制]]
+# [[vim_simple_operation|vim简单的运算]]
+
+
+----
+
+	[[vim|PREVIOUS]]
