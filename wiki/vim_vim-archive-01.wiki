@@ -6,6 +6,7 @@
 
 # [[vim_yank|vim复制]]
 # [[vim_simple_operation|vim简单的运算]]
+# [[vim_basic_regex_expression|vim正则]]
 
 
 ----
