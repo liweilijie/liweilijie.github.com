@@ -3,3 +3,4 @@
 # [[cpp|cpp]]
 # [[vim|vim]]
 # [[shell|shell]]
+# [[linux|linux]]

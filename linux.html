@@ -12,7 +12,6 @@
 		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
 		<link href="assets/css/docs.css" rel="stylesheet">
-		<link href="style.css" rel="stylesheet">
 		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -26,7 +25,7 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-
+		
 		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
 		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
 		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
@@ -42,31 +41,31 @@
 			SyntaxHighlighter.all();
 			</script> 
 			
-<!-- add the google analytics -->
-<script type="text/javascript">
+		<!-- add the google analytics -->
+		<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-25233855-1']);
-  _gaq.push(['_trackPageview']);
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-25233855-1']);
+			_gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+			(function() {
+			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			 })();
 
-</script>
+		 </script>
 
-</head>
+	</head>
 
-<body data-spy="scroll" data-target=".subnav" data-offset="50">
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
 
-	<!--<div class="span10 well pricehover">-->
+		<!-- <div class="span10 well pricehover">-->
 
 		<!-- ==================== start navbar ================== -->
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container-fuid">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container-fuid">
 					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 							<span class="icon-bar"></span>
@@ -76,7 +75,7 @@
 						<a class="brand" href="#">Liwei.tk</a>
 						<div class="nav-collapse">
 							<ul class="nav">
-								<li><a href="index.html">Home</a></li>
+								<li class="active"><a href="index.html">Home</a></li>
 								<!-- Program sub projects  -->
 								<li class="dropdown">
 								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
@@ -102,7 +101,7 @@
 								</li>
 
 								<!-- vim -->
-								<li class="active"><a href="vim.html">Vim</a></li>
+								<li><a href="vim.html">Vim</a></li>
 								<li><a href="#">Link</a></li>
 								<li><a href="#">Link</a></li>
 								<li class="dropdown">
@@ -139,117 +138,46 @@
 					</div>
 				</div><!-- /navbar-inner -->
 			</div><!-- /navbar -->
-			<!--</div>-->
+		<!--</div>-->
 
-		<div class="container">
+	<div class="container">
 
-			<!--span2 + span10 that's really content-->
-			<div class="row">
+		<!--span2 + span10 that's really content-->
+		<div class="row">
+			<div class="span10" data-spy="scroll" >
+				<div class="gsearch"></div>
+				<div class="content">
+					
+<h1>linux</h1>
 
-						<!--left nav-->
-						<div class="span3 side-nav">
-							<div class="well sidebar-nav">
-								<h3><a href="vim.html">Vim</a></h3>
-								<ul class="nav nav-list">
-									<li class="nav-header">基本操作</li>
-									<li> <a href="http://vimcdoc.sourceforge.net/doc/help.html">vim帮助文档</a></li>
-									<li> <a href="vim_install_reinstall_update.html">vim 安装 重装 升级</a></li>
-									<li> <a href="vim_for_fc3_install.html">在fedora core 3 下面安装vim</a></li>
-									<li> <a href="vim_remote_edite_file.html">vim 远程操作文件</a></li>
-									<li> <a href="vim_delete_enter_of_win.html">在vim之中删除不爽的字符^M</a></li>
-									<li> <a href="vim_github_wiki.html">创建我的维基站点</a></li>
-									<li> <a href="vim_set_list.html">set list查看不可见字符</a></li>
-									<li> <a href="vim_convert_file_format.html">vim中转换文件的编码格式</a></li>
-									<li> <a href="vim_memo.html">vim.备忘</a></li>
-									<li> <a href="vim_example_quickly.html">vim快速编辑</a></li>
-									<li> <a href="vim_ereg_format.html">vim等号整理和指定区域查找替换</a></li>
-									<li> <a href="vim_gvim_conflict_ctrl_v.html">gvim的Ctrl+v粘贴/Visual块模式冲突</a></li>
-									<li> <a href="vim_replese_number.html">vim 将前几行的几个字符去掉</a></li>
-									<li> <a href="vim_sophisticated_example.html">vim 又见经典汇总</a></li>
-									<li> <a href="vim_script_programming.html">vim script programming</a></li>
-									<li> <a href="vim_match_mul_line.html">vim正则之多行匹配</a></li>
-									<li class="nav-header">应用相关</li>
-									<li> <a href="vim_motion.html">vim motion.高效编辑</a></li>
-									<li> <a href="vim_quick_reference_card.html">vim quick reference card</a></li>
-									<li> <a href="vim_global_delete_cmd.html">vim g 删除奇数行的解释</a></li>
-									<li> <a href="vim_ctrl_o.html">vim 打开最近打开的文件</a></li>
-									<li> <a href="vim_replace_total.html">vim 中常用的替换模式总结</a></li>
-									<li> <a href="vim_delete_spaceline.html">vim删除空行</a></li>
-									<li> <a href="vim_defined_vim_taglist.html">自定义taglist显示设置</a></li>
-									<li> <a href="vim_basic_regex_expression.html">vim 正则</a></li>
-									<!--<li class="nav-header">Sidebar</li>-->
-									<!--<li class="active"><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li class="nav-header">Sidebar</li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-									<!--<li><a href="#">vim</a></li>-->
-								</ul>
-							</div> <!-- ...well -->
-						</div> <!-- --span  -->
-				<!-- right contnet -->
+<ol>
+<li>
+<a href="linux_user_manager.html">linux用户管理</a>
 
-				<div class="span9" data-spy="scroll" >
-					<div class="gsearch"></div>
-					<div class="content">
-						<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="vim.html">Vim</a></div>
-						
-<h1>vim删除^M字符</h1>
-<div class="toc">
-<ul>
-<li><a href="#toc_0.0.1">方法一：</a>
-<li><a href="#toc_0.0.2">方法二：</a>
-</ul>
-</ul>
-</ul>
-</div>
+<li>
+<a href="linux_ssh_control_user_access.html">ssh访问控制</a>
 
-<p>
-当我在 <strong>win</strong> 下面编辑了程序之后，有时候会看到在行尾有<code>^M</code> 可恶的字符。<br />
-虽然，它并不影响程序<br />
-但是看起来不爽，那么如何删除呢？
-</p>
+</ol>
 
-<h3 id="toc_0.0.1">方法一：</h3>
-
-<pre class="brush:bash">
-:%s/^M$//g
-</pre>
-
-<p>
-<code>^M</code> = <code>Ctrl+v</code> then <code>Ctrl+m</code>
-</p>
-
-<hr />
-<h3 id="toc_0.0.2">方法二：</h3>
-<pre class="brush:bash">
-:%s/\r//g
-
-</pre>
-
-					</div>
 				</div>
-			</div> <!-- really content end -->
-
-			<div class="row footer">
-				<hr />
-				<a href="index.html">首页</a>
-				<a href="#"> | 关于</a>
-				<a href="#"> | 链接</a>
-				<a href="#"> | 链接</a>
 			</div>
-
+		</div> <!-- really content end -->
+		<div class="row footer">
+			<hr />
+			<a href="index.html">首页</a>
+			<a href="#"> | 关于</a>
+			<a href="#"> | 链接</a>
+			<a href="#"> | 链接</a>
 		</div>
+
+	</div>
 
 		<!-- Le javascript ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
 		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
 		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/liwei.js"></script>
 		<script src="assets/js/google-code-prettify/prettify.js"></script>
 		<script src="assets/js/bootstrap-transition.js"></script>
 		<script src="assets/js/bootstrap-alert.js"></script>

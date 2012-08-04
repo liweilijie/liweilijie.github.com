@@ -1,0 +1,64 @@
+%toc ssh访问控制
+
+_这里主要简述一下有关ssh远程登录用户访问控制设置._
+
+== 1. 禁止root ==
+
+如果只是需要禁止root用户ssh远程登录,那么比较简单.
+
+编辑sshd服务的配置文件
+
+`# vi /etc/ssh/sshd_config` 找到下面这行：把值改为 *yes* (允许)或 *no* （不允许） `PermitRootLogin yes`
+
+然后重新启动ssh服务就可以了.
+
+`# /etc/rc.d/sshd restart` 或 `# service sshd restart`
+
+----
+
+== 2. 控制普通用户 ==
+
+大家都知道可以在 */etc/ssh/sshd_config*  文件中设置允许或禁止 _root_ 用户登录了，但作为服务器，不会只有 _root_ 用户，其他普通用户也可以通过 _ssh_ 服务来远程登录。
+
+如果账号密码泄露，也将会给服务器带来安全隐患。所以需对普通用户 _ssh_ 登录进行访问控制。
+
+我们可以利用 *PAM认证* 和 *access机制* 来实现控制允许哪些用户通过 _ssh_ 登录：
+
+# 安装好ssh服务器端后，打开 */etc/pam.d/sshd* 文件, 添加： `account required pam_access.so`
+{{{class="brush:bash;" 
+[root@qzt pam.d]# cat /etc/pam.d/sshd 
+#%PAM-1.0
+auth       required     pam_stack.so service=system-auth
+auth       required     pam_nologin.so
+account    required     pam_stack.so service=system-auth
+account    required     pam_access.so
+password   required     pam_stack.so service=system-auth
+session    required     pam_stack.so service=system-auth
+[root@qzt pam.d]# 
+}}}
+# 在 _ssh_ 认证模块里添加 *access.so* 模块. 打开 */etc/security/access.conf* 访问控制文件 在文件最后添加： 
+ 
+`-    :  all  except  用户名或组名  :  all`
+
+意思为： `权限 ：           用户           ：  用户登录IP`
+
+其中： 
+- *-* 表示权限（ *+* 表示允许， *-* 表示拒绝）
+- 第一个 *all*  表示 *所有用户*
+- *except* 设置项表示 *后面的用户或组除外*
+- 第二个 *all*  表示所有IP
+ 
+{{{class="brush:bash;"
+[root@qzt pam.d]# tail -10 /etc/security/access.conf 
+#
+## Some accounts are not allowed to login from anywhere:
+#
+##-:wsbscaro wsbsecr wsbspac wsbsym wscosor wstaiwde:ALL
+#
+## All other accounts are allowed to login from anywhere.
+#
+#-:qzt:ALL EXCEPT ttyS0 
+-:fm:ALL EXCEPT ttyS0
+-:All EXCEPT root qzt mat update:ALL
+[root@qzt pam.d]# 
+}}}
