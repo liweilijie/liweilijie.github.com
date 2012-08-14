@@ -25,7 +25,6 @@
 # [[vim_global_delete_cmd|vim g 删除奇数行的解释]]
 # [[vim_ctrl_o|vim 打开最近打开的文件]]
 # [[vim_replace_total|vim 中常用的替换模式总结]]
-# [[vim_regex_detail|vim 正则表达式简解]]
 # [[vim_delete_spaceline|vim删除空行]]
 # [[vim_defined_vim_taglist|自定义taglist显示设置]]
  

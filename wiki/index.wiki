@@ -4,3 +4,7 @@
 # [[vim|vim]]
 # [[shell|shell]]
 # [[linux|linux]]
+# [[article_reading_notes|读书札记]]
+# [[article_by_my_heart|随心所欲]]
+# [[article_love_music|最爱音乐]]
+# [[learn_happy|快乐学习]]

@@ -124,13 +124,13 @@
 								<li><a href="#">Link</a></li>
 								<li class="divider-vertical"></li>
 								<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">随记<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
+									<li><a href="article_by_my_heart.html">随心所欲</a></li>
+									<li><a href="article_reading_notes.html">读书札记</a></li>
+									<li><a href="article_love_music.html">最爱音乐</a></li>
 									<li class="divider"></li>
-									<li><a href="#">Separated link</a></li>
+									<li><a href="#">日记</a></li>
 								</ul>
 								</li>
 							</ul>
@@ -165,7 +165,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 
 <h3 id="toc_0.0.1">1. 数据定义</h3>
 
-<pre class="brush:bash;">
+<pre class="brush:bash; gutter:false;">
 [liwei@localhost ~]$ a=(1 2 3 4 5); echo $a
 1
 </pre>
@@ -179,7 +179,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 <ul>
 <li>
 得到长度
-<pre class="brush:bash;">
+<pre class="brush:bash; gutter:false;">
 [liwei@localhost ~]$ echo ${#a[@]}
 5
 [liwei@localhost ~]$ echo ${#a[*]}
@@ -195,7 +195,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 <ul>
 <li>
 读取
-<pre class="brush:bash;">
+<pre class="brush:bash; gutter:false; ">
 [liwei@localhost ~]$ echo ${a[2]}
 3
 [liwei@localhost ~]$ echo ${a[*]}
@@ -211,7 +211,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 <ul>
 <li>
 赋值
-<pre class="brush:bash;">
+<pre class="brush:bash; gutter:false;">
 [liwei@localhost ~]$ a[1]=100
 [liwei@localhost ~]$ echo ${a[*]}
 1 100 3 4 5
@@ -260,9 +260,6 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 [liwei@localhost ~]$ echo ${a[@]:1:4}
 2 3 4 5
 </pre>
-
-</ul>
-
 <pre class="brush:bash;">
 [liwei@localhost ~]$ c=(${a[@]:1:4})
 [liwei@localhost ~]$ echo ${#c[@]}
@@ -270,6 +267,8 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 [liwei@localhost ~]$ echo ${c[*]}
 2 3 4 5
 </pre>
+
+</ul>
 
 <p>
 直接通过 <code>${数组名[@或*]:起始位置:长度}</code> 切片原先数组，返回字符串，中间用“空格”分开， 因此如果加上“()”，将得到切片数组，上面例子：c就是一个新数据。

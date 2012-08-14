@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+		
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+		<!-- add the google analytics -->
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-25233855-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			 })();
+
+		 </script>
+
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		<!-- <div class="span10 well pricehover">-->
+
+		<!-- ==================== start navbar ================== -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container-fuid">
+					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Liwei.tk</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li class="active"><a href="index.html">Home</a></li>
+								<!-- Program sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="c.html">C</a></li>
+									<li><a href="cpp.html">Cpp</a></li>
+									<li><a href="shell.html">Shell</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Others</li>
+									<li><a href="python.html">Python</a></li>
+									<li><a href="expect.html">Expect</a></li>
+									<li><a href="vc.html">Vc</a></li>
+								</ul>
+								</li>
+								<!-- Os sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="linux.html">Linux</a></li>
+									<li class="divider"></li>
+									<li><a href="windows.html">Windows</a></li>
+								</ul>
+								</li>
+
+								<!-- vim -->
+								<li><a href="vim.html">Vim</a></li>
+								<li><a href="#">Link</a></li>
+								<li><a href="#">Link</a></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Search">
+							</form>
+							<ul class="nav pull-right">
+								<li><a href="#">Link</a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">随记<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="article_by_my_heart.html">随心所欲</a></li>
+									<li><a href="article_reading_notes.html">读书札记</a></li>
+									<li><a href="article_love_music.html">最爱音乐</a></li>
+									<li class="divider"></li>
+									<li><a href="#">日记</a></li>
+								</ul>
+								</li>
+							</ul>
+						</div><!-- /.nav-collapse -->
+					</div>
+				</div><!-- /navbar-inner -->
+			</div><!-- /navbar -->
+		<!--</div>-->
+
+	<div class="container">
+
+		<!--span2 + span10 that's really content-->
+		<div class="row">
+			<div class="span10" data-spy="scroll" >
+				<div class="gsearch"></div>
+				<div class="content">
+					
+<h1>wget下载整个网站</h1>
+
+
+<hr />
+
+<p>
+<code>wget -r -p -k -np site_url</code>
+</p>
+
+<p>
+<em>由于有时候需要涉及到一些web相关的东西，要用别人网站的html做参考，所以干脆将此网站里的所有url download下来慢慢分析，所以就有了今天这页博文。</em>
+</p>
+
+<hr />
+
+<p>
+wget下载整个网站可以使用下面的命令 <code>wget -r -p -k -np http://www.after90.org/</code> . 
+</p>
+
+<ul>
+<li>
+<code>-r</code> 表示递归下载,会下载所有的链接,不过要注意的是,不要单独使用这个参数,因为如果你要下载的网站也有别的网站的链接, <strong>wget</strong> 也会把别的网站的东西下载下来,由于互联网的特性,很有可能你会把整个互联网给下载下来.
+
+<li>
+<code>-np</code> 由于上面的原因，所以要加上 <code>-np</code> 这个参数, 表示不下载别的站点的链接. 
+
+<li>
+<code>-k</code> 表示将下载的网页里的链接修改为本地链接.
+
+<li>
+<code>-p</code> 获得所以显示网页所需的元素,比如图片什么的.
+
+</ul>
+
+<hr />
+
+<p>
+<strong>另外还有其他的一些参数可以使用:</strong>
+</p>
+ 
+<ul>
+<li>
+<code>-c</code> 表示断点续传
+
+<li>
+<code>-t 100</code> 表示重试100次, <code>-t 0</code> 表示无穷次重试
+
+<li>
+<code>-i filename</code> 另外可以将要下载的 <strong>url</strong> 写到一个文件中,每个 <strong>url</strong> 一行,使用这样的命令 <code>wget -i download.txt</code>.
+
+<li>
+<code>--reject=avi,rmvb</code> 表示不下载 <strong>avi</strong> , <strong>rmvb</strong> 的文件,
+
+<li>
+<code>--accept=jpg,jpeg</code>,表示只下载 <strong>jpg</strong> , <strong>jpeg</strong> 的文件.
+
+</ul>
+
+<p>
+可以在用户目录下建立一个 <strong>.wgetrc</strong> 的文件(windows里面好像不能直接建立这样的文件,windows会认为没有文件名--),里面写上 <code>http-proxy = 123.456.78.9:80</code>, 然后在加上参数 <code>--proxy=on</code>, 如果需要密码,再加上下面的参数 <code>--proxy-user=username</code>, <code>--proxy-passwd=password</code>.
+</p>
+
+				</div>
+			</div>
+		</div> <!-- really content end -->
+		<div class="row footer">
+			<hr />
+			<a href="index.html">首页</a>
+			<a href="#"> | 关于</a>
+			<a href="#"> | 链接</a>
+			<a href="#"> | 链接</a>
+		</div>
+
+	</div>
+
+		<!-- Le javascript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/liwei.js"></script>
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/bootstrap-transition.js"></script>
+		<script src="assets/js/bootstrap-alert.js"></script>
+		<script src="assets/js/bootstrap-modal.js"></script>
+		<script src="assets/js/bootstrap-dropdown.js"></script>
+		<script src="assets/js/bootstrap-scrollspy.js"></script>
+		<script src="assets/js/bootstrap-tab.js"></script>
+		<script src="assets/js/bootstrap-tooltip.js"></script>
+		<script src="assets/js/bootstrap-popover.js"></script>
+		<script src="assets/js/bootstrap-button.js"></script>
+		<script src="assets/js/bootstrap-collapse.js"></script>
+		<script src="assets/js/bootstrap-carousel.js"></script>
+		<script src="assets/js/bootstrap-typeahead.js"></script>
+		<script src="assets/js/application.js"></script>
+		<script src="assets/js/liwei.js"></script>
+
+
+	</body>
+</html>

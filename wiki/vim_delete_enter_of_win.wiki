@@ -8,7 +8,7 @@
 
 === 方法一： ===
 
-{{{class="brush:bash"
+{{{class="brush:bash; gutter:false;"
 :%s/^M$//g
 }}}
 
@@ -16,7 +16,7 @@
 
 ----
 === 方法二： ===
-{{{class="brush:bash"
+{{{class="brush:bash; gutter:false;"
 :%s/\r//g
 
 }}}

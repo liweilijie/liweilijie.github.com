@@ -5,7 +5,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 
 === 1. 数据定义 ===
 
-{{{class="brush:bash;"
+{{{class="brush:bash; gutter:false;"
 [liwei@localhost ~]$ a=(1 2 3 4 5); echo $a
 1
 }}}
@@ -15,7 +15,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 === 2. 数组的读取与赋值 ===
 
 - 得到长度
-{{{class="brush:bash;"
+{{{class="brush:bash; gutter:false;"
 [liwei@localhost ~]$ echo ${#a[@]}
 5
 [liwei@localhost ~]$ echo ${#a[*]}
@@ -25,7 +25,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 用`${#数组名[@或*]}`可以得到数组长度
 
 - 读取
-{{{class="brush:bash;"
+{{{class="brush:bash; gutter:false; "
 [liwei@localhost ~]$ echo ${a[2]}
 3
 [liwei@localhost ~]$ echo ${a[*]}
@@ -35,7 +35,7 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 用 `${数组名[下标]}` 下标是从0开始，下标如果是：`*`或者`@` 得到整个数组内容。
 
 - 赋值
-{{{class="brush:bash;"
+{{{class="brush:bash; gutter:false;"
 [liwei@localhost ~]$ a[1]=100
 [liwei@localhost ~]$ echo ${a[*]}
 1 100 3 4 5
@@ -65,21 +65,20 @@ shell的强大让我欣喜若狂，最近一直在做一些升级上的工作，
 === 3. 特殊使用 ===
 
 - 分片
-{{{class="brush:bash;"
-[liwei@localhost ~]$ a=(1 2 3 4 5)
-[liwei@localhost ~]$ echo ${a[@]:0:3}
-1 2 3
-[liwei@localhost ~]$ echo ${a[@]:1:4}
-2 3 4 5
-}}}
-
-{{{class="brush:bash;"
-[liwei@localhost ~]$ c=(${a[@]:1:4})
-[liwei@localhost ~]$ echo ${#c[@]}
-4
-[liwei@localhost ~]$ echo ${c[*]}
-2 3 4 5
-}}}
+	{{{class="brush:bash;"
+	[liwei@localhost ~]$ a=(1 2 3 4 5)
+	[liwei@localhost ~]$ echo ${a[@]:0:3}
+	1 2 3
+	[liwei@localhost ~]$ echo ${a[@]:1:4}
+	2 3 4 5
+	}}}
+	{{{class="brush:bash;"
+	[liwei@localhost ~]$ c=(${a[@]:1:4})
+	[liwei@localhost ~]$ echo ${#c[@]}
+	4
+	[liwei@localhost ~]$ echo ${c[*]}
+	2 3 4 5
+	}}}
 
 直接通过 `${数组名[@或*]:起始位置:长度}` 切片原先数组，返回字符串，中间用“空格”分开， 因此如果加上“()”，将得到切片数组，上面例子：c就是一个新数据。
 
