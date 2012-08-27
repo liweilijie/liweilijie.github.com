@@ -148,39 +148,283 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
-<li>
-<a href="c.html">c</a>
+<h1>wireshark 过滤条件</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">1. 过滤语法</a>
+<li><a href="#toc_0.2">2. 查包的过滤条件</a>
+</ul>
+</ul>
+</div>
 
-<li>
-<a href="cpp.html">cpp</a>
+<hr />
 
-<li>
-<a href="vim.html">vim</a>
+<h2 id="toc_0.1">1. 过滤语法</h2>
 
-<li>
-<a href="shell.html">shell</a>
 
-<li>
-<a href="linux.html">linux</a>
+<table>
+<tr>
+<th>
+常用过滤语法
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+<code>ether host 00:90:0b:11:67:80</code>
+</td>
+<td>
+定义捕获mac地址为00:90:0b:11:67:80
+</td>
+</tr>
+<tr>
+<td>
+<code>ether proto 0x0806</code>
+</td>
+<td>
+定义了所有数据包中只要ethernet协议类型是0x0806的数据包进行捕获。
+</td>
+</tr>
+<tr>
+<td>
+ether host D0:DF:9A:87:57:9E and ether proto 0x0806
+</td>
+<td>
+该语法等价于ether host D0:DF:9A:87:57:9E and arp）
+</td>
+</tr>
+<tr>
+<td>
+<code>arp</code>
+</td>
+<td>
+该语法只捕获所有的arp数据包
+</td>
+</tr>
+<tr>
+<td>
+<code>ip</code>
+</td>
+<td>
+该语法只捕获数据包中有IP头部的包。
+</td>
+</tr>
+<tr>
+<td>
+<code>host</code> 192.168.0.61
+</td>
+<td>
+该语法只捕获IP头部中只要有192.168.0.61这个地址的数据，不管它是源IP地址还是目标IP
+</td>
+</tr>
+<tr>
+<td>
+<code>tcp</code>
+</td>
+<td>
+该语法只捕获所有是tcp的数据包
+</td>
+</tr>
+<tr>
+<td>
+<code>tcp port 23</code>
+</td>
+<td>
+该语法只捕获tcp端口号是23的数据包，不管源端口还是目标端口。
+</td>
+</tr>
+<tr>
+<td>
+udp
+</td>
+<td>
+该语法只捕获所有是udp的数据包
+</td>
+</tr>
+<tr>
+<td>
+udp  port 53
+</td>
+<td>
+该语法只捕获udp端口号是23的数据包，不管源端口还是目标端口。
+</td>
+</tr>
+<tr>
+<td>
+port 68
+</td>
+<td>
+该语法只捕获端口为68的数据，不管是TCP还是UDP，不管该端口号是源端口，还是目标端口
+</td>
+</tr>
+</table>
 
-<li>
-<a href="article_reading_notes.html">读书札记</a>
 
-<li>
-<a href="article_by_my_heart.html">随心所欲</a>
-
-<li>
-<a href="article_love_music.html">最爱音乐</a>
-
-<li>
-<a href="learn_happy.html">快乐学习</a>
-
-<li>
-<a href="windows.html">windows</a>
-
-</ol>
+<h2 id="toc_0.2">2. 查包的过滤条件</h2>
+<table>
+<tr>
+<th>
+过滤语句
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+eth.addr eq 00:90:0b:11:67:80
+</td>
+<td>
+查找MAC等于 <code>00:90:0b:11:67:80</code> 的数据包，不过源MAC还是目标MAC
+</td>
+</tr>
+<tr>
+<td>
+eth.src eq 00:90:0b:11:67:80
+</td>
+<td>
+查找源MAC地址为00:90:0b:11:67:80的数据包
+</td>
+</tr>
+<tr>
+<td>
+eth.dst eq 00:90:0b:11:67:80
+</td>
+<td>
+查找目录MAC地址为00:90:0b:11:67:80的数据包
+</td>
+</tr>
+<tr>
+<td>
+<code>eth.type eq 0x0806</code>
+</td>
+<td>
+查找ethernet协议类型为0x0806（ARP包）的数据包
+</td>
+</tr>
+<tr>
+<td>
+ip.addr eq 192.168.0.61
+</td>
+<td>
+查找IP地址为192.168.0.61的数据包
+</td>
+</tr>
+<tr>
+<td>
+tcp.dstport eq 80
+</td>
+<td>
+查找TCP目标端口为80的数据包
+</td>
+</tr>
+<tr>
+<td>
+tcp.srcport eq 80
+</td>
+<td>
+查找TCP源端口为80的数据包
+</td>
+</tr>
+<tr>
+<td>
+udp.dstport eq 53
+</td>
+<td>
+查找UDP源端口为53的数据包
+</td>
+</tr>
+<tr>
+<td>
+udp.srcport eq 53
+</td>
+<td>
+查找UDP目标端口为53的数据包
+</td>
+</tr>
+<tr>
+<td>
+ip.addr eq 192.168.0.61 and udp.srcport eq 53
+</td>
+<td>
+定位查看IP地址为192.168.0.61，UDP源端口为53的数据包
+</td>
+</tr>
+<tr>
+<td>
+<code>oicq</code>
+</td>
+<td>
+QQ
+</td>
+</tr>
+<tr>
+<td>
+tcp.port eq 25 or icmp
+</td>
+<td>
+smtp(25) or icmp
+</td>
+</tr>
+<tr>
+<td>
+ip.src==192.168.0.0/16 and ip.dst==192.168.0.0/16
+</td>
+<td>
+Show only traffic in the LAN (192.168.x.x), between workstations and servers -- no Internet
+</td>
+</tr>
+<tr>
+<td>
+tcp.window_size == 0 &amp;&amp; tcp.flag.reset != 1
+</td>
+<td>
+TCP buffer full -- Source is instructing Destination to stop sending data
+</td>
+</tr>
+<tr>
+<td>
+<code>ip.addr = 192.168.0.61</code>
+</td>
+<td>
+ip address and like 'ip.src 192.168.0.61 or ip.dst 192.168.0.61'
+</td>
+</tr>
+<tr>
+<td>
+ip.src = 192.168.0.61
+</td>
+<td>
+source ip 192.168.0.61
+</td>
+</tr>
+<tr>
+<td>
+ip.dst = 192.168.0.61
+</td>
+<td>
+dst ip 192.168.0.61
+</td>
+</tr>
+<tr>
+<td>
+ip.src != 192.168.0.61
+</td>
+<td>
+ip not equal 192.168.0.61
+</td>
+</tr>
+<tr>
+<td>
+! (ip.src == 10.43.54.65 or ip.dst == 10.43.54.65)
+</td>
+<td>
+非的情况
+</td>
+</tr>
+</table>
 
 				</div>
 			</div>

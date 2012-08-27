@@ -148,39 +148,35 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
+<h1>linux hostname 修改</h1>
+
+<hr />
+
+<p>
+<em>如果你的Linux是图形化界面，请在菜单system setting-&gt;network setting里面（可以根据具体操作系统找找类似菜单），修改服务器名。</em>
+</p>
+
+
+<p>
+否则需要修改两个文件：
+</p>
+<ul>
 <li>
-<a href="c.html">c</a>
+<code>vi /etc/hosts</code> /etc/hosts 的内容一般有如下类似内容：
+<pre class="brush:bash;">
+    127.0.0.1 localhost.localdomain localhost
+    192.168.1.195 debian.localdomain debian
+    如果有的话，请修改：localhost.localdomain=yourname
+    保存退出。
+</pre>
 
 <li>
-<a href="cpp.html">cpp</a>
+<code>vi /etc/sysconfig/network</code> 这里有一个HOSTNAME=yourname, 直接修改掉就可以了。
 
 <li>
-<a href="vim.html">vim</a>
+<code>reboot</code>
 
-<li>
-<a href="shell.html">shell</a>
-
-<li>
-<a href="linux.html">linux</a>
-
-<li>
-<a href="article_reading_notes.html">读书札记</a>
-
-<li>
-<a href="article_by_my_heart.html">随心所欲</a>
-
-<li>
-<a href="article_love_music.html">最爱音乐</a>
-
-<li>
-<a href="learn_happy.html">快乐学习</a>
-
-<li>
-<a href="windows.html">windows</a>
-
-</ol>
+</ul>
 
 				</div>
 			</div>

@@ -148,39 +148,54 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
-<li>
-<a href="c.html">c</a>
+<h1>在linux上获得其外网ip</h1>
 
-<li>
-<a href="cpp.html">cpp</a>
+<pre class="brush:bash;">
+$wget http://members.3322.org/dyndns/getip
+$cat getip
+</pre>
 
-<li>
-<a href="vim.html">vim</a>
+<p>
+<strong>测试如下：</strong>
+</p>
 
-<li>
-<a href="shell.html">shell</a>
+<pre class="brush:bash;">
+[root@qzt ~]# wget http://members.3322.org/dyndns/getip
+		--15:01:36--  http://members.3322.org/dyndns/getip
+				   =&gt; `getip'
+		Resolving members.3322.org... 61.160.235.210
+		Connecting to members.3322.org[61.160.235.210]:80... connected.
+		HTTP request sent, awaiting response... 200 OK
+		Length: 16 [text/plain]
 
-<li>
-<a href="linux.html">linux</a>
+		100%[=====================================&gt;] 16 --.--K/s             
 
-<li>
-<a href="article_reading_notes.html">读书札记</a>
+		15:01:37 (156.25 KB/s) - `getip' saved [16/16]
 
-<li>
-<a href="article_by_my_heart.html">随心所欲</a>
+[root@qzt ~]# cat getip 
+219.142.241.74
+[root@qzt ~]# 
+</pre>
 
-<li>
-<a href="article_love_music.html">最爱音乐</a>
+<hr />
 
-<li>
-<a href="learn_happy.html">快乐学习</a>
+<p>
+<strong>遇到的问题：</strong>
+</p>
 
-<li>
-<a href="windows.html">windows</a>
+<pre class="brush:bash;">
+[root@qzt ~]# wget http://members.3322.org/dyndns/getip
+Error parsing proxy URL :0: Unsupported scheme.
 
-</ol>
+//原来是配置文件的原因
+[root@qzt ~]# cat .wgetrc 
+http-proxy = :0
+ftp-proxy = :0[root@qzt ~]#
+
+
+//删除就会成功了
+[root@qzt ~]# rm -f .wgetrc
+</pre>
 
 				</div>
 			</div>

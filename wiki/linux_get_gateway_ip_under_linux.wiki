@@ -1,0 +1,45 @@
+%toc 在linux上获得其外网ip
+%title 在linux上获得其外网ip
+
+{{{class="brush:bash;"
+$wget http://members.3322.org/dyndns/getip
+$cat getip
+}}}
+
+*测试如下：*
+
+{{{class="brush:bash;"
+[root@qzt ~]# wget http://members.3322.org/dyndns/getip
+		--15:01:36--  http://members.3322.org/dyndns/getip
+				   => `getip'
+		Resolving members.3322.org... 61.160.235.210
+		Connecting to members.3322.org[61.160.235.210]:80... connected.
+		HTTP request sent, awaiting response... 200 OK
+		Length: 16 [text/plain]
+
+		100%[=====================================>] 16 --.--K/s             
+
+		15:01:37 (156.25 KB/s) - `getip' saved [16/16]
+
+[root@qzt ~]# cat getip 
+219.142.241.74
+[root@qzt ~]# 
+}}}
+
+----
+
+*遇到的问题：*
+
+{{{class="brush:bash;"
+[root@qzt ~]# wget http://members.3322.org/dyndns/getip
+Error parsing proxy URL :0: Unsupported scheme.
+
+//原来是配置文件的原因
+[root@qzt ~]# cat .wgetrc 
+http-proxy = :0
+ftp-proxy = :0[root@qzt ~]#
+
+
+//删除就会成功了
+[root@qzt ~]# rm -f .wgetrc
+}}}

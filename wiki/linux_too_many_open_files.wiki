@@ -1,0 +1,21 @@
+%toc Too many open files
+%title Too many open files
+
+----
+
+*Too many open files 解决办法*
+
+{{{class="brush:bash;"
+#vi /etc/security/limits.conf
+* soft nofile 81920
+* hard nofile 81920
+}}}
+
+{{{class="brush:bash;"
+#vi /etc/pam.d/system-auth
+session      required       pam_limits.so
+}}}
+执行：
+{{{class="brush:bash;"
+ulimit -n 81920
+}}}

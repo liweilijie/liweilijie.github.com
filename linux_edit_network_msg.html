@@ -148,39 +148,76 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
+<h1>linux配置网络参数</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">1. 配置ip地址</a>
+<li><a href="#toc_0.2">2. 配置网关</a>
+<li><a href="#toc_0.3">3. 配置DNS</a>
+</ul>
+</ul>
+</div>
+
+<p>
+<strong>最近装系统时，发现网络几乎都没有启动，还得自己手动配置，所以记录下来如何配置的吧。</strong>
+</p>
+
+<h2 id="toc_0.1">1. 配置ip地址</h2>
+
+<ul>
 <li>
-<a href="c.html">c</a>
+临时生效的配置：<code>ifconfig eth0 192.168.3.205 netmask 255.255.252.0 broadcast 192.168.3.255</code>
 
 <li>
-<a href="cpp.html">cpp</a>
+配置文件的方式：
+<pre class="brush:bash;">
+DEVICE="eth1"
+HWADDR="00:90:0B:11:67:80"
+NM_CONTROLLED="yes"
+ONBOOT="yes"
+TYPE=Ethernet
+NETMASK=255.255.252.0
+IPADDR=192.168.3.205
+USERCTL=no
+PEERDNS=yes
+IPV6INIT=no
+</pre>
+
+</ul>
+
+<h2 id="toc_0.2">2. 配置网关</h2>
+
+<ul>
+<li>
+临时生效的配置： <code>route add default gw 192.168.0.247</code>
 
 <li>
-<a href="vim.html">vim</a>
+写文件配置：
+<pre class="brush:bash;">
+[root@localhost ~]# cat /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=localhost.localdomain
+GATEWAY=192.168.0.247
+[root@localhost ~]# 
+</pre>
 
+</ul>
+
+
+<h2 id="toc_0.3">3. 配置DNS</h2>
+
+<ul>
 <li>
-<a href="shell.html">shell</a>
+写文件：
+<pre class="brush:bash;">
+[root@localhost ~]# cat /etc/resolv.conf 
+nameserver 219.141.136.10
+nameserver 8.8.8.8
+search bogon
+[root@localhost ~]#
+</pre>
 
-<li>
-<a href="linux.html">linux</a>
-
-<li>
-<a href="article_reading_notes.html">读书札记</a>
-
-<li>
-<a href="article_by_my_heart.html">随心所欲</a>
-
-<li>
-<a href="article_love_music.html">最爱音乐</a>
-
-<li>
-<a href="learn_happy.html">快乐学习</a>
-
-<li>
-<a href="windows.html">windows</a>
-
-</ol>
+</ul>
 
 				</div>
 			</div>

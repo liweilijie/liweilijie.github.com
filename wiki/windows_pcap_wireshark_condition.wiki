@@ -1,0 +1,47 @@
+%toc wireshark 过滤条件
+%title wireshark 过滤条件
+
+----
+
+== 1. 过滤语法 ==
+
+
+| 常用过滤语法                                        | 说明                                                                             |
+|-----------------------------------------------------+----------------------------------------------------------------------------------|
+| `ether host 00:90:0b:11:67:80`                      | 定义捕获mac地址为00:90:0b:11:67:80                                               |
+| `ether proto 0x0806`                                | 定义了所有数据包中只要ethernet协议类型是0x0806的数据包进行捕获。                 |
+| ether host D0:DF:9A:87:57:9E and ether proto 0x0806 | 该语法等价于ether host D0:DF:9A:87:57:9E and arp）                               |
+| `arp`                                               | 该语法只捕获所有的arp数据包                                                      |
+| `ip`                                                | 该语法只捕获数据包中有IP头部的包。                                               |
+| `host` 192.168.0.61                                 | 该语法只捕获IP头部中只要有192.168.0.61这个地址的数据，不管它是源IP地址还是目标IP |
+| `tcp`                                               | 该语法只捕获所有是tcp的数据包                                                    |
+| `tcp port 23`                                       | 该语法只捕获tcp端口号是23的数据包，不管源端口还是目标端口。                      |
+| udp                                                 | 该语法只捕获所有是udp的数据包                                                    |
+| udp  port 53                                        | 该语法只捕获udp端口号是23的数据包，不管源端口还是目标端口。                      |
+| port 68                                             | 该语法只捕获端口为68的数据，不管是TCP还是UDP，不管该端口号是源端口，还是目标端口 |
+
+
+== 2. 查包的过滤条件 ==
+
+
+| 过滤语句                                           | 说明                                                                                        |
+|----------------------------------------------------+---------------------------------------------------------------------------------------------|
+| eth.addr eq 00:90:0b:11:67:80                      | 查找MAC等于 `00:90:0b:11:67:80` 的数据包，不过源MAC还是目标MAC                              |
+| eth.src eq 00:90:0b:11:67:80                       | 查找源MAC地址为00:90:0b:11:67:80的数据包                                                    |
+| eth.dst eq 00:90:0b:11:67:80                       | 查找目录MAC地址为00:90:0b:11:67:80的数据包                                                  |
+| `eth.type eq 0x0806`                               | 查找ethernet协议类型为0x0806（ARP包）的数据包                                               |
+| ip.addr eq 192.168.0.61                            | 查找IP地址为192.168.0.61的数据包                                                            |
+| tcp.dstport eq 80                                  | 查找TCP目标端口为80的数据包                                                                 |
+| tcp.srcport eq 80                                  | 查找TCP源端口为80的数据包                                                                   |
+| udp.dstport eq 53                                  | 查找UDP源端口为53的数据包                                                                   |
+| udp.srcport eq 53                                  | 查找UDP目标端口为53的数据包                                                                 |
+| ip.addr eq 192.168.0.61 and udp.srcport eq 53      | 定位查看IP地址为192.168.0.61，UDP源端口为53的数据包                                         |
+| `oicq`                                             | QQ                                                                                          |
+| tcp.port eq 25 or icmp                             | smtp(25) or icmp                                                                            |
+| ip.src==192.168.0.0/16 and ip.dst==192.168.0.0/16  | Show only traffic in the LAN (192.168.x.x), between workstations and servers -- no Internet |
+| tcp.window_size == 0 && tcp.flag.reset != 1        | TCP buffer full -- Source is instructing Destination to stop sending data                   |
+| `ip.addr = 192.168.0.61`                           | ip address and like 'ip.src 192.168.0.61 or ip.dst 192.168.0.61'                            |
+| ip.src = 192.168.0.61                              | source ip 192.168.0.61                                                                      |
+| ip.dst = 192.168.0.61                              | dst ip 192.168.0.61                                                                         |
+| ip.src != 192.168.0.61                             | ip not equal 192.168.0.61                                                                   |
+| ! (ip.src == 10.43.54.65 or ip.dst == 10.43.54.65) | 非的情况                                                                                    |

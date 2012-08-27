@@ -3,3 +3,8 @@
 # [[linux_user_manager|linux用户管理]]
 # [[linux_ssh_control_user_access|ssh访问控制]]
 # [[linux_logrotate_example|logrotate]]
+# [[linux_too_many_open_files|Too many open files]]
+# [[linux_edit_network_msg|linux配置网络参数]]
+# [[linux_edit_hostname_info|linux hostname 修改]]
+# [[linux_yum_local_cdrom|yum 本地源]]
+# [[linux_get_gateway_ip_under_linux|linux下得到网关ip地址]]

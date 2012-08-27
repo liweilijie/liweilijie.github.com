@@ -148,39 +148,49 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
+<h1>yum 本地源的配置</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">1. 首先是挂载光盘文件</a>
+<li><a href="#toc_0.2">2 配置源文件</a>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">1. 首先是挂载光盘文件</h2>
+
+<p>
+<code>#mount /dev/cdrom /mnt</code>
+</p>
+
+<h2 id="toc_0.2">2 配置源文件</h2>
+
+<ul>
 <li>
-<a href="c.html">c</a>
+<code>cd /etc/yum.repos.d/</code>
 
 <li>
-<a href="cpp.html">cpp</a>
+<code>mv fedora-updates.repo fedora-updates.repo.bak</code> 将文件夹下fedora-updates.repo……等所有的文件改名 
 
 <li>
-<a href="vim.html">vim</a>
+<code>vi iso.repo</code> 内容如下：
+<pre>
+[iso]
+name=iso
+baseurl=file:///mnt
+gpgkey=file:///mnt
+</pre>
 
+</ul>
+<p>
+创建一个iso.repo文件放在/etc/yum.repos.d/下
+</p>
+
+<ul>
 <li>
-<a href="shell.html">shell</a>
+<code>yum --enablerepo=iso install</code> 文件。 这样就可以开始yum文件了，可以适当加个参数
 
-<li>
-<a href="linux.html">linux</a>
-
-<li>
-<a href="article_reading_notes.html">读书札记</a>
-
-<li>
-<a href="article_by_my_heart.html">随心所欲</a>
-
-<li>
-<a href="article_love_music.html">最爱音乐</a>
-
-<li>
-<a href="learn_happy.html">快乐学习</a>
-
-<li>
-<a href="windows.html">windows</a>
-
-</ol>
+</ul>
 
 				</div>
 			</div>

@@ -28,8 +28,7 @@
 		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
 		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
-		<!--<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> -->
-		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeDefault.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
 		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
 		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
 		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
@@ -190,150 +189,92 @@
 							<div class="content">
 								<div class="alert top-nav"><a href="index.html">首页</a>&nbsp;&gt;&nbsp;<a href="c.html">C</a></div>
 								
-<h1>sscanf.用法</h1>
+<h1>c语言中整数在内存中的格式</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_0.1">1. 常见用法。</a>
-<li><a href="#toc_0.2">2. 取指定长度的字符串。</a>
-<li><a href="#toc_0.3">3. 取到指定字符为止的字符串。</a>
-<li><a href="#toc_0.4">4. 取仅包含指定字符集的字符串。</a>
-<li><a href="#toc_0.5">5. 取到指定字符集为止的字符串。</a>
-<li><a href="#toc_0.6">6. test</a>
+<li><a href="#toc_0.1">1. big endian 和 small endian</a>
 </ul>
 </ul>
 </div>
 
+<h2 id="toc_0.1">1. big endian 和 small endian</h2>
 
 <p>
-大家都知道sscanf是一个很好用的函数，利用它可以从字符串中取出整数、浮点数和字符串等等。
+在intel机器上都是采用的small endian即小端字节序，也就是<code>地位的地址低，高位的地址高</code>。
 </p>
+<pre class="brush:c;">
 
-<p>
-它的使用方法简单，特别对于整数和浮点数来说。
-但新手可能并不知道处理字符串时的一些高级用法，这里做个简要说明吧。
-</p>
-
-<h2 id="toc_0.1">1. 常见用法。</h2>
-
-<pre class="brush:c">
-char str[512] = {0};
-
-sscanf("123456 ", "%s", str);
-
-printf("str=%s\n", str);
+int i = 0x12345678;
+char c1 = *(char *)(&amp;i)
 </pre>
 
 
-<h2 id="toc_0.2">2. 取指定长度的字符串。</h2>
 <p>
-如在下例中，取最大长度为4字节的字符串。
+一个int型整数的地址就是其最低位的地址，所以上例中c1的值就是  <strong>0x78</strong> . 
+</p>
+
+<p>
+那么整数的正数，负数，以及无符号整数的表示方法有什么区别呢?
+</p>
+
+<p>
+<strong>对于正整数来说，内存里装的就是它自己的二进制码</strong>
+</p>
+
+ 
+<ul>
+<li>
+而负数呢，是对齐相应的整数，逐位求反，然后+1.
+
+</ul>
+
+<p>
+负数的最高位都是1，不是规定的，而是算出来的结果，最高位必为1.
+根据上述算法-1 不是0x80000001 而是0xFFFFFFFF.
+</p>
+
+<p>
+下面相应的介绍一下左移&lt;&lt;和右移&gt;&gt;的计算.
+左移：
 </p>
 
 
-<pre class="brush:c">
-sscanf("123456 ", "%4s", str);
-printf("str=%s\n", str);
-</pre>
-
-
-<h2 id="toc_0.3">3. 取到指定字符为止的字符串。</h2>
 <p>
-如在下例中，取遇到空格为止字符串。
+左移相对比较简单，是不考虑符号位的，符号位也会被移除，正数可能左移成负数，负数也可能编程正数
 </p>
 
-<pre class="brush:c">
-sscanf("123456 abcdedf", "%[^ ]", str);
-printf("str=%s\n", str);
-</pre>
-
-
-<h2 id="toc_0.4">4. 取仅包含指定字符集的字符串。</h2>
 <p>
-如在下例中，取仅包含1到9和小写字母的字符串。
+而右移呢，就需要考虑符号位了。右移过程中符号位保持不变，但注意符号位如果是1也是右移给右侧一位的，虽然自己不变。
 </p>
 
-<pre class="brush:c">
-sscanf("123456abcdedfBCDEF", "%[1-9a-z]", str);
-printf("str=%s\n", str);
-</pre>
-
-
-<h2 id="toc_0.5">5. 取到指定字符集为止的字符串。</h2>
-<p>
-如在下例中，取遇到大写字母为止的字符串。
-</p>
-
-<pre class="brush:c">
-sscanf("123456abcdedfBCDEF", "%[^A-Z]", str);
-printf("str=%s\n", str);
-</pre>
-
-<h2 id="toc_0.6">6. test</h2>
-<pre class="brush:c">
-
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-
-int main(void)
-{
-	char str[512];
-
-	/** 
-	 * TODO(liw): we alway use it as this style
-	 */
-	memset(str, '\0', sizeof str);
-	sscanf("123456", "%s", str);
-	printf("str:%s\n", str);
-
-	/** 
-	 * TODO(liw): assign the numbers by byte
-	 */
-	memset(str, '\0', sizeof str);
-	sscanf("123456", "%4s", str);
-	printf("just 4 bytes str:%s\n", str);
-
-	/** 
-	 * TODO(liw): get the string util the space
-	 */
-	memset(str, '\0', sizeof str);
-	sscanf("123456 abcdefg", "%[^ ]", str);
-	printf("space str:%s\n", str);
-
-	/** 
-	 * TODO(liw): get the byte if it is validate
-	 */
-	memset(str, '\0', sizeof str);
-	sscanf("123456abcdefsgBCDEF", "%[1-9a-z]", str);
-	printf("1astr:%s\n", str);
-
-	/** 
-	 * TODO(liw): get the byte util happend uppercase
-	 */
-	memset(str, '\0', sizeof str);
-	sscanf("123456abcdefgBCDEF", "%[^A-Z]", str);
-	printf("util the uppercase str:%s\n", str);
-
-	return 0;
-}
-</pre>
 
 <p>
-_<em>result</em>_
+上例的结果既不是0x40000000也不是0x00000000，居然是0xc0000000(1100 0000 0000 ....)
 </p>
 
-<pre class="brush:bash">
-[root@liwei test]# vim sscanf_ad.c 
-[root@liwei test]# gcc -Wall -g -o ss sscanf_ad.c 
-[root@liwei test]# ./ss
-str:123456
-just 4 bytes str:1234
-space str:123456
-1astr:123456abcdefsg
-util the uppercase str:123456abcdefg
-[root@liwei test]# 
+<p>
+那么无符号有什么区别么？左移来说，没有任何区别，但对于右移来说，因为无符号整数表示最高位不是符号位，右移就可以移动了
+所以0x80000000 &gt;&gt; 1 就是0x40000000了
+</p>
 
-</pre>
+<p>
+利用上面的特点，我们可以很技巧的判断一个给定的子网掩码是不是合法的掩码，什么是合法的呢？就是从左开始一直是1，一旦遇到0后，后续的不能再有1的出现。
+</p>
+
+
+
+<p>
+注意参数必须是int不能是unsigned int，因为要利用右移保留符号位的特性。
+道理比较简单，就是子网掩码一定是1...10...0的格式，右移之后，1的个数会多一个，但是和原来的mask做&amp;操作后还是mask，如果mask是非法的，0与0之间一定混有1，一旦 右移又与操作后，就会多出2个1，就会不等于原来的mask了
+</p>
+
+<p>
+怎么求一个合法的掩码的位数呢？
+</p>
+
+<p>
+<a href="http://blog.chinaunix.net/uid-23817499-id-3320671.html">http://blog.chinaunix.net/uid-23817499-id-3320671.html</a>
+</p>
 
 							</div>
 						</div>

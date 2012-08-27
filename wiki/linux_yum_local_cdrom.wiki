@@ -1,0 +1,21 @@
+%toc yum 本地源的配置
+
+== 1. 首先是挂载光盘文件 ==
+
+`#mount /dev/cdrom /mnt`
+
+== 2 配置源文件 ==
+
+- `cd /etc/yum.repos.d/`
+- `mv fedora-updates.repo fedora-updates.repo.bak` 将文件夹下fedora-updates.repo……等所有的文件改名 
+- `vi iso.repo` 内容如下：
+{{{
+[iso]
+name=iso
+baseurl=file:///home/iso/
+gpgcheck=1
+gpgkey=file:///home/iso/RPM-GPG-KEY-fedora-i386
+}}}
+创建一个iso.repo文件放在/etc/yum.repos.d/下
+
+- `yum --enablerepo=iso install` 文件。 这样就可以开始yum文件了，可以适当加个参数

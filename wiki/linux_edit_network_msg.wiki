@@ -1,0 +1,46 @@
+%toc linux配置网络参数
+%title linux配置网络参数
+
+*最近装系统时，发现网络几乎都没有启动，还得自己手动配置，所以记录下来如何配置的吧。*
+
+== 1. 配置ip地址 ==
+
+- 临时生效的配置：`ifconfig eth0 192.168.3.205 netmask 255.255.252.0 broadcast 192.168.3.255`
+- 配置文件的方式：
+{{{class="brush:bash;"
+DEVICE="eth1"
+HWADDR="00:90:0B:11:67:80"
+NM_CONTROLLED="yes"
+ONBOOT="yes"
+TYPE=Ethernet
+NETMASK=255.255.252.0
+IPADDR=192.168.3.205
+USERCTL=no
+PEERDNS=yes
+IPV6INIT=no
+}}}
+
+== 2. 配置网关 ==
+
+- 临时生效的配置： `route add default gw 192.168.0.247`
+- 写文件配置：
+{{{class="brush:bash;"
+[root@localhost ~]# cat /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=localhost.localdomain
+GATEWAY=192.168.0.247
+[root@localhost ~]# 
+}}}
+
+
+== 3. 配置DNS ==
+
+- 写文件：
+{{{class="brush:bash;"
+[root@localhost ~]# cat /etc/resolv.conf 
+nameserver 219.141.136.10
+nameserver 8.8.8.8
+search bogon
+[root@localhost ~]#
+}}}
+

@@ -1,0 +1,142 @@
+%toc linux下的一些计算器
+%title linux下的一些计算器
+
+----
+
+_下面总结linux下的三个命令，来介绍一下linux下的计算方法：_
+
+== 1. bc ==
+
+bc在默认的情况下是个交互式的指令。在bc工作环境下，可以使用以下计算符号：
+
+- `+` 加法 
+- `-` 减法 
+- `*` 乘法 
+- `/` 除法 
+- `^` 指数 
+- `%` 余数
+ 
+如：
+
+{{{class="brush:bash;"
+# bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+3+6            <=加法
+9
+4+2*3          <=加法、乘法
+10
+(4+2)*3        <=加法、乘法（优先）
+18
+4*6/8          <=乘法、除法
+3
+10^3           <=指数
+1000
+18%5           <=余数
+3+4;5*2;5^2;18/4      <=一行输入多个计算，用;相隔。
+7
+10
+25
+4
+quit           <=退出
+}}}
+ 
+{{{class="brush:bash;"
+# bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+scale=3         <=设小数位
+1/3
+.333
+quit
+}}}
+ 
+*以上是交互的计算，那到也可以不进行交互而直接计算出结果。*
+
+- 用 `echo` 和 `|` 法，如：
+{{{class="brush:bash;"
+# echo "(6+3)*2" |bc
+18
+# echo 15/4 |bc
+3
+# echo "scale=2;15/4" |bc
+3.75
+# echo "3+4;5*2;5^2;18/4" |bc
+7
+10
+25
+4
+}}}
+
+----
+ 
+- 另外， *bc* 除了 *scale* 来设定小数位之外，还有 *ibase* 和 *obase* 来其它进制的运算。 如：
+	* //将16进制的A7输出为10进制, 注意，英文只能大写: `# echo "ibase=16;A7" |bc` 结果： _167_
+	* //将2进制的11111111转成10进制: `# echo "ibase=2;11111111" |bc` 结果： _255_
+	* //输入为16进制，输出为2进制: `# echo "ibase=16;obase=2;B5-A4" |bc` 结果： _10001_
+
+- *ibase* 是输入数字的进制，而 *obase* 就是输出数字的进制了。很好记， *i* 是 *input* ， *o* 是 *output* 。 如果用一条命令来转数字，可以用 `echo命令和管道结合bc`。如下：
+	* 10进制转2进制：`$ echo "obase=2;ibase=10;100" | bc1100100`
+	* 10进制转16进制：`$ echo "obase=16;ibase=10;100" | bc64`
+	* 16进制转10进制：`$ echo "ibase=16;obase=2;F1" | bc11110001`
+ 
+- 对于 *bc* 还有补充，在 `bc --help` 中还可以发现： *bc* 后可以接文件名。如：
+{{{class="brush:bash;"
+# more calc.txt 
+3+2
+4+5
+8*2
+10/4
+# bc calc.txt 
+5
+9
+16
+2
+}}}
+
+----
+
+== 2. expr ==
+
+*expr* 命令可不光能计算加减乘除哦，还有很多表达式，都可以计算出结果，不过有一点需要注意，在计算加减乘除时，不要忘了 *使用空格和转义* 。下面直接用实例来介绍一下 *expr* 的运算，如：
+{{{class="brush:bash;"
+# expr 6 + 3       （有空格）
+9
+ 
+# expr 2 \* 3      （有转义符号）
+6
+# expr 14 % 9 
+5 
+ 
+# a=3
+# expr $a+5          （无空格）
+3+5
+# expr $a + 5         （变量，有空格）
+8
+# a=`expr 4 + 2`
+echo $a
+6
+# expr $a + 3
+9
+
+}}}
+
+_另外，expr对于字串的操作（计算）也是很方便的，如：_
+
+{{{class="brush:bash;"
+//字串长度 
+# expr length "liwei.tk" 
+8
+ 
+//从位置处抓取字串 
+# expr substr "yangzhigang.cublog.cn" 1 11
+yangzhigang
+
+//字串开始处
+# expr index "yangzhigang.cublog.cn" cu
+13
+}}}

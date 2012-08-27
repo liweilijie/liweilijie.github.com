@@ -148,39 +148,30 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
-<li>
-<a href="c.html">c</a>
+<h1>Too many open files</h1>
 
-<li>
-<a href="cpp.html">cpp</a>
+<hr />
 
-<li>
-<a href="vim.html">vim</a>
+<p>
+<strong>Too many open files 解决办法</strong>
+</p>
 
-<li>
-<a href="shell.html">shell</a>
+<pre class="brush:bash;">
+#vi /etc/security/limits.conf
+* soft nofile 81920
+* hard nofile 81920
+</pre>
 
-<li>
-<a href="linux.html">linux</a>
-
-<li>
-<a href="article_reading_notes.html">读书札记</a>
-
-<li>
-<a href="article_by_my_heart.html">随心所欲</a>
-
-<li>
-<a href="article_love_music.html">最爱音乐</a>
-
-<li>
-<a href="learn_happy.html">快乐学习</a>
-
-<li>
-<a href="windows.html">windows</a>
-
-</ol>
+<pre class="brush:bash;">
+#vi /etc/pam.d/system-auth
+session      required       pam_limits.so
+</pre>
+<p>
+执行：
+</p>
+<pre class="brush:bash;">
+ulimit -n 81920
+</pre>
 
 				</div>
 			</div>

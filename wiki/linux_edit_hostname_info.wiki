@@ -1,0 +1,18 @@
+%toc linux hostname 修改
+%title linux hostname 修改
+
+----
+
+_如果你的Linux是图形化界面，请在菜单system setting->network setting里面（可以根据具体操作系统找找类似菜单），修改服务器名。_
+
+
+否则需要修改两个文件：
+- `vi /etc/hosts` /etc/hosts 的内容一般有如下类似内容：
+{{{class="brush:bash;"
+    127.0.0.1 localhost.localdomain localhost
+    192.168.1.195 debian.localdomain debian
+    如果有的话，请修改：localhost.localdomain=yourname
+    保存退出。
+}}}
+- `vi /etc/sysconfig/network` 这里有一个HOSTNAME=yourname, 直接修改掉就可以了。
+- `reboot`

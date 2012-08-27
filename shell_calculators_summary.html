@@ -27,7 +27,8 @@
 		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 		
 		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
-		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<!--<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> -->
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeDefault.css" /> 
 		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
 		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
 		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
@@ -148,39 +149,212 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1 id="toc_1">myLove</h1>
-<ol>
+<h1>linux下的一些计算器</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">1. bc</a>
+<li><a href="#toc_0.2">2. expr</a>
+</ul>
+</ul>
+</div>
+
+<hr />
+
+<p>
+<em>下面总结linux下的三个命令，来介绍一下linux下的计算方法：</em>
+</p>
+
+<h2 id="toc_0.1">1. bc</h2>
+
+<p>
+bc在默认的情况下是个交互式的指令。在bc工作环境下，可以使用以下计算符号：
+</p>
+
+<ul>
 <li>
-<a href="c.html">c</a>
+<code>+</code> 加法 
 
 <li>
-<a href="cpp.html">cpp</a>
+<code>-</code> 减法 
 
 <li>
-<a href="vim.html">vim</a>
+<code>*</code> 乘法 
 
 <li>
-<a href="shell.html">shell</a>
+<code>/</code> 除法 
 
 <li>
-<a href="linux.html">linux</a>
+<code>^</code> 指数 
 
 <li>
-<a href="article_reading_notes.html">读书札记</a>
+<code>%</code> 余数
+
+</ul>
+ 
+<p>
+如：
+</p>
+
+<pre class="brush:bash;">
+# bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+3+6            &lt;=加法
+9
+4+2*3          &lt;=加法、乘法
+10
+(4+2)*3        &lt;=加法、乘法（优先）
+18
+4*6/8          &lt;=乘法、除法
+3
+10^3           &lt;=指数
+1000
+18%5           &lt;=余数
+3+4;5*2;5^2;18/4      &lt;=一行输入多个计算，用;相隔。
+7
+10
+25
+4
+quit           &lt;=退出
+</pre>
+ 
+<pre class="brush:bash;">
+# bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+scale=3         &lt;=设小数位
+1/3
+.333
+quit
+</pre>
+ 
+<p>
+<strong>以上是交互的计算，那到也可以不进行交互而直接计算出结果。</strong>
+</p>
+
+<ul>
+<li>
+用 <code>echo</code> 和 <code>|</code> 法，如：
+<pre class="brush:bash;">
+# echo "(6+3)*2" |bc
+18
+# echo 15/4 |bc
+3
+# echo "scale=2;15/4" |bc
+3.75
+# echo "3+4;5*2;5^2;18/4" |bc
+7
+10
+25
+4
+</pre>
+
+</ul>
+
+<hr />
+ 
+<ul>
+<li>
+另外， <strong>bc</strong> 除了 <strong>scale</strong> 来设定小数位之外，还有 <strong>ibase</strong> 和 <strong>obase</strong> 来其它进制的运算。 如：
+
+<ul>
+<li>
+//将16进制的A7输出为10进制, 注意，英文只能大写: <code># echo "ibase=16;A7" |bc</code> 结果： <em>167</em>
 
 <li>
-<a href="article_by_my_heart.html">随心所欲</a>
+//将2进制的11111111转成10进制: <code># echo "ibase=2;11111111" |bc</code> 结果： <em>255</em>
 
 <li>
-<a href="article_love_music.html">最爱音乐</a>
+//输入为16进制，输出为2进制: <code># echo "ibase=16;obase=2;B5-A4" |bc</code> 结果： <em>10001</em>
+
+</ul>
+</ul>
+
+<ul>
+<li>
+<strong>ibase</strong> 是输入数字的进制，而 <strong>obase</strong> 就是输出数字的进制了。很好记， <strong>i</strong> 是 <strong>input</strong> ， <strong>o</strong> 是 <strong>output</strong> 。 如果用一条命令来转数字，可以用 <code>echo命令和管道结合bc</code>。如下：
+
+<ul>
+<li>
+10进制转2进制：<code>$ echo "obase=2;ibase=10;100" | bc1100100</code>
 
 <li>
-<a href="learn_happy.html">快乐学习</a>
+10进制转16进制：<code>$ echo "obase=16;ibase=10;100" | bc64</code>
 
 <li>
-<a href="windows.html">windows</a>
+16进制转10进制：<code>$ echo "ibase=16;obase=2;F1" | bc11110001</code>
 
-</ol>
+</ul>
+</ul>
+ 
+<ul>
+<li>
+对于 <strong>bc</strong> 还有补充，在 <code>bc --help</code> 中还可以发现： <strong>bc</strong> 后可以接文件名。如：
+<pre class="brush:bash;">
+# more calc.txt 
+3+2
+4+5
+8*2
+10/4
+# bc calc.txt 
+5
+9
+16
+2
+</pre>
+
+</ul>
+
+<hr />
+
+<h2 id="toc_0.2">2. expr</h2>
+
+<p>
+<strong>expr</strong> 命令可不光能计算加减乘除哦，还有很多表达式，都可以计算出结果，不过有一点需要注意，在计算加减乘除时，不要忘了 <strong>使用空格和转义</strong> 。下面直接用实例来介绍一下 <strong>expr</strong> 的运算，如：
+</p>
+<pre class="brush:bash;">
+# expr 6 + 3       （有空格）
+9
+ 
+# expr 2 \* 3      （有转义符号）
+6
+# expr 14 % 9 
+5 
+ 
+# a=3
+# expr $a+5          （无空格）
+3+5
+# expr $a + 5         （变量，有空格）
+8
+# a=`expr 4 + 2`
+echo $a
+6
+# expr $a + 3
+9
+
+</pre>
+
+<p>
+<em>另外，expr对于字串的操作（计算）也是很方便的，如：</em>
+</p>
+
+<pre class="brush:bash;">
+//字串长度 
+# expr length "liwei.tk" 
+8
+ 
+//从位置处抓取字串 
+# expr substr "yangzhigang.cublog.cn" 1 11
+yangzhigang
+
+//字串开始处
+# expr index "yangzhigang.cublog.cn" cu
+13
+</pre>
 
 				</div>
 			</div>
