@@ -1,0 +1,51 @@
+%toc date
+%title date
+
+== 1. 自定义输出 ==
+
+{{{class="brush:bash;"
+liwei@localhost:~$ date +%Y-%m-%d
+2012-08-30
+
+liwei@localhost:~$ date +'%Y-%m-%d %H:%M:%S'
+2012-08-30 12:11:09
+
+liwei@localhost:~$ date +'%H:%M:%S'
+12:11:31
+
+liwei@localhost:~$ date +%T
+12:11:38
+
+}}}
+
+----
+
+== 2. date -d 的应用 ==
+
+{{{class="brush:bash;"
+liwei@localhost:~$ date
+2012年 08月 30日 星期四 12:12:50 CST
+
+liwei@localhost:~$ date -d '10 days'
+2012年 09月 09日 星期日 12:12:58 CST
+
+liwei@localhost:~$ date -d '-10 days'
+2012年 08月 20日 星期一 12:14:28 CST
+
+liwei@localhost:~$ date -d yesterday
+2012年 08月 29日 星期三 12:14:36 CST
+
+liwei@localhost:~$ date -d 20121221
+2012年 12月 21日 星期五 00:00:00 CST
+
+liwei@localhost:~$ date -d 1221
+2012年 08月 30日 星期四 12:21:00 CST
+
+}}}
+
+----
+
+== 3. date时间与秒的转换 ==
+
+- 将秒转换为时间：`date -d @1346300486`
+- 将时间转换为秒：`date +%s -d "2012-08-30 11:52:58"`

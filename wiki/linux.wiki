@@ -8,3 +8,6 @@
 # [[linux_edit_hostname_info|linux hostname 修改]]
 # [[linux_yum_local_cdrom|yum 本地源]]
 # [[linux_get_gateway_ip_under_linux|linux下得到网关ip地址]]
+# [[linux_ps_pstree_pstack|linux ps pstree pstack]]
+# [[linux_date_show|date]]
+# [[linux_chrome_install|install chrome]]

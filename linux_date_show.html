@@ -148,48 +148,68 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>yum 本地源的配置</h1>
+<h1>date</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_0.1">1. 首先是挂载光盘文件</a>
-<li><a href="#toc_0.2">2 配置源文件</a>
+<li><a href="#toc_0.1">1. 自定义输出</a>
+<li><a href="#toc_0.2">2. date -d 的应用</a>
+<li><a href="#toc_0.3">3. date时间与秒的转换</a>
 </ul>
 </ul>
 </div>
 
-<h2 id="toc_0.1">1. 首先是挂载光盘文件</h2>
+<h2 id="toc_0.1">1. 自定义输出</h2>
 
-<p>
-<code>#mount /dev/cdrom /mnt</code>
-</p>
+<pre class="brush:bash;">
+liwei@localhost:~$ date +%Y-%m-%d
+2012-08-30
 
-<h2 id="toc_0.2">2 配置源文件</h2>
+liwei@localhost:~$ date +'%Y-%m-%d %H:%M:%S'
+2012-08-30 12:11:09
 
-<ul>
-<li>
-<code>cd /etc/yum.repos.d/</code>
+liwei@localhost:~$ date +'%H:%M:%S'
+12:11:31
 
-<li>
-<code>mv fedora-updates.repo fedora-updates.repo.bak</code> 将文件夹下fedora-updates.repo……等所有的文件改名 
+liwei@localhost:~$ date +%T
+12:11:38
 
-<li>
-<code>vi iso.repo</code> 内容如下：
-<pre>
-[iso]
-name=iso
-baseurl=file:///home/iso/
-gpgcheck=1
-gpgkey=file:///home/iso/RPM-GPG-KEY-fedora-i386
 </pre>
 
-</ul>
-<p>
-创建一个iso.repo文件放在/etc/yum.repos.d/下
-</p>
+<hr />
+
+<h2 id="toc_0.2">2. date -d 的应用</h2>
+
+<pre class="brush:bash;">
+liwei@localhost:~$ date
+2012年 08月 30日 星期四 12:12:50 CST
+
+liwei@localhost:~$ date -d '10 days'
+2012年 09月 09日 星期日 12:12:58 CST
+
+liwei@localhost:~$ date -d '-10 days'
+2012年 08月 20日 星期一 12:14:28 CST
+
+liwei@localhost:~$ date -d yesterday
+2012年 08月 29日 星期三 12:14:36 CST
+
+liwei@localhost:~$ date -d 20121221
+2012年 12月 21日 星期五 00:00:00 CST
+
+liwei@localhost:~$ date -d 1221
+2012年 08月 30日 星期四 12:21:00 CST
+
+</pre>
+
+<hr />
+
+<h2 id="toc_0.3">3. date时间与秒的转换</h2>
 
 <ul>
 <li>
-<code>yum --enablerepo=iso install</code> 文件。 这样就可以开始yum文件了，可以适当加个参数
+将秒转换为时间：<code>date -d @1346300486</code>
+
+<li>
+将时间转换为秒：<code>date +%s -d "2012-08-30 11:52:58"</code>
 
 </ul>
 

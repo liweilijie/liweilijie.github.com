@@ -148,50 +148,149 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>yum 本地源的配置</h1>
+<h1>ps pstree pstack</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_0.1">1. 首先是挂载光盘文件</a>
-<li><a href="#toc_0.2">2 配置源文件</a>
+<li><a href="#toc_0.1">1. pstree</a>
+<li><a href="#toc_0.2">2. ps</a>
+<li><a href="#toc_0.3">3. pstack</a>
 </ul>
 </ul>
 </div>
 
-<h2 id="toc_0.1">1. 首先是挂载光盘文件</h2>
-
-<p>
-<code>#mount /dev/cdrom /mnt</code>
-</p>
-
-<h2 id="toc_0.2">2 配置源文件</h2>
-
+<h2 id="toc_0.1">1. pstree</h2>
 <ul>
 <li>
-<code>cd /etc/yum.repos.d/</code>
+功能说明：以树状图显示程序。
 
 <li>
-<code>mv fedora-updates.repo fedora-updates.repo.bak</code> 将文件夹下fedora-updates.repo……等所有的文件改名 
+语　　法：<code>pstree [-acGhlnpuUV][-H &lt;程序识别码&gt;][&lt;程序识别码&gt;/&lt;用户名称&gt;]</code>
 
 <li>
-<code>vi iso.repo</code> 内容如下：
-<pre>
-[iso]
-name=iso
-baseurl=file:///home/iso/
-gpgcheck=1
-gpgkey=file:///home/iso/RPM-GPG-KEY-fedora-i386
-</pre>
+补充说明： <strong>pstree</strong> 指令用 <strong>ASCII字符</strong> 显示树状结构，清楚地表达程序间的相互关系。如果不指定程序识别码或用户名称，则会把系统启动时的第一个程序视为基层，并显示之后的所有程序。若指定用户名称，便会以隶属该用户的第一个程序当作基层，然后显示该用户的所有程序。
+
+<li>
+参　　数：
 
 </ul>
-<p>
-创建一个iso.repo文件放在/etc/yum.repos.d/下
-</p>
-
+     
+<table class='center'>
+<tr>
+<th>
+参数
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+-a
+</td>
+<td>
+显示每个程序的完整指令，包含路径，参数或是常驻服务的标示。
+</td>
+</tr>
+<tr>
+<td>
+-c
+</td>
+<td>
+不使用精简标示法。
+</td>
+</tr>
+<tr>
+<td>
+-G
+</td>
+<td>
+使用VT100终端机的列绘图字符。
+</td>
+</tr>
+<tr>
+<td>
+-h
+</td>
+<td>
+列出树状图时，特别标明现在执行的程序。
+</td>
+</tr>
+<tr>
+<td>
+-H&lt;程序识别码&gt;
+</td>
+<td>
+&lt;程序识别码&gt; 　此参数的效果和指定"-h"参数类似，但特别标明指定的程序。
+</td>
+</tr>
+<tr>
+<td>
+-l
+</td>
+<td>
+采用长列格式显示树状图。
+</td>
+</tr>
+<tr>
+<td>
+-n
+</td>
+<td>
+用程序识别码排序。预设是以程序名称来排序。
+</td>
+</tr>
+<tr>
+<td>
+-p
+</td>
+<td>
+显示程序识别码。
+</td>
+</tr>
+<tr>
+<td>
+-u
+</td>
+<td>
+显示用户名称。
+</td>
+</tr>
+<tr>
+<td>
+-U
+</td>
+<td>
+使用UTF-8列绘图字符。
+</td>
+</tr>
+<tr>
+<td>
+-V
+</td>
+<td>
+显示版本信息。
+</td>
+</tr>
+</table>
+    
 <ul>
 <li>
-<code>yum --enablerepo=iso install</code> 文件。 这样就可以开始yum文件了，可以适当加个参数
+例子：<code>pstree -p root | grep beap</code>    
 
 </ul>
+	 
+
+<h2 id="toc_0.2">2. ps</h2>
+
+<p>
+<code>ps -Lf 1209</code> 显示进程启动了多少线程
+</p>
+
+<h2 id="toc_0.3">3. pstack</h2>
+
+<p>
+<code>pstack 1209</code> 显示每个进程的栈空间
+</p>
 
 				</div>
 			</div>

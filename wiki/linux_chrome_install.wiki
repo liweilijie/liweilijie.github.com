@@ -1,0 +1,35 @@
+%toc chrome
+%title chrome
+
+
+- Enable Google YUM repository
+- Add following to /etc/yum.repos.d/google-chrome.repo file:
+32-bit
+{{{
+[google-chrome]
+name=google-chrome - 32-bit
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/i386
+enabled=1
+gpgcheck=1
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+}}}
+64-bit
+{{{
+[google-chrome]
+name=google-chrome - 64-bit
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+}}}
+- Note: Both 32-bit and 64-bit repos can be placed in the same file.
+- Install Google Chrome with YUM (as root user)
+- Install Google Chrome Stable Version 
+## Install Google Chrome Stable version ##
+yum install google-chrome-stable
+Install Google Chrome Beta Version
+## Install Google Chrome Beta version ##
+yum install google-chrome-beta
+Install Google Chrome Unstable Version
+## Install Google Chrome Unstable version ##
+yum install google-chrome-unstable
