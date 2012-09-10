@@ -6,3 +6,7 @@
 # [[shell_wget_entire_site_content|wget下载整个网站]]
 # [[shell_calculators_summary|linux下的一些计算器]]
 # [[shell_bash_shortcut_key|bash快捷键]]
+# [[shell_sed_delete_character|利用sed删除指定字符]]
+# [[shell_sed_any_command|sed单行脚本速查]]
+# [[shell_speed_show|shell显示进度条有意思]]
+# [[shell_echo|echo]]

@@ -148,37 +148,34 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>shell</h1>
+<h1>利用sed删除指定字符</h1>
 
-<ol>
-<li>
-<a href="shell_array_study.html">shell数组</a>
+<p>
+今天跟一同事一些讨论如何利用shell将issue文件后面多余的'e' 或者'f'删除，且不能更改文件的其他格式。并且有的issue文件里面并不用删除，如果没有'e'或者'f'的时候。
+</p>
 
-<li>
-<a href="shell_if_test_condition.html">test条件</a>
+<p>
+后来讨论出来的命令是：<code>sed 's/\(.*\)[e|f]$/\1/g' issue</code>
+</p>
 
-<li>
-<a href="shell_wget_entire_site_content.html">wget下载整个网站</a>
 
-<li>
-<a href="shell_calculators_summary.html">linux下的一些计算器</a>
 
-<li>
-<a href="shell_bash_shortcut_key.html">bash快捷键</a>
+<p>
+是不是很简单，比如要删除前两个字符与最后两个字符：<code>sed 's/^..\(.*\)..$/\1/g' issue</code> 
+</p>
 
-<li>
-<a href="shell_sed_delete_character.html">利用sed删除指定字符</a>
+<p>
+或者仅对第二行进行删除：<code>echo -e "hello world\njust linux realse version" | sed "2s/^..\(.*\)..$/\1/g"</code>
+</p>
 
-<li>
-<a href="shell_sed_any_command.html">sed单行脚本速查</a>
 
-<li>
-<a href="shell_speed_show.html">shell显示进度条有意思</a>
+<p>
+或者：<code>sed -r 's/^.{2}(.*).{2}$/\1/g' issue</code> 
+</p>
 
-<li>
-<a href="shell_echo.html">echo</a>
-
-</ol>
+<p>
+<code>echo '12345678' | awk -F '' '{print $1$2$NF-1$NF}''</code>
+</p>
 
 				</div>
 			</div>

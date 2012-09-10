@@ -148,37 +148,91 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>shell</h1>
+<h1>shell 显示进度条</h1>
 
-<ol>
-<li>
-<a href="shell_array_study.html">shell数组</a>
+<pre class="brush:bash;">
+#!/bin/bash
+prg() {
+   for ((i=0;i&lt;=50;i++));do for ((j=0;j&lt;=$i;j+=1));do printf "&gt;";done;for ((k=0;k&lt;=50-$j;k+=1));do printf "=";done ;printf "\r";sleep 0.1;done;echo ""
+}
 
-<li>
-<a href="shell_if_test_condition.html">test条件</a>
+pprg() {
+	for ((i=0;i&lt;=50;i++))
+	do
+		for ((j=0;j&lt;=$i;j+=1))
+		do
+			printf "&gt;";
+		done
+		for ((k=0;k&lt;=50-$j;k+=1))
+		do
+			printf "="
+		done
+		printf "\r"
+		sleep 0.1
+	done
+	echo ""
+}
 
-<li>
-<a href="shell_wget_entire_site_content.html">wget下载整个网站</a>
+echo "Microsoft Windows 2000 [Version 5.00.2195]
+&lt;C&gt; 版权所有 1985-2000 Microsoft Corp.
+"
+put_one_by_one() {
+   for w in `echo $1|sed 's/./&amp; /g'`;do
+      echo -n $w
+      sleep $2
+   done
+   echo -e "\n"
+}
+main() {
+   echo -n "c:\&gt; "
+   sleep 1
+   put_one_by_one $1 0.2
+   sleep 2
+   case $1 in
+      "x!!不开机就砸了你!!")
+         sleep 2
+         echo -e "             Loading Windows 2000...\n"
+         sleep 1
+         prg
+         exit
+         ;;
+      *)
+         put_one_by_one "'$1'不是内部命令或外部命令，也不是可运行的程序或批处理文件。" 0.1
+         ;;
+   esac
+}
 
-<li>
-<a href="shell_calculators_summary.html">linux下的一些计算器</a>
+for i in "开机" "快开机" "你xx快开机" "x!!不开机就砸了你!!";do
+    main $i
+done
+</pre>
 
-<li>
-<a href="shell_bash_shortcut_key.html">bash快捷键</a>
 
-<li>
-<a href="shell_sed_delete_character.html">利用sed删除指定字符</a>
 
-<li>
-<a href="shell_sed_any_command.html">sed单行脚本速查</a>
+<pre class="brush:bash;">
+#!/bin/bash
+prg() {
+   for ((i=0;i&lt;=50;i++));do for ((j=0;j&lt;=$i;j+=1));do printf "&gt;";done;for ((k=0;k&lt;=50-$j;k+=1));do printf "=";done ;printf "\r";sleep 0.1;done;echo ""
+}
 
-<li>
-<a href="shell_speed_show.html">shell显示进度条有意思</a>
-
-<li>
-<a href="shell_echo.html">echo</a>
-
-</ol>
+echo "Microsoft Windows 2000 [Version 5.00.2195]
+&lt;C&gt; 版权所有 1985-2000 Microsoft Corp.
+" 
+while true;do
+   read -p "c:\&gt;" a
+   case $a in
+      "x!! 不开机就砸了你!!")
+         sleep 2
+         printf "\n             Loading Windows 2000...\n\n"
+         prg
+         exit
+         ;;
+      *)
+         printf "'$a'不是内部命令或外部命令，也不是可运行的程序或批处理文件。\n\n"
+         ;;
+   esac
+done
+</pre>
 
 				</div>
 			</div>

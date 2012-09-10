@@ -1,0 +1,17 @@
+%toc 利用sed删除指定字符
+%%title 利用sed删除指定字符
+
+今天跟一同事一些讨论如何利用shell将issue文件后面多余的'e' 或者'f'删除，且不能更改文件的其他格式。并且有的issue文件里面并不用删除，如果没有'e'或者'f'的时候。
+
+后来讨论出来的命令是：`sed 's/\(.*\)[e|f]$/\1/g' issue`
+
+
+
+是不是很简单，比如要删除前两个字符与最后两个字符：`sed 's/^..\(.*\)..$/\1/g' issue` 
+
+或者仅对第二行进行删除：`echo -e "hello world\njust linux realse version" | sed "2s/^..\(.*\)..$/\1/g"`
+
+
+或者：`sed -r 's/^.{2}(.*).{2}$/\1/g' issue` 
+
+`echo '12345678' | awk -F '' '{print $1$2$NF-1$NF}''`

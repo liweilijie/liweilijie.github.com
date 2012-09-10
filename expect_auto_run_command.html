@@ -148,37 +148,196 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>shell</h1>
+<h1>expect 自动运行命令</h1>
 
-<ol>
+<hr />
+
+<p>
+最近做升级有关的东西，但是在代码里面有一个很低级的错误。
+</p>
+
+<p>
+也就是文件打开了没有关闭，由于从其他同事那儿接过来的代码，本来运行很稳定的，所以也就没有检查是否有问题。
+</p>
+
+<p>
+最后导致太多的设备不能正常升级。于是我写了一个脚本一个一个自动登陆到设备上，进行替换模块。
+</p>
+
+<hr />
+
+<ul>
 <li>
-<a href="shell_array_study.html">shell数组</a>
+首先是login.sh脚本，它主要是将配置文件里面的所有ip地址读进来，然后转化为点分十进制式的ip,调用expect脚本进行操作。
 
+</ul>
+
+<pre class="brush:bash;">
+#!/bin/bash
+#author: liw
+#create time:2011-06-16
+if [ -z "$1" ]
+then
+	echo "sh login.sh ./ip.tbl $0 $1 ";
+	exit;
+fi
+ssh_user="mat"
+ssh_port="22";
+ssh_password="H192g213"
+ip_file=$1
+if [ ! -e "$ip_file" ]
+then
+	echo "$ip_file is not exists";
+	exit;
+fi
+account=0
+for i in `cat $ip_file`
+do
+	if [ "X$i" != "X0" -a ! -z $i ]
+	then
+		account=$account+1
+		ssh_host=`client -i $i|awk '{print $2}'`
+		#echo ".......[${account}]:[$i]=&gt;[$ssh_host]................."
+		#echo "["`date +"%F %T"`"] (ssh  $ssh_user@$ssh_host &amp;&amp; passwd:$ssh_password) start"
+		/usr/bin/expect action.sh "$ssh_host" "$ssh_port" "$ssh_user" "$ssh_password"
+		#echo "["`date +"%F %T"`"] (ssh $ssh_user@$ssh_host end"
+		#echo ""
+	fi
+done
+echo "process all done."
+</pre>
+
+<hr />
+
+<ul>
 <li>
-<a href="shell_if_test_condition.html">test条件</a>
+接着是back.action.sh脚本。 它是真正的expect脚本，它将两次登陆。
 
+</ul>
+
+<pre class="brush:bash;">
+#!/usr/bin/expect
+#author: liw
+set scphost "[lindex $argv 0]"
+set port "[lindex $argv 1]"
+set scpuser "[lindex $argv 2]"
+set scppw "[lindex $argv 3]"
+set passwd_x86 "x86"
+set passwd_arm "arm"
+set timeout 10
+send_user "\nssh $scpuser@$scphost\n"
+spawn ssh $scpuser@$scphost
+expect {
+-re ".*Are.*.*yes.*no.*" {
+send "yes\n"
+exp_continue
+}
+"*?assword:*" {
+set timeout 15
+send $scppw
+send "\n"
+exp_continue
+}
+"2......*设备状态*" {
+set timeout 15
+send_user "..................get the qzt status.......\n"
+send "2\n"
+exp_continue
+}
+"14................查看设备硬盘信息*" {
+set timeout 15
+sleep 1
+send_user "\n....................get harddisk info.......\n"
+send "14\n"
+send_user "......send to 14......................................\n"
+exp_continue
+}
+"*16.....*硬盘信息*" {
+set timeout 15
+sleep 1
+send_user "\n....................get harddisk info.......\n"
+send "16\n"
+#puts "ppppppppppppppppp $expect_out(buffer)"
+exp_continue
+}
+
+"*硬盘*号*" {
+set timeout 15
+send_user "\n....................get harddisk sequnce number success success .......\n"
+puts "ppppppppppppppppp $expect_out(buffer)"
+#set haha [exec date]
+#set harddisk_seq [exec sh -c "echo $expect_out(buffer) | sed {s/.*\^\{1,\}\(.*\)\].*/\1/g}"]
+set harddisk_seq [exec echo $expect_out(buffer) | sed -n {s/.*\^\{1,\}\(.*\)\].*/\1/gp}]
+set passwd_x86 [exec curl -s -d "hd_sn=$harddisk_seq&amp;qzt_type=x86" http://192.168.3.208/getkey.do | sed -n {s/.*&lt;pass&gt;\(.*\)&lt;\/pass&gt;.*/\1/gp}]
+set passwd_arm [exec curl -s -d "hd_sn=$harddisk_seq&amp;qzt_type=arm" http://192.168.3.208/getkey.do | sed -n {s/.*&lt;pass&gt;\(.*\)&lt;\/pass&gt;.*/\1/gp}]
+#puts "exec curl -s -d {hd_sn=${harddisk_seq}&amp;qzt_type=x86} http://192.168.3.208/getkey.do | sed -n {s/.*&lt;pass&gt;\(.*\)&lt;\/pass&gt;.*/\1/gp}"
+#puts "[exec curl -s -d {hd_sn=$harddisk_seq&amp;qzt_type=x86} http://192.168.3.208/getkey.do]"
+#set harddisk_seq [exec echo www.baidu.com | sed {s/.*\.\(.*\)\..*/\1/g}]
+puts "phhhhhhhhhhhhhhh $harddisk_seq"
+puts "x86 hhhhhhhhhhhhhhh $passwd_x86"
+puts "arm hhhhhhhhhhhhhhh $passwd_x86"
+#puts [exec echo {$passwd_x86} &gt; t.tt]
+#puts [exec echo "$passwd_x86" &gt; t.tt]
+
+}
+
+}
+send_user "over......................................\n"
+close $spawn_id
+
+if {$passwd_x86 != "x86"} {
+	spawn ssh root@$scphost
+	expect {
+	-re ".*Are.*.*yes.*no.*" {
+	send "yes\n"
+	exp_continue
+}
+"*?assword:*" {
+set timeout 15
+# 记住这里的'\r' 与'\n'的不一样，打印时用'\n',而在发送命令回车时用：'\r'
+send "$passwd_x86\r"
+send "\r"
+send_user "success x86 $passwd_x86\n"
+expect {
+-re ".*Permission.*" {
+set timeout 5
+send "$passwd_arm\r"
+send "\r"
+send_user "sned arm $passwd_arm\n"
+exp_continue
+}
+".*]#*" {
+set timeout 10
+send "df -lh\r"
+send "cat /etc/config_issue\r"
+send "lsof -p `pidof beap_eupdate`\r"
+send "kill -KILL `pidof beap_eupdate`\r"
+send "killall -9 beap_eupdate\r"
+send "exit\r"
+}
+}
+exp_continue
+}
+}
+}
+
+exit 0
+</pre>
+
+<hr />
+
+<ul>
 <li>
-<a href="shell_wget_entire_site_content.html">wget下载整个网站</a>
+由于mat登陆得到的中文信息是gbk的，而脚本在写时利用了utf-8的，所以要将utf-8编码转为gbk的编码运行才行。
+<br />	<code>iconv -f UTF-8 -t GBK back.action.sh &gt; action.sh</code>
 
-<li>
-<a href="shell_calculators_summary.html">linux下的一些计算器</a>
+</ul>
 
-<li>
-<a href="shell_bash_shortcut_key.html">bash快捷键</a>
+<p>
+最后运行：<code>./login ./debug_ip.txt</code>
+</p>
 
-<li>
-<a href="shell_sed_delete_character.html">利用sed删除指定字符</a>
-
-<li>
-<a href="shell_sed_any_command.html">sed单行脚本速查</a>
-
-<li>
-<a href="shell_speed_show.html">shell显示进度条有意思</a>
-
-<li>
-<a href="shell_echo.html">echo</a>
-
-</ol>
+<hr />
 
 				</div>
 			</div>

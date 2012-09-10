@@ -1,0 +1,4 @@
+%toc expect
+
+# [[expect_auto_run_command|expect 自动运行命令]]
+

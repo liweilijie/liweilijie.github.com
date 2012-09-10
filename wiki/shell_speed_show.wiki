@@ -1,0 +1,85 @@
+%toc shell 显示进度条
+
+{{{class="brush:bash;"
+#!/bin/bash
+prg() {
+   for ((i=0;i<=50;i++));do for ((j=0;j<=$i;j+=1));do printf ">";done;for ((k=0;k<=50-$j;k+=1));do printf "=";done ;printf "\r";sleep 0.1;done;echo ""
+}
+
+pprg() {
+	for ((i=0;i<=50;i++))
+	do
+		for ((j=0;j<=$i;j+=1))
+		do
+			printf ">";
+		done
+		for ((k=0;k<=50-$j;k+=1))
+		do
+			printf "="
+		done
+		printf "\r"
+		sleep 0.1
+	done
+	echo ""
+}
+
+echo "Microsoft Windows 2000 [Version 5.00.2195]
+<C> 版权所有 1985-2000 Microsoft Corp.
+"
+put_one_by_one() {
+   for w in `echo $1|sed 's/./& /g'`;do
+      echo -n $w
+      sleep $2
+   done
+   echo -e "\n"
+}
+main() {
+   echo -n "c:\> "
+   sleep 1
+   put_one_by_one $1 0.2
+   sleep 2
+   case $1 in
+      "x!!不开机就砸了你!!")
+         sleep 2
+         echo -e "             Loading Windows 2000...\n"
+         sleep 1
+         prg
+         exit
+         ;;
+      *)
+         put_one_by_one "'$1'不是内部命令或外部命令，也不是可运行的程序或批处理文件。" 0.1
+         ;;
+   esac
+}
+
+for i in "开机" "快开机" "你xx快开机" "x!!不开机就砸了你!!";do
+    main $i
+done
+}}}
+
+
+
+{{{class="brush:bash;"
+#!/bin/bash
+prg() {
+   for ((i=0;i<=50;i++));do for ((j=0;j<=$i;j+=1));do printf ">";done;for ((k=0;k<=50-$j;k+=1));do printf "=";done ;printf "\r";sleep 0.1;done;echo ""
+}
+
+echo "Microsoft Windows 2000 [Version 5.00.2195]
+<C> 版权所有 1985-2000 Microsoft Corp.
+" 
+while true;do
+   read -p "c:\>" a
+   case $a in
+      "x!! 不开机就砸了你!!")
+         sleep 2
+         printf "\n             Loading Windows 2000...\n\n"
+         prg
+         exit
+         ;;
+      *)
+         printf "'$a'不是内部命令或外部命令，也不是可运行的程序或批处理文件。\n\n"
+         ;;
+   esac
+done
+}}}
