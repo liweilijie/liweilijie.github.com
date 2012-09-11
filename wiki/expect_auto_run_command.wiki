@@ -55,53 +55,59 @@ echo "process all done."
 {{{class="brush:bash;"
 #!/usr/bin/expect
 #author: liw
+#description: auto login qzt and execute any command.
 set scphost "[lindex $argv 0]"
 set port "[lindex $argv 1]"
 set scpuser "[lindex $argv 2]"
 set scppw "[lindex $argv 3]"
 set passwd_x86 "x86"
 set passwd_arm "arm"
-set timeout 10
+set timeout 5
 send_user "\nssh $scpuser@$scphost\n"
 spawn ssh $scpuser@$scphost
 expect {
 -re ".*Are.*.*yes.*no.*" {
-send "yes\n"
+send "yes\r"
 exp_continue
 }
-"*?assword:*" {
-set timeout 15
-send $scppw
-send "\n"
+-re ".*assword.*" {
+set timeout 8
+send "$scppw\r"
+#send "\n"
 exp_continue
 }
-"2......*设备状态*" {
-set timeout 15
+-re ".*2\.{1,}.*设备状态.*" {
+set timeout 8
 send_user "..................get the qzt status.......\n"
-send "2\n"
+#puts "ooooooooooooooooooooo:$expect_out(buffer)"
+send "2\r"
 exp_continue
 }
-"14................查看设备硬盘信息*" {
-set timeout 15
+
+-re "16\.{1,}查看设备硬盘信息.*\n" {
+set timeout 8
 sleep 1
 send_user "\n....................get harddisk info.......\n"
-send "14\n"
-send_user "......send to 14......................................\n"
-exp_continue
-}
-"*16.....*硬盘信息*" {
-set timeout 15
-sleep 1
-send_user "\n....................get harddisk info.......\n"
-send "16\n"
+#puts "ooooooooooooooooooooo:$expect_out(buffer)"
+send "16\r"
 #puts "ppppppppppppppppp $expect_out(buffer)"
 exp_continue
 }
 
-"*硬盘*号*" {
-set timeout 15
+-re "14\.{1,}查看设备硬盘信息.*\n" {
+set timeout 8
+#sleep 1
+send_user "\n....................get harddisk info.......\n"
+#puts "ooooooooooooooooooooo:$expect_out(buffer)"
+send "14\r"
+send_user "......send to 14......................................\n"
+exp_continue
+}
+
+-re ".*硬盘.*号.*" {
+set timeout 8
 send_user "\n....................get harddisk sequnce number success success .......\n"
-puts "ppppppppppppppppp $expect_out(buffer)"
+#puts "ppppppppppppppppp $expect_out(buffer)"
 #set haha [exec date]
 #set harddisk_seq [exec sh -c "echo $expect_out(buffer) | sed {s/.*\^\{1,\}\(.*\)\].*/\1/g}"]
 set harddisk_seq [exec echo $expect_out(buffer) | sed -n {s/.*\^\{1,\}\(.*\)\].*/\1/gp}]
@@ -112,7 +118,7 @@ set passwd_arm [exec curl -s -d "hd_sn=$harddisk_seq&qzt_type=arm" http://192.16
 #set harddisk_seq [exec echo www.baidu.com | sed {s/.*\.\(.*\)\..*/\1/g}]
 puts "phhhhhhhhhhhhhhh $harddisk_seq"
 puts "x86 hhhhhhhhhhhhhhh $passwd_x86"
-puts "arm hhhhhhhhhhhhhhh $passwd_x86"
+puts "arm hhhhhhhhhhhhhhh $passwd_arm"
 #puts [exec echo {$passwd_x86} > t.tt]
 #puts [exec echo "$passwd_x86" > t.tt]
 
@@ -129,27 +135,24 @@ if {$passwd_x86 != "x86"} {
 	send "yes\n"
 	exp_continue
 }
-"*?assword:*" {
+-re ".*assword.*" {
 set timeout 15
 # 记住这里的'\r' 与'\n'的不一样，打印时用'\n',而在发送命令回车时用：'\r'
 send "$passwd_x86\r"
-send "\r"
 send_user "success x86 $passwd_x86\n"
 expect {
 -re ".*Permission.*" {
-set timeout 5
 send "$passwd_arm\r"
 send "\r"
-send_user "sned arm $passwd_arm\n"
+send_user "send arm $passwd_arm\n"
 exp_continue
 }
-".*]#*" {
-set timeout 10
+-re ".*]#" {
 send "df -lh\r"
 send "cat /etc/config_issue\r"
-send "lsof -p `pidof beap_eupdate`\r"
-send "kill -KILL `pidof beap_eupdate`\r"
+#send "lsof -p `pidof beap_eupdate`\r"
 send "killall -9 beap_eupdate\r"
+send "kill -KILL `pidof beap_eupdate`\r"
 send "exit\r"
 }
 }

@@ -1,0 +1,128 @@
+%toc expect regular
+%title expect regular
+
+----
+
+For example, both the glob pattern foo and the regular expression foo match the literal string "foo". 
+
+Backslash works in the usual way, turning the following character into its literal equivalent. 
+
+"^" and "$" also work the same way as before. 
+
+Regular expression ranges work as before, plus they can also be used to match any character not in the range by placing a "^" immediately after the left bracket. (I will show more detail on this later.) Besides this, the only significant differences in the table are the last two lines which describe how to match any single character and any number of any characters.
+
+Except for "`.*`", each of the patterns in the table is called an atom. 
+
+A `*` appended to an atom creates a pattern that matches any number (including zero) of the particular atom.
+
+For example, the regular expression "`a*`" matches any string of a's, such as "`a`", "`aa`", "`aaaaaaaaa`" and "". That last string has no a's in it at all.  *This is considered a match of zero a's.*
+
+The pattern [0-9]* matches strings made up of integers such as "012" and "888". Notice that the atom does not have to match the same literal value each time. When matching "012", the range "[0-9]" first matches "0", then it matches "1", and finally matches "2".
+
+----
+
+You can uses ranges to construct more useful patterns. For example [1-9][0-9]* matches any positive integer. The first atom matches the first digit of the number, while the remaining digits are matched by the "[0-9]*".
+
+C language identifiers can be matched with the pattern "[a-zA-Z_][a-zA-Z0-9_]*".  This is similar to the previous pattern. In both cases the first character is restricted to a subset of the characters that can be used in the remaining part of the string.
+
+In both cases the `*` only applies to the immediately preceding range. That is because the * only applies to the immediately preceding atom. One range is an atom; two ranges are not an atom.
+
+Atoms by themselves and atoms with a * appended to them are called pieces. Pieces can also consist of atoms with a + or ? appended. An atom followed by + matches a sequence of one or more matches of the atom. An atom followed by ? matches the atom or the empty string. For example, "a+" matches "a" and "aa" but not "", while "a?" matches "a" and "" but not "aa". The pattern "0x[0-9a-f]+" matches a hexadecimal number in the C language such as "0x0b2e" or "0xffff". The pattern "-?[1-9][0-9]*" matches positive or negative integers such as 1, 10, 1000, -1, and -1000. Notice how the [1-9] range prevents a zero from being the first digit, preventing strings like -05 and 007.  
+
+"-?[1-9][0-9]*" is a sequence of three pieces. Any sequence of pieces is called a
+branch. Branches separated by a | match any of the branches. For example, you could
+extend the previous pattern to match any integer with the pattern "-?[1-9][0-9]*|0".
+The first branch matches any nonzero integer while the second branch matches zero itself.
+
+Tcl integers can be written in decimal, hex, or octal. The following pattern uses three
+patterns to match such integers: "-?[1-9][0-9]*|0x[0-9a-f]+|0[0-7]*". The first
+branch ("-?[1-9][0-9]*") matches any positive or negative decimal constant. The
+second branch matches any hex constant. The third branch matches any octal constant. A
+separate branch for zero is not needed, since it is matched by the octal branch already.
+Fortunately, zero in octal is equal to zero in decimal, so there is no problem interpreting
+it in a different way!
+
+In order to actually use a regular expression, you must do two things. First, you must
+backslash any characters that are special to both Tcl and regular expressions. For example,
+the regular expression to match a single digit is "[0-9]". To prevent Tcl from trying to
+evaluate 0-9 as a command, the leading bracket must be prefixed with a backslash so it
+looks like this:
+
+`\[0-9]`
+
+
+The second thing you must do is to tell expect that a pattern is a regular expression. By
+default, expect assumes patterns are glob patterns. Another line can be added to Table
+
+- glob: `-gl`
+- regexp: `-re`
+
+Patterns prefixed with -re are regular expressions. For example, the following command matches "`a`", "`aa`", and "`aaaaa`". It does not match "`ab`".
+
+- `expect -re "a*"` ;# regexp pattern
+
+Without the -re, the command matches "`aa`", "`ab`", and "`ac`" (among other things).
+
+- `expect "a*"` ;# glob pattern
+ 
+
+It is possible to have a mixture of glob patterns and regular expressions. In the following example, "`a*`" is  *a regular expression*  but "`b*`" is a  *glob pattern* .
+
+{{{class="brush:bash;"
+expect {
+-re "a*"
+{action1}
+"b*" {action2}
+}
+}}}
+
+The expect command also accepts the `-gl flag`. The `-gl flag` tells expect that the pattern is a glob pattern. This is useful if the pattern looks like one of the keywords such as timeout or a flag such as -re.
+
+{{{class="brush:bash;"
+expect {
+eof {found_real_eof}
+-gl "timeout" {found_literal_timeout}
+-gl "-re" {found_real_dash_r_e}
+}
+}}}
+
+You might also want to pass the pattern as a variable. In this case, the `-gl flag` also protects the pattern from matching a keyword or flag.
+
+`expect -gl $pattern`
+
+If you completely declare your pattern types, you can embed them inside of subroutines
+and pass patterns as arguments without worrying about them being misinterpreted. This
+is especially useful if you might reuse the subroutines in the future or allow users to pass
+arbitrary patterns in to a script. Users of your scripts should not have to care about the
+keywords inside of Expect.
+
+
+Once you understand how to build regular expressions, you need not worry about
+remembering the terms "atom", "piece", and "branch". The terms exist only to help you
+learn the precedence of the regular-expression operators. To avoid confusion, from now
+on I will generically refer to any subpattern of a complete pattern when it is unimportant
+whether it is an atom, piece, or branch.
+
+Because operators such as * and + act only on atoms, they cannot be applied directly to
+pieces and branches. For example, the pattern ab* matches an a followed by any number
+of b's. In order to treat any subpattern—atom, piece, or branch—as an atom, enclose it in
+parentheses. Thus, in order to match any number of ab's, use the pattern "(ab)*".
+
+Matching real numbers is a good exercise. Real numbers have a whole portion to the left
+of the decimal point and a fractional portion to the right. A direct rendering of this concept
+is "-?[0-9]*\.?[0-9]*". Notice the period is escaped by placing a backslash in front
+of it. This forces it to match a literal period rather than any character. The entire pattern
+matches things like "17.78", "-8", and "0.21". Unfortunately, it also accepts 0000.5,
+which does not seem quite right. You can reject leading zeros while still accepting a single
+zero the same way I did earlier—with a branch: "-?(0|[1-9][0-9]*)?\.?[0-9]*".
+This pattern accepts the earlier numbers but it rejects "0000.5". Unfortunately, it still
+matches "-0". You can fix this as an exercise but it is not worth worrying about that much.
+In Chapter 6 (p. 138), I will demonstrate how to handle this problem much more easily.
+
+
+To use this regular expression in a command, any characters special to Tcl must also be
+escaped as I described in the previous section. Here is what the complete command might
+look like:
+
+`expect -re "-?(0|\[1-9]\[0-9]*)?\\.?\[0-9]*"`
+

@@ -148,22 +148,64 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>expect</h1>
+<h1>expect.exec</h1>
 
 <hr />
 
+<p>
+Most UNIX commands can be executed by calling exec. The arguments generally follow the <code>/bin/sh</code> conventions including <code>"&gt;", "&lt;", "|", "&amp;",</code> and variations on them. Use whitespace before and after the redirection symbols.
+</p>
 
-<ol>
-<li>
-<a href="expect_auto_run_command.html">expect 自动运行命令</a>
+<pre class="brush:bash;">
+liwei@localhost:~$ expect 
+expect1.1&gt; exec date
+2012年 09月 11日 星期二 11:38:14 CST
+expect1.2&gt; exec date &gt; tmp/date.txt
+expect1.3&gt; exec cat tmp/date.txt
+2012年 09月 11日 星期二 11:38:31 CST
+expect1.4&gt; 
+</pre>
 
-<li>
-<a href="expect_regular_expressions.html">expect regular</a>
+<p>
+Unless redirected, the standard output of the exec command is returned as the result.  This enables you to save the output of a program in a variable or use it in another command.
+</p>
 
-<li>
-<a href="expect_execute_unix_commands.html">expect exec</a>
+<pre class="brush:bash;">
+expect1.4&gt; puts "The date is [exec date]"
+The date is 2012年 09月 11日 星期二 14:50:02 CST
+expect1.5&gt;
+</pre>
 
-</ol>
+<p>
+Tcl assumes that UNIX programs return the exit value 0 if successful. Use catch to test whether a program succeeds or not. The following command returns the exit value from <code>mv</code> which could, for example, indicate that a file did not exist.
+</p>
+
+<pre class="brush:bash;">
+expect1.5&gt; catch {exec mv liweidebug hahadebug}
+1
+expect1.6&gt;
+</pre>
+
+<p>
+Many programs return nonzero exit values even if they were successful. For example, diff returns an exit value of 1 when it finds that two files are different. Some UNIX programs are sloppy and return a random exit value which can generate an error in exec. An error is also generated if a programs writes to its standard error stream.  <strong>It is common to use catch with exec to deal with these problems.</strong>
+</p>
+
+<p>
+Tilde substitution is performed on the command but not on the arguments, and no globbing is done at all. So if you want to delete all the .o files in a directory, for instance, it must be done as follows:
+</p>
+
+<p>
+<code>exec rm [glob *.o]</code>
+</p>
+
+
+<p>
+Beyond the /bin/sh conventions, exec supports special redirections to reference open files. In particular, an @ after a redirection symbol introduces a file identifier returned from open. For example, the following command writes the date to an open file.  set file [open /tmp/foo]
+</p>
+
+<p>
+<code>exec date &gt;@ $file</code>
+</p>
 
 				</div>
 			</div>

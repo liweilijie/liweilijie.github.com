@@ -1,4 +1,10 @@
 %toc expect
 
+----
+
+
 # [[expect_auto_run_command|expect 自动运行命令]]
+# [[expect_regular_expressions|expect regular]]
+# [[expect_execute_unix_commands|expect exec]]
+
 

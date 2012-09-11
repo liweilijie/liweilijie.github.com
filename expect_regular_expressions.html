@@ -148,199 +148,204 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>expect 自动运行命令</h1>
+<h1>expect regular</h1>
 
 <hr />
 
 <p>
-最近做升级有关的东西，但是在代码里面有一个很低级的错误。
+For example, both the glob pattern foo and the regular expression foo match the literal string "foo". 
 </p>
 
 <p>
-也就是文件打开了没有关闭，由于从其他同事那儿接过来的代码，本来运行很稳定的，所以也就没有检查是否有问题。
+Backslash works in the usual way, turning the following character into its literal equivalent. 
 </p>
 
 <p>
-最后导致太多的设备不能正常升级。于是我写了一个脚本一个一个自动登陆到设备上，进行替换模块。
+"^" and "$" also work the same way as before. 
+</p>
+
+<p>
+Regular expression ranges work as before, plus they can also be used to match any character not in the range by placing a "^" immediately after the left bracket. (I will show more detail on this later.) Besides this, the only significant differences in the table are the last two lines which describe how to match any single character and any number of any characters.
+</p>
+
+<p>
+Except for "<code>.*</code>", each of the patterns in the table is called an atom. 
+</p>
+
+<p>
+A <code>*</code> appended to an atom creates a pattern that matches any number (including zero) of the particular atom.
+</p>
+
+<p>
+For example, the regular expression "<code>a*</code>" matches any string of a's, such as "<code>a</code>", "<code>aa</code>", "<code>aaaaaaaaa</code>" and "". That last string has no a's in it at all.  <strong>This is considered a match of zero a's.</strong>
+</p>
+
+<p>
+The pattern [0-9]* matches strings made up of integers such as "012" and "888". Notice that the atom does not have to match the same literal value each time. When matching "012", the range "[0-9]" first matches "0", then it matches "1", and finally matches "2".
 </p>
 
 <hr />
+
+<p>
+You can uses ranges to construct more useful patterns. For example [1-9][0-9]* matches any positive integer. The first atom matches the first digit of the number, while the remaining digits are matched by the "[0-9]*".
+</p>
+
+<p>
+C language identifiers can be matched with the pattern "[a-zA-Z_][a-zA-Z0-9_]*".  This is similar to the previous pattern. In both cases the first character is restricted to a subset of the characters that can be used in the remaining part of the string.
+</p>
+
+<p>
+In both cases the <code>*</code> only applies to the immediately preceding range. That is because the * only applies to the immediately preceding atom. One range is an atom; two ranges are not an atom.
+</p>
+
+<p>
+Atoms by themselves and atoms with a * appended to them are called pieces. Pieces can also consist of atoms with a + or ? appended. An atom followed by + matches a sequence of one or more matches of the atom. An atom followed by ? matches the atom or the empty string. For example, "a+" matches "a" and "aa" but not "", while "a?" matches "a" and "" but not "aa". The pattern "0x[0-9a-f]+" matches a hexadecimal number in the C language such as "0x0b2e" or "0xffff". The pattern "-?[1-9][0-9]*" matches positive or negative integers such as 1, 10, 1000, -1, and -1000. Notice how the [1-9] range prevents a zero from being the first digit, preventing strings like -05 and 007.  
+</p>
+
+<p>
+"-?[1-9][0-9]*" is a sequence of three pieces. Any sequence of pieces is called a
+branch. Branches separated by a | match any of the branches. For example, you could
+extend the previous pattern to match any integer with the pattern "-?[1-9][0-9]*|0".
+The first branch matches any nonzero integer while the second branch matches zero itself.
+</p>
+
+<p>
+Tcl integers can be written in decimal, hex, or octal. The following pattern uses three
+patterns to match such integers: "-?[1-9][0-9]<strong>|0x[0-9a-f]+|0[0-7]</strong>". The first
+branch ("-?[1-9][0-9]*") matches any positive or negative decimal constant. The
+second branch matches any hex constant. The third branch matches any octal constant. A
+separate branch for zero is not needed, since it is matched by the octal branch already.
+Fortunately, zero in octal is equal to zero in decimal, so there is no problem interpreting
+it in a different way!
+</p>
+
+<p>
+In order to actually use a regular expression, you must do two things. First, you must
+backslash any characters that are special to both Tcl and regular expressions. For example,
+the regular expression to match a single digit is "[0-9]". To prevent Tcl from trying to
+evaluate 0-9 as a command, the leading bracket must be prefixed with a backslash so it
+looks like this:
+</p>
+
+<p>
+<code>\[0-9]</code>
+</p>
+
+
+<p>
+The second thing you must do is to tell expect that a pattern is a regular expression. By
+default, expect assumes patterns are glob patterns. Another line can be added to Table
+</p>
 
 <ul>
 <li>
-首先是login.sh脚本，它主要是将配置文件里面的所有ip地址读进来，然后转化为点分十进制式的ip,调用expect脚本进行操作。
+glob: <code>-gl</code>
+
+<li>
+regexp: <code>-re</code>
 
 </ul>
+
+<p>
+Patterns prefixed with -re are regular expressions. For example, the following command matches "<code>a</code>", "<code>aa</code>", and "<code>aaaaa</code>". It does not match "<code>ab</code>".
+</p>
+
+<ul>
+<li>
+<code>expect -re "a*"</code> ;# regexp pattern
+
+</ul>
+
+<p>
+Without the -re, the command matches "<code>aa</code>", "<code>ab</code>", and "<code>ac</code>" (among other things).
+</p>
+
+<ul>
+<li>
+<code>expect "a*"</code> ;# glob pattern
+
+</ul>
+ 
+
+<p>
+It is possible to have a mixture of glob patterns and regular expressions. In the following example, "<code>a*</code>" is  <strong>a regular expression</strong>  but "<code>b*</code>" is a  <strong>glob pattern</strong> .
+</p>
 
 <pre class="brush:bash;">
-#!/bin/bash
-#author: liw
-#create time:2011-06-16
-if [ -z "$1" ]
-then
-	echo "sh login.sh ./ip.tbl $0 $1 ";
-	exit;
-fi
-ssh_user="mat"
-ssh_port="22";
-ssh_password="H192g213"
-ip_file=$1
-if [ ! -e "$ip_file" ]
-then
-	echo "$ip_file is not exists";
-	exit;
-fi
-account=0
-for i in `cat $ip_file`
-do
-	if [ "X$i" != "X0" -a ! -z $i ]
-	then
-		account=$account+1
-		ssh_host=`client -i $i|awk '{print $2}'`
-		#echo ".......[${account}]:[$i]=&gt;[$ssh_host]................."
-		#echo "["`date +"%F %T"`"] (ssh  $ssh_user@$ssh_host &amp;&amp; passwd:$ssh_password) start"
-		/usr/bin/expect action.sh "$ssh_host" "$ssh_port" "$ssh_user" "$ssh_password"
-		#echo "["`date +"%F %T"`"] (ssh $ssh_user@$ssh_host end"
-		#echo ""
-	fi
-done
-echo "process all done."
-</pre>
-
-<hr />
-
-<ul>
-<li>
-接着是back.action.sh脚本。 它是真正的expect脚本，它将两次登陆。
-
-</ul>
-
-<pre class="brush:bash;">
-#!/usr/bin/expect
-#author: liw
-#description: auto login qzt and execute any command.
-set scphost "[lindex $argv 0]"
-set port "[lindex $argv 1]"
-set scpuser "[lindex $argv 2]"
-set scppw "[lindex $argv 3]"
-set passwd_x86 "x86"
-set passwd_arm "arm"
-set timeout 5
-send_user "\nssh $scpuser@$scphost\n"
-spawn ssh $scpuser@$scphost
 expect {
--re ".*Are.*.*yes.*no.*" {
-send "yes\r"
-exp_continue
+-re "a*"
+{action1}
+"b*" {action2}
 }
--re ".*assword.*" {
-set timeout 8
-send "$scppw\r"
-#send "\n"
-exp_continue
-}
--re ".*2\.{1,}.*设备状态.*" {
-set timeout 8
-send_user "..................get the qzt status.......\n"
-#puts "ooooooooooooooooooooo:$expect_out(buffer)"
-send "2\r"
-exp_continue
-}
-
--re "16\.{1,}查看设备硬盘信息.*\n" {
-set timeout 8
-sleep 1
-send_user "\n....................get harddisk info.......\n"
-#puts "ooooooooooooooooooooo:$expect_out(buffer)"
-send "16\r"
-#puts "ppppppppppppppppp $expect_out(buffer)"
-exp_continue
-}
-
--re "14\.{1,}查看设备硬盘信息.*\n" {
-set timeout 8
-#sleep 1
-send_user "\n....................get harddisk info.......\n"
-#puts "ooooooooooooooooooooo:$expect_out(buffer)"
-send "14\r"
-send_user "......send to 14......................................\n"
-exp_continue
-}
-
--re ".*硬盘.*号.*" {
-set timeout 8
-send_user "\n....................get harddisk sequnce number success success .......\n"
-#puts "ppppppppppppppppp $expect_out(buffer)"
-#set haha [exec date]
-#set harddisk_seq [exec sh -c "echo $expect_out(buffer) | sed {s/.*\^\{1,\}\(.*\)\].*/\1/g}"]
-set harddisk_seq [exec echo $expect_out(buffer) | sed -n {s/.*\^\{1,\}\(.*\)\].*/\1/gp}]
-set passwd_x86 [exec curl -s -d "hd_sn=$harddisk_seq&amp;qzt_type=x86" http://192.168.3.208/getkey.do | sed -n {s/.*&lt;pass&gt;\(.*\)&lt;\/pass&gt;.*/\1/gp}]
-set passwd_arm [exec curl -s -d "hd_sn=$harddisk_seq&amp;qzt_type=arm" http://192.168.3.208/getkey.do | sed -n {s/.*&lt;pass&gt;\(.*\)&lt;\/pass&gt;.*/\1/gp}]
-#puts "exec curl -s -d {hd_sn=${harddisk_seq}&amp;qzt_type=x86} http://192.168.3.208/getkey.do | sed -n {s/.*&lt;pass&gt;\(.*\)&lt;\/pass&gt;.*/\1/gp}"
-#puts "[exec curl -s -d {hd_sn=$harddisk_seq&amp;qzt_type=x86} http://192.168.3.208/getkey.do]"
-#set harddisk_seq [exec echo www.baidu.com | sed {s/.*\.\(.*\)\..*/\1/g}]
-puts "phhhhhhhhhhhhhhh $harddisk_seq"
-puts "x86 hhhhhhhhhhhhhhh $passwd_x86"
-puts "arm hhhhhhhhhhhhhhh $passwd_arm"
-#puts [exec echo {$passwd_x86} &gt; t.tt]
-#puts [exec echo "$passwd_x86" &gt; t.tt]
-
-}
-
-}
-send_user "over......................................\n"
-close $spawn_id
-
-if {$passwd_x86 != "x86"} {
-	spawn ssh root@$scphost
-	expect {
-	-re ".*Are.*.*yes.*no.*" {
-	send "yes\n"
-	exp_continue
-}
--re ".*assword.*" {
-set timeout 15
-# 记住这里的'\r' 与'\n'的不一样，打印时用'\n',而在发送命令回车时用：'\r'
-send "$passwd_x86\r"
-send_user "success x86 $passwd_x86\n"
-expect {
--re ".*Permission.*" {
-send "$passwd_arm\r"
-send "\r"
-send_user "send arm $passwd_arm\n"
-exp_continue
-}
--re ".*]#" {
-send "df -lh\r"
-send "cat /etc/config_issue\r"
-#send "lsof -p `pidof beap_eupdate`\r"
-send "killall -9 beap_eupdate\r"
-send "kill -KILL `pidof beap_eupdate`\r"
-send "exit\r"
-}
-}
-exp_continue
-}
-}
-}
-
-exit 0
 </pre>
-
-<hr />
-
-<ul>
-<li>
-由于mat登陆得到的中文信息是gbk的，而脚本在写时利用了utf-8的，所以要将utf-8编码转为gbk的编码运行才行。
-<br />	<code>iconv -f UTF-8 -t GBK back.action.sh &gt; action.sh</code>
-
-</ul>
 
 <p>
-最后运行：<code>./login ./debug_ip.txt</code>
+The expect command also accepts the <code>-gl flag</code>. The <code>-gl flag</code> tells expect that the pattern is a glob pattern. This is useful if the pattern looks like one of the keywords such as timeout or a flag such as -re.
 </p>
 
-<hr />
+<pre class="brush:bash;">
+expect {
+eof {found_real_eof}
+-gl "timeout" {found_literal_timeout}
+-gl "-re" {found_real_dash_r_e}
+}
+</pre>
+
+<p>
+You might also want to pass the pattern as a variable. In this case, the <code>-gl flag</code> also protects the pattern from matching a keyword or flag.
+</p>
+
+<p>
+<code>expect -gl $pattern</code>
+</p>
+
+<p>
+If you completely declare your pattern types, you can embed them inside of subroutines
+and pass patterns as arguments without worrying about them being misinterpreted. This
+is especially useful if you might reuse the subroutines in the future or allow users to pass
+arbitrary patterns in to a script. Users of your scripts should not have to care about the
+keywords inside of Expect.
+</p>
+
+
+<p>
+Once you understand how to build regular expressions, you need not worry about
+remembering the terms "atom", "piece", and "branch". The terms exist only to help you
+learn the precedence of the regular-expression operators. To avoid confusion, from now
+on I will generically refer to any subpattern of a complete pattern when it is unimportant
+whether it is an atom, piece, or branch.
+</p>
+
+<p>
+Because operators such as * and + act only on atoms, they cannot be applied directly to
+pieces and branches. For example, the pattern ab* matches an a followed by any number
+of b's. In order to treat any subpattern—atom, piece, or branch—as an atom, enclose it in
+parentheses. Thus, in order to match any number of ab's, use the pattern "(ab)*".
+</p>
+
+<p>
+Matching real numbers is a good exercise. Real numbers have a whole portion to the left
+of the decimal point and a fractional portion to the right. A direct rendering of this concept
+is "-?[0-9]<strong>\.?[0-9]</strong>". Notice the period is escaped by placing a backslash in front
+of it. This forces it to match a literal period rather than any character. The entire pattern
+matches things like "17.78", "-8", and "0.21". Unfortunately, it also accepts 0000.5,
+which does not seem quite right. You can reject leading zeros while still accepting a single
+zero the same way I did earlier—with a branch: "-?(0|[1-9][0-9]<strong>)?\.?[0-9]</strong>".
+This pattern accepts the earlier numbers but it rejects "0000.5". Unfortunately, it still
+matches "-0". You can fix this as an exercise but it is not worth worrying about that much.
+In Chapter 6 (p. 138), I will demonstrate how to handle this problem much more easily.
+</p>
+
+
+<p>
+To use this regular expression in a command, any characters special to Tcl must also be
+escaped as I described in the previous section. Here is what the complete command might
+look like:
+</p>
+
+<p>
+<code>expect -re "-?(0|\[1-9]\[0-9]*)?\\.?\[0-9]*"</code>
+</p>
 
 				</div>
 			</div>

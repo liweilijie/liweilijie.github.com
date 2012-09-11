@@ -1,0 +1,46 @@
+%toc expect.exec
+%title expect.exec
+
+----
+
+Most UNIX commands can be executed by calling exec. The arguments generally follow the `/bin/sh` conventions including `">", "<", "|", "&",` and variations on them. Use whitespace before and after the redirection symbols.
+
+{{{class="brush:bash;"
+liwei@localhost:~$ expect 
+expect1.1> exec date
+2012年 09月 11日 星期二 11:38:14 CST
+expect1.2> exec date > tmp/date.txt
+expect1.3> exec cat tmp/date.txt
+2012年 09月 11日 星期二 11:38:31 CST
+expect1.4> 
+}}}
+
+Unless redirected, the standard output of the exec command is returned as the result.  This enables you to save the output of a program in a variable or use it in another command.
+
+{{{class="brush:bash;"
+expect1.4> puts "The date is [exec date]"
+The date is 2012年 09月 11日 星期二 14:50:02 CST
+expect1.5>
+}}}
+
+Tcl assumes that UNIX programs return the exit value 0 if successful. Use catch to test whether a program succeeds or not. The following command returns the exit value from `mv` which could, for example, indicate that a file did not exist.
+
+{{{class="brush:bash;"
+expect1.5> catch {exec mv liweidebug hahadebug}
+1
+expect1.6>
+}}}
+
+Many programs return nonzero exit values even if they were successful. For example, diff returns an exit value of 1 when it finds that two files are different. Some UNIX programs are sloppy and return a random exit value which can generate an error in exec. An error is also generated if a programs writes to its standard error stream.  *It is common to use catch with exec to deal with these problems.*
+
+Tilde substitution is performed on the command but not on the arguments, and no globbing is done at all. So if you want to delete all the .o files in a directory, for instance, it must be done as follows:
+
+`exec rm [glob *.o]`
+
+
+Beyond the /bin/sh conventions, exec supports special redirections to reference open files. In particular, an @ after a redirection symbol introduces a file identifier returned from open. For example, the following command writes the date to an open file.  set file [open /tmp/foo]
+
+`exec date >@ $file`
+
+
+
