@@ -148,46 +148,27 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>利用sed删除指定字符</h1>
+<h1>shell get ip</h1>
 
-<p>
-今天跟一同事一些讨论如何利用shell将issue文件后面多余的'e' 或者'f'删除，且不能更改文件的其他格式。并且有的issue文件里面并不用删除，如果没有'e'或者'f'的时候。
-</p>
-
-<p>
-后来讨论出来的命令是：
-</p>
-
-<p>
-<code>sed 's/\(.*\)[e|f]$/\1/g' issue</code>
-</p>
+<hr />
 
 
+<ul>
+<li>
+<code>IP=$(/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:")</code>
+<pre class="brush:bash;">
+$ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6
+          inet addr:192.168.0.61  Bcast:192.168.3.255  Mask:255.255.252.0
+          inet addr:192.168.122.1  Bcast:192.168.122.255  Mask:255.255.255.0
+$ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'
+addr:192.168.0.61
+addr:192.168.122.1
+$ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"
+192.168.0.61
+192.168.122.1
+</pre>
 
-<p>
-是不是很简单，比如要删除前两个字符与最后两个字符：
-</p>
-
-<p>
-<code>sed 's/^..\(.*\)..$/\1/g' issue</code> 
-</p>
-
-<p>
-或者仅对第二行进行删除：
-</p>
-
-<p>
-<code>echo -e "hello world\njust linux realse version" | sed "2s/^..\(.*\)..$/\1/g"</code>
-</p>
-
-
-<p>
-或者：<code>sed -r 's/^.{2}(.*).{2}$/\1/g' issue</code> 
-</p>
-
-<p>
-<code>echo '12345678' | awk -F '' '{print $1$2$NF-1$NF}''</code>
-</p>
+</ul>
 
 				</div>
 			</div>

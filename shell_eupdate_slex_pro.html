@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>liwei.tk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="李伟">
+		<meta name="author" content="李伟的维基">
+
+		<!-- Le styles -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- display by liw for the padding at the top <link href="assets/css/docs.css" rel="stylesheet">-->
+		<link href="assets/css/docs.css" rel="stylesheet">
+		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+		
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shCore.css" /> 
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/shThemeRDark.css" /> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shCore.js"></script> 
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPowerShell.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.all();
+			</script> 
+			
+		<!-- add the google analytics -->
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-25233855-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			 })();
+
+		 </script>
+
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		<!-- <div class="span10 well pricehover">-->
+
+		<!-- ==================== start navbar ================== -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container-fuid">
+					<!-- old is : <div class="container"> and fixed by to 'fuid style' -->
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Liwei.tk</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li class="active"><a href="index.html">Home</a></li>
+								<!-- Program sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="c.html">C</a></li>
+									<li><a href="cpp.html">Cpp</a></li>
+									<li><a href="shell.html">Shell</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Others</li>
+									<li><a href="python.html">Python</a></li>
+									<li><a href="expect.html">Expect</a></li>
+									<li><a href="vc.html">Vc</a></li>
+								</ul>
+								</li>
+								<!-- Os sub projects  -->
+								<li class="dropdown">
+								<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="linux.html">Linux</a></li>
+									<li class="divider"></li>
+									<li><a href="windows.html">Windows</a></li>
+								</ul>
+								</li>
+
+								<!-- vim -->
+								<li><a href="vim.html">Vim</a></li>
+								<li><a href="#">Link</a></li>
+								<li><a href="#">Link</a></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Nav header</li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+								</li>
+							</ul>
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Search">
+							</form>
+							<ul class="nav pull-right">
+								<li><a href="#">Link</a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">随记<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="article_by_my_heart.html">随心所欲</a></li>
+									<li><a href="article_reading_notes.html">读书札记</a></li>
+									<li><a href="article_love_music.html">最爱音乐</a></li>
+									<li class="divider"></li>
+									<li><a href="#">日记</a></li>
+								</ul>
+								</li>
+							</ul>
+						</div><!-- /.nav-collapse -->
+					</div>
+				</div><!-- /navbar-inner -->
+			</div><!-- /navbar -->
+		<!--</div>-->
+
+	<div class="container">
+
+		<!--span2 + span10 that's really content-->
+		<div class="row">
+			<div class="span10" data-spy="scroll" >
+				<div class="gsearch"></div>
+				<div class="content">
+					
+<h1>eupdate.slex</h1>
+
+<p>
+有一段时间常升级，需要写一些简单的脚本，下面是最近写的脚本。
+</p>
+
+<pre class="brush:bash; collapse:true">
+#!/bin/bash
+#author:liw(liweilijie@gmail.com)
+#date: Wed Jul  4 23:04:01 CST 2012
+
+# get the date number
+date_f="$(date "+%d")"
+if [ "X${date_f:0:1}" = "X0" ]
+then
+	date_d=${date_f:1:1}
+else
+	date_d=${date_f}
+fi
+
+# get the logfile
+if [ -e "/data/beap_gw/" ]
+then
+	# app_easyupdate_log_2
+	LOGFILE="/data/beap_gw/app_easyupdate_log_${date_d}"
+else
+	LOGFILE="/var/beap_gw/app_easyupdate_log_${date_d}"
+fi
+
+# dup the stderr and stdout to file
+exec 2&gt;&gt;$LOGFILE
+
+function write_app_log()
+{
+	log_content="$(date "+%Y-%m-%d %T") [$0]"
+
+	for i in $@
+	do
+		log_content="${log_content} ${i}"
+	done
+
+	# XXX() remember must to use this "&gt;&gt;" to append to the logfile
+	echo "${log_content}" &gt;&gt; $LOGFILE
+}
+
+write_app_log "start to execute update_packet $0"
+
+process_two_global_flag="false"
+reboot_daemon_flag="false"
+need_call_xiaode_sh="false"
+
+# XXX(1st):
+# check the global.conf
+# if have twice and remove /root/beap_gw/xxxxxxxxx_global.conf
+if [ -e "/var/xxxxxxxxx_global.conf" ] &amp;&amp; [ -e "/root/beap_gw/beap_gw_global.conf" ]
+then
+	rm -f /root/beap_gw/xxxxxxxxx_global.conf
+	write_app_log "two global.conf and delete /root/beap_gw/xxxxxxxxx_global.conf"
+	process_two_global_flag="true"
+fi
+
+# check the module.conf is has the dc module
+# XXX first to check the /root/beap_gw/beap_gw_modules.conf
+if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+then
+	grep 'xxxxxxxxdcxxxx' /root/beap_gw/beap_gw_modules.conf
+
+	if [ $? -eq 0 ]; 
+	then
+		write_app_log "xxxxxxxxdcxxxx exist in the /root/beap_gw/beap_gw_modules.conf!"
+	else
+		write_app_log "xxxxxxxxdcxxxx  not exist in the /root/beap_gw/modules.conf!"
+		echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+	fi
+fi
+
+# XXX then to check the /var/beap_gw_modules.conf
+if [ -e "/var/beap_gw_modules.conf" ]
+then
+	grep 'xxxxxxxxdcxxxx' /var/beap_gw_modules.conf
+
+	if [ $? -eq 0 ]; 
+	then
+		write_app_log "xxxxxxxxdcxxxx  exist in the /var/beap_gw_modules.conf"
+	else
+		write_app_log "xxxxxxxxdcxxxx  not exist in the /var/beap_gw_modules.conf"
+		echo GW_APP#24 3.4.7 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/var/beap_gw_modules.conf
+	fi
+fi
+
+write_app_log "over write modules.conf file"
+
+#echo Start Update
+platform=`uname -m | awk '{print substr($1, 1, 3)}'`
+write_app_log "the paltform is ${platform}"
+
+if [ "Xarm" != "X$platform" ]
+then
+	write_app_log "..x86...platform..."
+
+	# XXX:(1st) to compare the xxxxxxxxdcxxxx module
+	# should use the dc at first
+	# because ot the dc will to get right the wjpt address at first time
+	write_app_log "start to process \"xxxxxxxxdcxxxx\""
+	if [ -e "/root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx" ]  
+	then
+		write_app_log "/root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx exist!"
+		xxxxxxxxdcxxxx_old=`md5sum /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx |awk '{print $1}'`
+		xxxxxxxxdcxxxx_new=`md5sum /var/ea_slex_upd/xxxxxxxxdcxxxx |awk '{print $1}'`
+
+		write_app_log "xxxxxxxxdcxxxx old:$xxxxxxxxdcxxxx_old"
+		write_app_log "xxxxxxxxdcxxxx new:$xxxxxxxxdcxxxx_new"
+
+		# check the old module &lt;&gt; new module
+		if [ "X$xxxxxxxxdcxxxx_old" = "X$xxxxxxxxdcxxxx_new" ]
+		then
+			write_app_log "xxxxxxxxdcxxxx md5 equal and do nothing"
+		else
+			write_app_log "xxxxxxxxdcxxxx md5 not equal and start to replace"
+
+			write_app_log "Replace xxxxxxxxdcxxxx module start!"
+
+			# replace distribution.conf every once
+			rm -rf  /var/distribution.conf
+			mv      /var/ea_slex_upd/distribution.conf /var
+			write_app_log "over Replace distribution.conf"
+
+			# check the module.conf is has the dc module
+			if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+			then
+				grep 'xxxxxxxxdcxxxx' /root/beap_gw/beap_gw_modules.conf
+
+				if [ $? -eq 0 ]; 
+				then
+					write_app_log "xxxxxxxxdcxxxx exist in the /root/beap_gw/beap_gw_modules.conf!"
+				else
+					write_app_log "xxxxxxxxdcxxxx  not exist in the /root/beap_gw/modules.conf!"
+					echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+				fi
+			fi
+
+			if [ -e "/var/beap_gw_modules.conf" ]
+			then
+				grep 'xxxxxxxxdcxxxx' /var/beap_gw_modules.conf
+
+				if [ $? -eq 0 ]; 
+				then
+					write_app_log "xxxxxxxxdcxxxx  exist in the /var/beap_gw_modules.conf"
+				else
+					write_app_log "xxxxxxxxdcxxxx  not exist in the /var/beap_gw_modules.conf"
+					echo GW_APP#24 3.4.7 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/var/beap_gw_modules.conf
+				fi
+			fi
+
+			write_app_log "over write modules.conf file"
+
+			rm      -rf /var/wjpt_url_port_time.mark
+			rm      -rf /var/mgpt_url_port_time.mark
+			rm      -rf /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+			mv      /var/ea_slex_upd/xxxxxxxxdcxxxx          /root/beap_gw/beap_gw_apps/
+			chmod   777 /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+			xxxxxxxxdcxxxx=`ps -ae |grep "xxxxxxxxdcxxxx" |grep -v "grep"|awk '{print $1}'`
+
+			write_app_log "kill -9 ${xxxxxxxxdcxxxx}"
+
+			# added 
+			# sometimes kill -9 cannot kill the process
+			# must use the KILL can to kill the process
+			if [ -n "$xxxxxxxxdcxxxx" ]
+			then
+				kill -KILL $xxxxxxxxdcxxxx
+			else
+				write_app_log "dc not start and not kill it"
+			fi
+
+			kill    -9 $xxxxxxxxdcxxxx
+			killall -9 xxxxxxxxdcxxxx
+			#echo    $xxxxxxxxdcxxxx
+			write_app_log "replace xxxxxxxxdcxxxx module over!"
+		fi
+	else 
+		write_app_log "/root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx not exist!"
+
+		rm -rf  /var/distribution.conf
+		mv      /var/ea_slex_upd/distribution.conf   /var
+		write_app_log "replace distribution.conf over"
+
+
+		# check the module.conf is has the dc module
+		if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+		then
+			grep 'xxxxxxxxdcxxxx' /root/beap_gw/beap_gw_modules.conf
+
+			if [ $? -eq 0 ]; 
+			then
+				write_app_log "xxxxxxxxdcxxxx  exist!"
+			else
+				write_app_log "xxxxxxxxdcxxxx  not exist! in /root/beap_gw/beap_gw_modules.conf" 
+				echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+			fi
+		elif [ -e "/var/beap_gw_modules.conf" ]
+		then
+			grep 'xxxxxxxxdcxxxx' /var/beap_gw_modules.conf
+
+			if [ $? -eq 0 ]; 
+			then
+				write_app_log "xxxxxxxxdcxxxx exist! in /var/beap_gw_modules.conf"
+			else
+				write_app_log "xxxxxxxxdcxxxx  not exist in /var/beap_gw_modules.conf"
+				echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/var/beap_gw_modules.conf
+			fi
+		fi
+
+		rm      -rf /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+		mv      /var/ea_slex_upd/xxxxxxxxdcxxxx          /root/beap_gw/beap_gw_apps/
+		chmod   777 /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+		beap_daemon=`ps -ae |grep "beap_daemon" |grep -v "grep"|awk '{print $1}'`
+		write_app_log "will (beap_daemon) kill -9 ${beap_daemon}"
+
+		# added 
+		# sometimes kill -9 cannot kill the process
+		# must use the KILL can to kill the process
+		if [ -n "$beap_daemon" ]
+		then
+			kill -KILL $beap_daemon
+		else
+			write_app_log "beap_daemon not start and not kill it"
+		fi
+
+		kill    -9 $beap_daemon
+		killall -9 beap_daemon
+		#echo    $beap_daemon
+		write_app_log "replace xxxxxxxxdcxxxx module over!"
+	fi
+
+	# XXX:(2st) to compare the xxxxxxxxwjxxxx module
+	xxxxxxxxwjxxxx_old=`md5sum /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx |awk '{print $1}'`
+	xxxxxxxxwjxxxx_new=`md5sum /var/ea_slex_upd/xxxxxxxxwjxxxx |awk '{print $1}'`
+
+	write_app_log "old_wj:${xxxxxxxxwjxxxx_old}"
+	write_app_log "new_wj:${xxxxxxxxwjxxxx_new}"
+
+	if [ "X$xxxxxxxxwjxxxx_old" = "X$xxxxxxxxwjxxxx_new" ]
+	then
+		write_app_log "xxxxxxxxwjxxxx md5 equal and wj exist!"
+	else
+
+		write_app_log "xxxxxxxxwjxxxx not exist!"
+		write_app_log "replace xxxxxxxxwjxxxx module start!"
+
+		rm -rf  /var/wj_ports.conf
+		mv      /var/ea_slex_upd/wj_ports.conf       /var/
+
+		write_app_log "replace wj_ports.conf over"
+
+		rm -rf  /lib/libbe.so   
+		mv      /var/ea_slex_upd/libbe.so           /lib/
+		rm -rf  /lib/libbe.so.1
+		ln -s   /lib/libbe.so       /lib/libbe.so.1
+		chmod   777   /lib/libbe.so
+		chmod   777   /lib/libbe.so.1
+
+		write_app_log "replace libbe.so over"
+
+		rm      -rf /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx
+		mv      /var/ea_slex_upd/xxxxxxxxwjxxxx          /root/beap_gw/beap_gw_apps/
+		chmod   777 /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx
+		xxxxxxxxwjxxxx=`ps -ae |grep "xxxxxxxxwjxxxx" |grep -v "grep"|awk '{print $1}'`
+
+		write_app_log "will kill -9 ${xxxxxxxxwjxxxx}"
+
+		# added 
+		# sometimes kill -9 cannot kill the process
+		# must use the KILL can to kill the process
+		if [ -n "$xxxxxxxxwjxxxx" ]
+		then
+			kill -KILL $xxxxxxxxwjxxxx
+		else
+			write_app_log "xxxxxxxxwjxxxx not start and not kill it"
+		fi
+
+		kill    -9 $xxxxxxxxwjxxxx
+		killall -9 xxxxxxxxwjxxxx
+		#echo    $xxxxxxxxwjxxxx
+		write_app_log "Replace xxxxxxxxwjxxxx module  over!"
+	fi
+
+	# XXX:(3st) add beap_app_advert module
+	write_app_log "start to process \"beap_app_advert\""
+
+	#advert_customer_id=("10000517" "76327101" "2014132" "76925005" "76904050" "75501251" "10003468" "2005168" "2011283" "2006827" "99002148")
+
+	if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+	then
+		local_customer_id=`sed -n '/BEAP_ACCOUNT_NAME/p' /root/beap_gw/xxxxxxxxx_global.conf | awk '{print $2}' | sed -e 's/^0*//g'`
+	else
+		local_customer_id=`sed -n '/BEAP_ACCOUNT_NAME/p' /var/xxxxxxxxx_global.conf | awk '{print $2}' | sed -e 's/^0*//g'`
+	fi
+
+	write_app_log "get the \"customer_id[${local_customer_id}]\""
+
+	#for advert_i in ${advert_customer_id[@]}
+	#do
+		#if [ "X${local_customer_id}" = "X${advert_i}" ]
+		#then
+			#if [ -e "/root/beap_gw/beap_gw_apps/beap_app_advert" ]  
+			#then
+				#write_app_log "/root/beap_gw/beap_gw_apps/beap_app_advert exist!"
+				#beap_app_advert_old=`md5sum /root/beap_gw/beap_gw_apps/beap_app_advert |awk '{print $1}'`
+				#beap_app_advert_new=`md5sum /var/ea_slex_upd/beap_app_advert |awk '{print $1}'`
+
+				#write_app_log "beap_app_advert old:$beap_app_advert_old"
+				#write_app_log "beap_app_advert new:$beap_app_advert_new"
+
+				## check the old module &lt;&gt; new module
+				#if [ "X$beap_app_advert_old" = "X$beap_app_advert_new" ]
+				#then
+					#write_app_log "beap_app_advert md5 equal and do nothing"
+					#rm -rf /root/put_advert_log.sh
+					#mv /var/ea_slex_upd/put_advert_log.sh /root/put_advert_log.sh
+					#chmod 755 /root/put_advert_log.sh
+				#else
+					#write_app_log "beap_app_advert md5 not equal and start to replace"
+
+					#write_app_log "Replace beap_app_advert module start!"
+
+					#if [ ! -e "/var/beap_conf/common/" ]
+					#then
+						#mkdir -p /var/beap_conf/common/
+					#fi
+
+					## replace distribution.conf every once
+					#rm -rf  /var/beap_conf/common/advert_url_except
+					#mv      /var/ea_slex_upd/advert_url_except /var/beap_conf/common/
+					#chmod 755 /var/beap_conf/common/advert_url_except 
+
+					#rm -rf  /var/beap_conf/common/beap_advert.conf
+					#mv      /var/ea_slex_upd/beap_advert.conf /var/beap_conf/common/
+					#chmod 755 /var/beap_conf/common/beap_advert.conf
+
+					#rm -rf  /var/beap_conf/common/advert_url_bingo
+					#mv      /var/ea_slex_upd/advert_url_bingo /var/beap_conf/common/
+					#chmod 755 /var/beap_conf/common/advert_url_bingo
+
+					#rm -rf  /var/beap_conf/common/advert_url_bingo
+					#mv      /var/ea_slex_upd/advert_url_bingo /var/beap_conf/common/
+					#chmod 755 /var/beap_conf/common/advert_url_bingo
+
+					#rm -rf /root/put_advert_log.sh
+					#mv /var/ea_slex_upd/put_advert_log.sh /root/put_advert_log.sh
+					#chmod 755 /root/put_advert_log.sh
+
+					#write_app_log "over Replace advert_url_except and beap_advert.conf"
+
+					## check the module.conf is has the dc module
+					#if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+					#then
+						#grep 'beap_app_advert' /root/beap_gw/beap_gw_modules.conf
+
+						#if [ $? -eq 0 ]; 
+						#then
+							#write_app_log "beap_app_advert exist in the /root/beap_gw/beap_gw_modules.conf!"
+						#else
+							#write_app_log "beap_app_advert  not exist in the /root/beap_gw/modules.conf!"
+							#echo GW_APP#26 3.4.7 /root/beap_gw/beap_gw_apps/ beap_app_advert 16000 6126 advert &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+						#fi
+					#fi
+
+					#if [ -e "/var/beap_gw_modules.conf" ]
+					#then
+						#grep 'beap_app_advert' /var/beap_gw_modules.conf
+
+						#if [ $? -eq 0 ]; 
+						#then
+							#write_app_log "beap_app_advert exist in the /var/beap_gw_modules.conf"
+						#else
+							#write_app_log "beap_app_advert not exist in the /var/beap_gw_modules.conf"
+							#echo GW_APP#26 3.4.7 /root/beap_gw/beap_gw_apps/ beap_app_advert 16000 6126 advert &gt;&gt;/var/beap_gw_modules.conf
+						#fi
+					#fi
+
+					#write_app_log "over write modules.conf file about beap_app_advert."
+
+					#rm      -rf /root/beap_gw/beap_gw_apps/beap_app_advert
+					#mv      /var/ea_slex_upd/beap_app_advert          /root/beap_gw/beap_gw_apps/
+					#chmod   755 /root/beap_gw/beap_gw_apps/beap_app_advert
+					#beap_app_advert=`ps -ae |grep "beap_app_advert" |grep -v "grep"|awk '{print $1}'`
+
+					#write_app_log "kill -9 ${beap_app_advert}"
+
+					## added 
+					## sometimes kill -9 cannot kill the process
+					## must use the KILL can to kill the process
+					#if [ -n "$beap_app_advert" ]
+					#then
+						#kill -KILL $beap_app_advert
+					#else
+						#write_app_log "advert not start and not kill it"
+					#fi
+
+					#kill    -9 $beap_app_advert
+					#killall -9 beap_app_advert
+					##echo    $xxxxxxxxdcxxxx
+					#write_app_log "replace beap_app_advert module over!"
+				#fi
+			#else 
+				#write_app_log "/root/beap_gw/beap_gw_apps/beap_app_advert not exist!"
+
+				#if [ ! -e "/var/beap_conf/common/" ]
+				#then
+					#mkdir -p /var/beap_conf/common/
+				#fi
+
+				## replace distribution.conf every once
+				#rm -rf  /var/beap_conf/common/advert_url_except
+				#mv      /var/ea_slex_upd/advert_url_except /var/beap_conf/common/
+				#chmod 755 /var/beap_conf/common/advert_url_except 
+
+				#rm -rf  /var/beap_conf/common/beap_advert.conf
+				#mv      /var/ea_slex_upd/beap_advert.conf /var/beap_conf/common/
+				#chmod 755 /var/beap_conf/common/beap_advert.conf
+
+				#rm -rf  /var/beap_conf/common/advert_url_bingo
+				#mv      /var/ea_slex_upd/advert_url_bingo /var/beap_conf/common/
+				#chmod 755 /var/beap_conf/common/advert_url_bingo
+
+				#rm -rf /root/put_advert_log.sh
+				#mv /var/ea_slex_upd/put_advert_log.sh /root/put_advert_log.sh
+				#chmod 755 /root/put_advert_log.sh
+
+				#write_app_log "over Replace advert_url_except and beap_advert.conf"
+
+				## check the module.conf is has the dc module
+				#if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+				#then
+					#grep 'beap_app_advert' /root/beap_gw/beap_gw_modules.conf
+
+					#if [ $? -eq 0 ]; 
+					#then
+						#write_app_log "beap_app_advert exist in the /root/beap_gw/beap_gw_modules.conf!"
+					#else
+						#write_app_log "beap_app_advert  not exist in the /root/beap_gw/modules.conf!"
+						#echo GW_APP#26 3.4.7 /root/beap_gw/beap_gw_apps/ beap_app_advert 16000 6126 advert &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+					#fi
+				#fi
+
+				#if [ -e "/var/beap_gw_modules.conf" ]
+				#then
+					#grep 'beap_app_advert' /var/beap_gw_modules.conf
+
+					#if [ $? -eq 0 ]; 
+					#then
+						#write_app_log "beap_app_advert exist in the /var/beap_gw_modules.conf"
+					#else
+						#write_app_log "beap_app_advert not exist in the /var/beap_gw_modules.conf"
+						#echo GW_APP#26 3.4.7 /root/beap_gw/beap_gw_apps/ beap_app_advert 16000 6126 advert &gt;&gt;/var/beap_gw_modules.conf
+					#fi
+				#fi
+
+				#write_app_log "over write modules.conf file about beap_app_advert."
+
+				#rm      -rf /root/beap_gw/beap_gw_apps/beap_app_advert
+				#mv      /var/ea_slex_upd/beap_app_advert          /root/beap_gw/beap_gw_apps/
+				#chmod   755 /root/beap_gw/beap_gw_apps/beap_app_advert
+				#beap_app_advert=`ps -ae |grep "beap_app_advert" |grep -v "grep"|awk '{print $1}'`
+
+				## added 
+				## sometimes kill -9 cannot kill the process
+				## must use the KILL can to kill the process
+				#if [ -n "$beap_app_advert" ]
+				#then
+					#write_app_log "kill -9 ${beap_app_advert}"
+					#kill -KILL $beap_app_advert
+				#else
+					#write_app_log "advert not start and not kill it"
+				#fi
+
+				#write_app_log "replace beap_app_advert module over!"
+
+				## to restart daemon
+				#reboot_daemon_flag="true"
+			#fi
+
+			#break
+
+		#fi
+
+
+	#done
+
+	#pmb_customer_id=("1003169" "2001059" "2001072" "2001185" "2001188" "2001201" "2001241" "2001256" "2001259" "2001264" "2001267" "2001279" "2001281" "2001282" "2001283" "2001284"
+	#"2001285" "2001286" "2001287" "2001288" "2001290" "2001291" "2001292" "2001293" "2001296" "2001298" "2001321" "2001372" "2001399" "2001432" "2001537" "2001546" "2003004"
+	#"2003022" "2003048" "2003070" "2003093" "2003172" "2003183" "2003186" "2004069" "2004119" "2004246" "2004348" "2004374" "2004438" "2004479" "2004624" "2004637" "2004646"
+	#"99002039")
+
+	#for pmb_i in ${pmb_customer_id[@]}
+	#do
+		#if [ "X${local_customer_id}" = "X${pmb_i}" ]
+		#then
+			#if [ -e "/root/pmb" ]  
+			#then
+				#beap_pmb_old=`md5sum /root/pmb |awk '{print $1}'`
+				#beap_pmb_new=`md5sum /var/ea_slex_upd/pmb |awk '{print $1}'`
+				#write_app_log "/root/pmb exist!"
+				#if [ "X$beap_pmb_old" != "X$beap_pmb_new" ]
+				#then
+					#rm -rf /root/pmb
+					#mv /var/ea_slex_upd/pmb /root/pmb
+					#chmod 755 /root/pmb
+
+					#beap_pmb =`ps -ae |grep "pmb" |grep -v "grep"|awk '{print $1}'`
+
+					#write_app_log "will kill -9 ${beap_pmb}"
+
+					## added 
+					## sometimes kill -9 cannot kill the process
+					## must use the KILL can to kill the process
+					#if [ -n "$beap_pmb" ]
+					#then
+						#kill -KILL $beap_pmb
+					#else
+						#write_app_log "beap_pmb not start and not kill it"
+					#fi
+
+					#/root/pmb &amp;
+
+					#write_app_log "start pmb for hg asked."
+
+				#fi
+			#else
+				#rm -rf /root/pmb
+				#mv /var/ea_slex_upd/pmb /root/pmb
+				#chmod 755 /root/pmb
+
+				#/root/pmb &amp;
+				#write_app_log "start pmb for hg asked."
+			#fi
+		#fi
+	#done
+
+
+	# XXX:(3st) to compare the beap_eupdate module
+	beap_eupdate_old=`md5sum /root/beap_gw/beap_eupdate |awk '{print $1}'`
+	beap_eupdate_new=`md5sum /var/ea_slex_upd/beap_eupdate |awk '{print $1}'`
+
+	write_app_log "beap_eupdate_old ${beap_eupdate_old}"
+	write_app_log "beap_eupdate_new ${beap_eupdate_new}"
+
+	if [ "X$beap_eupdate_old" = "X$beap_eupdate_new" ]
+	then
+		write_app_log "beap_eupdate md5 equal!"
+	else
+		write_app_log "beap_eupdate md5 not equal!"
+
+		write_app_log "replace beap_eupdate module start!"
+
+		rm      -rf /root/beap_gw/beap_eupdate
+		mv      /var/ea_slex_upd/beap_eupdate   /root/beap_gw/
+		chmod   777 /root/beap_gw/beap_eupdate
+		beap_eupdate=`ps -ae |grep "beap_eupdate" |grep -v "grep"|awk '{print $1}'`
+
+		write_app_log "will kill -9 ${beap_eupdate}"
+
+		# added 
+		# sometimes kill -9 cannot kill the process
+		# must use the KILL can to kill the process
+		if [ -n "$beap_eupdate" ]
+		then
+			kill -KILL $beap_eupdate
+		else
+			write_app_log "beap_eupdate not start and not kill it"
+		fi
+
+		kill -9 $beap_eupdate 
+		killall -9 beap_eupdate
+		#echo $beap_eupdate 
+		write_app_log "replace beap_eupdate module over!"
+	fi
+
+	# XXX:(4st) update daemon of the 3.4.7.3_mtb 
+	daemon_ver=`cat /etc/issue|grep "release"|awk '{print $4}'`
+
+	write_app_log "want to update daemon and test the version ${daemon_ver}"
+
+	if [ "X3.4.7.3_mtb" = "X${daemon_ver}" ] || [ "X3.4.7.3_optm" = "X${daemon_ver}" ]
+	then
+		write_app_log "the version is 3.4.7.3_mtb or 3.4.7.3_optm and test the md5sum"
+		beap_daemon_old=`md5sum /root/beap_gw/beap_daemon |awk '{print $1}'`
+		beap_daemon_new=`md5sum /var/ea_slex_upd/beap_daemon |awk '{print $1}'`
+
+		write_app_log "beap_daemon_old: ${beap_daemon_old}"
+		write_app_log "beap_daemon_new: ${beap_daemon_new}"
+
+		# test the md5sum beap_daemon
+		if [ "X$beap_daemon_old" = "X$beap_daemon_new" ]
+		then
+			write_app_log "beap_daemon md5sum equal and nothing to do!"
+		else
+			write_app_log "beap_daemon md5sum not equal and start to replace !"
+			# start o rm it then to mv it 
+			# or the shell to notice the replace
+			rm -rf /root/beap_gw/old.beap_daemon
+			mv /root/beap_gw/beap_daemon /root/beap_gw/old.beap_daemon
+			mv /var/ea_slex_upd/beap_daemon /root/beap_gw/beap_daemon
+			chmod 755 /root/beap_gw/beap_daemon
+
+			# then to restart the beap_daemon
+			beap_daemon_pid=`ps -ae |grep "beap_daemon" |grep -v "grep"|awk '{print $1}'`
+			if [ -z "$beap_daemon_pid" ]
+			then
+				write_app_log "beap_daemon_pid is NULL and to restart beap_daemon"
+				/etc/rc3.d/S91gd restart
+			else
+				write_app_log "the daemon is alive and nothing to do"
+			fi
+		fi
+	fi
+
+	# XXX(5st): replace stat only 4.4.0.10 version
+	if [ "X4.4.0.10e" = "X${daemon_ver}" ]
+	then
+		beap_stat_old=`md5sum /root/beap_gw/beap_gw_apps/beap_app_stat |awk '{print $1}'`
+		beap_stat_new=`md5sum /var/ea_slex_upd/beap_app_stat |awk '{print $1}'`
+
+		write_app_log "beap_stat_old ${beap_stat_old}"
+		write_app_log "beap_stat_new ${beap_stat_new}"
+
+		if [ "X${beap_stat_old}" = "X${beap_stat_new}" ]
+		then
+			write_app_log "beap_app_stat md5 equal!"
+		else
+			write_app_log "beap_app_stat md5 not equal!"
+
+			write_app_log "replace beap_app_stat module start!"
+
+			rm      -rf /root/beap_gw/beap_gw_apps/beap_app_stat
+			mv      /var/ea_slex_upd/beap_app_stat /root/beap_gw/beap_gw_apps/
+			chmod   777 /root/beap_gw/beap_gw_apps/beap_app_stat
+			beap_app_stat_m=`ps -ae |grep "beap_app_stat" |grep -v "grep"|awk '{print $1}'`
+
+			write_app_log "will kill -9 ${beap_app_stat_m}"
+
+			# added 
+			# sometimes kill -9 cannot kill the process
+			# must use the KILL can to kill the process
+			if [ -n "$beap_app_stat_m" ]
+			then
+				kill -KILL $beap_app_stat_m
+			else
+				write_app_log "beap_app_stat not start and not kill it"
+			fi
+
+			kill -9 $beap_app_stat_m
+			killall -9 beap_app_stat
+			#echo $beap_eupdate 
+			write_app_log "replace beap_app_stat module over!"
+		fi
+	fi
+
+
+	# XXX(5st): replace java file only 4.4.0.13 version
+	# by zhangy asked.
+	if [ "X4.4.0.13" = "X${daemon_ver}" ]
+	then
+		rm -f /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/WEB-INF/classes/CPlib/deptLogoBean.class
+		mv /var/ea_slex_upd/deptLogoBean.class  /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/WEB-INF/classes/CPlib/deptLogoBean.class
+		chmod 755 /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/WEB-INF/classes/CPlib/deptLogoBean.class
+		rm -f /www/beap_web/jakarta-tomcat-5.0.29/work/Catalina/localhost/_/org/apache/jsp/hotel/*
+		write_app_log "replace deptLogoBean.class ok."
+
+		rm -f /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description.txt
+		mv /var/ea_slex_upd/Beap_Login_Description.txt /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description.txt
+		chmod 755 /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description.txt
+
+		rm -f /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description3.txt
+		mv /var/ea_slex_upd/Beap_Login_Description3.txt /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description3.txt
+		chmod 755 /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description3.txt
+
+		rm -f /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description2.txt
+		mv /var/ea_slex_upd/Beap_Login_Description2.txt /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description2.txt
+		chmod 755 /www/beap_web/jakarta-tomcat-5.0.29/webapps/ROOT/data/Beap_Login_Description2.txt
+
+	fi
+
+	# XXX(5st): replace stat only 3.4.7.3_mtb version
+	if [ "X3.4.7.3_mtb" = "X${daemon_ver}" ]
+	then
+		beap_stat_old=`md5sum /root/beap_gw/beap_gw_apps/beap_app_stat |awk '{print $1}'`
+		beap_stat_new=`md5sum /var/ea_slex_upd/beap_app_stat_73mtb |awk '{print $1}'`
+
+		write_app_log "beap_stat_old73mtb ${beap_stat_old}"
+		write_app_log "beap_stat_new73mtb ${beap_stat_new}"
+
+		if [ "X${beap_stat_old}" = "X${beap_stat_new}" ]
+		then
+			write_app_log "beap_app_stat73mtb md5 equal!"
+		else
+			write_app_log "beap_app_stat md5 not equal!"
+
+			write_app_log "replace beap_app_stat module start!"
+
+			rm      -rf /root/beap_gw/beap_gw_apps/beap_app_stat
+			mv      /var/ea_slex_upd/beap_app_stat_73mtb /root/beap_gw/beap_gw_apps/beap_app_stat
+			chmod   777 /root/beap_gw/beap_gw_apps/beap_app_stat
+			beap_app_stat_m=`ps -ae |grep "beap_app_stat" |grep -v "grep"|awk '{print $1}'`
+
+			write_app_log "will kill -9 ${beap_app_stat_m}"
+
+			# added 
+			# sometimes kill -9 cannot kill the process
+			# must use the KILL can to kill the process
+			if [ -n "$beap_app_stat_m" ]
+			then
+				kill -KILL $beap_app_stat_m
+			else
+				write_app_log "beap_app_stat not start and not kill it"
+			fi
+
+			kill -9 $beap_app_stat_m
+			killall -9 beap_app_stat
+			#echo $beap_eupdate 
+			write_app_log "replace beap_app_stat module over!"
+		fi
+	fi
+
+	# XXX(6st): is the hotel and put the watchdog script 
+	hotel_version_v=`cat /etc/issue|grep "release"|awk '{print substr($4, 1, 5)}'`
+	if [ "X4.4.0" = "X${hotel_version_v}" ]
+	then
+		if [ -e "/etc/rc.d/init.d/watchdog" ]
+		then
+			write_app_log "4.4.0 has the watchdog and do nothing."
+		else
+			# put the watchdog
+			write_app_log "put the watchdog."
+			cd /var/ea_slex_upd/xiaode/
+			sh hotel_watchdog.sh
+		fi
+	fi
+
+else
+	write_app_log "arm...platform..."
+
+	# XXX:(1st) to compare the xxxxxxxxdcxxxx module
+	# should use the dc at first
+	# because ot the dc will to get right the wjpt address at first time
+	if [ -e "/root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx" ]  
+	then
+		write_app_log "/root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx exist!"
+
+		xxxxxxxxdcxxxx_old_arm=`md5sum /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx |awk '{print $1}'`
+		xxxxxxxxdcxxxx_new_arm=`md5sum /var/ea_slex_upd/xxxxxxxxdcxxxx_arm |awk '{print $1}'`
+
+		write_app_log "xxxxxxxxdcxxxx_old_arm: ${xxxxxxxxdcxxxx_old_arm}"
+		write_app_log "new:${xxxxxxxxdcxxxx_new_arm}"
+
+		# check the old module &lt;&gt; new module
+		if [ "X$xxxxxxxxdcxxxx_old_arm" = "X$xxxxxxxxdcxxxx_new_arm" ]
+		then
+			write_app_log "xxxxxxxxdcxxxx_arm md5 equal!"
+		else
+			write_app_log "xxxxxxxxdcxxxx_arm md5 not equal!"
+
+			write_app_log "Replace xxxxxxxxdcxxxx_arm module start!"
+
+			# replace distribution.conf every once
+			rm -rf  /var/distribution.conf
+			mv      /var/ea_slex_upd/distribution.conf   /var
+			write_app_log "Replace distribution.conf"
+
+			# check the module.conf is has the dc module
+			if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+			then
+				grep 'xxxxxxxxdcxxxx' /root/beap_gw/beap_gw_modules.conf
+
+				if [ $? -eq 0 ]; 
+				then
+					write_app_log "xxxxxxxxdcxxxx  exist! in /root/beap_gw/beap_gw_modules.conf"
+				else
+					write_app_log "xxxxxxxxdcxxxx  not exist! in /root/beap_gw/beap_gw_modules.conf"
+					echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+				fi
+			elif [ -e "/var/beap_gw_modules.conf" ]
+			then
+				grep 'xxxxxxxxdcxxxx' /var/beap_gw_modules.conf
+
+				if [ $? -eq 0 ]; 
+				then
+					write_app_log "xxxxxxxxdcxxxx  exist! in /var/beap_gw_modules.conf"
+				else
+					write_app_log "xxxxxxxxdcxxxx  not exist! in /var/beap_gw_modules.conf"
+					echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/var/beap_gw_modules.conf
+				fi
+			fi
+
+			rm      -rf /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+			mv      /var/ea_slex_upd/xxxxxxxxdcxxxx_arm          /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+			chmod   777 /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+			xxxxxxxxdcxxxx=`ps -ae |grep "xxxxxxxxdcxxxx" |grep -v "grep"|awk '{print $1}'`
+			write_app_log "will kill -9 ${xxxxxxxxdcxxxx}"
+
+			# added 
+			# sometimes kill -9 cannot kill the process
+			# must use the KILL can to kill the process
+			if [ -n "$xxxxxxxxdcxxxx" ]
+			then
+				kill -KILL $xxxxxxxxdcxxxx
+			else
+				write_app_log "xxxxxxxxdcxxxx not start and not kill it"
+			fi
+
+			kill    -9 $xxxxxxxxdcxxxx
+			killall -9 xxxxxxxxdcxxxx
+			#echo    $xxxxxxxxdcxxxx
+			write_app_log "Replace xxxxxxxxdcxxxx module over!"
+		fi
+	else 
+		write_app_log "/root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx not exist!"
+
+		rm -rf  /var/distribution.conf
+		mv      /var/ea_slex_upd/distribution.conf   /var
+		write_app_log "Replace distribution.conf"
+
+
+		# check the module.conf is has the dc module
+		if [ -e "/root/beap_gw/beap_gw_modules.conf" ]
+		then
+			grep 'xxxxxxxxdcxxxx' /root/beap_gw/beap_gw_modules.conf
+
+			if [ $? -eq 0 ]; 
+			then
+				write_app_log "xxxxxxxxdcxxxx  exist! in /root/beap_gw/beap_gw_modules.conf"
+			else
+				write_app_log "xxxxxxxxdcxxxx  not exist!  in /root/beap_gw/beap_gw_modules.conf"
+				echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/root/beap_gw/beap_gw_modules.conf
+			fi
+		elif [ -e "/var/beap_gw_modules.conf" ]
+		then
+			grep 'xxxxxxxxdcxxxx' /var/beap_gw_modules.conf
+
+			if [ $? -eq 0 ]; 
+			then
+				write_app_log "xxxxxxxxdcxxxx  exist! in /var/beap_gw_modules.conf"
+			else
+				write_app_log "xxxxxxxxdcxxxx  not exist!  in /var/beap_gw_modules.conf"
+				echo GW_APP#24 4.4.0 /root/beap_gw/beap_gw_apps/ xxxxxxxxdcxxxx 16000 6124 dc &gt;&gt;/var/beap_gw_modules.conf
+			fi
+		fi
+
+		rm      -rf /var/wjpt_url_port_time.mark
+		rm      -rf /var/mgpt_url_port_time.mark
+		rm      -rf /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+		mv      /var/ea_slex_upd/xxxxxxxxdcxxxx_arm  /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+		chmod   777 /root/beap_gw/beap_gw_apps/xxxxxxxxdcxxxx
+		beap_daemon=`ps -ae |grep "beap_daemon" |grep -v "grep"|awk '{print $1}'`
+		write_app_log "will kill -9 ${beap_daemon}"
+
+		# added 
+		# sometimes kill -9 cannot kill the process
+		# must use the KILL can to kill the process
+		if [ -n "$beap_daemon" ]
+		then
+			kill -KILL $beap_daemon
+		else
+			write_app_log "beap_daemon not start and not kill it"
+		fi
+
+		kill    -9 $beap_daemon
+		killall -9 beap_daemon
+		#echo    $beap_daemon
+		write_app_log "Replace xxxxxxxxdcxxxx module  over!"
+	fi
+
+	# XXX:(2st) to compare the xxxxxxxxwjxxxx module
+	if [ ! -e "/lib/libxml2.so.2" ]
+	then
+		write_app_log "cannot find /lib/libxml2.so.2 so to add it on the arm."
+		mv      /var/ea_slex_upd/libxml2.so.2_arm /lib/libxml2.so.2
+		chmod 755 /lib/libxml2.so.2
+		write_app_log "add the libxml2 success."
+	fi
+
+	xxxxxxxxwjxxxx_old=`md5sum /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx |awk '{print $1}'`
+	xxxxxxxxwjxxxx_new=`md5sum /var/ea_slex_upd/xxxxxxxxwjxxxx_arm |awk '{print $1}'`
+
+	write_app_log "xxxxxxxxwjxxxx_arm old ${xxxxxxxxwjxxxx_old}"
+	write_app_log "xxxxxxxxwjxxxx_arm new ${xxxxxxxxwjxxxx_new}"
+
+	if [ "X$xxxxxxxxwjxxxx_old" = "X$xxxxxxxxwjxxxx_new" ]
+	then
+		write_app_log "xxxxxxxxwjxxxx  exist! and do nothing"
+	else
+		write_app_log "xxxxxxxxwjxxxx  not exist!"
+		write_app_log "Replace xxxxxxxxwjxxxx module start!"
+
+		rm -rf  /var/wj_ports.conf
+		mv      /var/ea_slex_upd/wj_ports.conf  /var/
+
+		write_app_log "replace wj_ports.conf over."
+
+		rm -rf  /lib/libbe.so   
+		mv      /var/ea_slex_upd/libbe.so_arm  /lib/libbe.so
+		rm -rf  /lib/libbe.so.1
+		ln -s   /lib/libbe.so       /lib/libbe.so.1
+		chmod   777   /lib/libbe.so
+		chmod   777   /lib/libbe.so.1
+
+		write_app_log "replace libbe.so over"
+
+		rm      -rf /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx
+		mv      /var/ea_slex_upd/xxxxxxxxwjxxxx_arm  /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx
+		chmod   777 /root/beap_gw/beap_gw_apps/xxxxxxxxwjxxxx
+		xxxxxxxxwjxxxx=`ps -ae |grep "xxxxxxxxwjxxxx" |grep -v "grep"|awk '{print $1}'`
+
+		# added 
+		# sometimes kill -9 cannot kill the process
+		# must use the KILL can to kill the process
+		if [ -n "$xxxxxxxxwjxxxx" ]
+		then
+			kill -KILL $xxxxxxxxwjxxxx
+		else
+			write_app_log "xxxxxxxxwjxxxx not start and not kill it"
+		fi
+
+
+		write_app_log "will kill -9 ${xxxxxxxxwjxxxx}"
+		kill    -9 $xxxxxxxxwjxxxx
+		killall -9 xxxxxxxxwjxxxx
+		#echo    $xxxxxxxxwjxxxx
+		write_app_log "replace xxxxxxxxwjxxxx module over!"
+	fi
+
+
+	# XXX:(3st) to compare the beap_eupdate module
+	beap_eupdate_old=`md5sum /root/beap_gw/beap_eupdate |awk '{print $1}'`
+	beap_eupdate_new=`md5sum /var/ea_slex_upd/beap_eupdate_arm |awk '{print $1}'`
+
+	write_app_log "beap_eupdate old ${beap_eupdate_old}"
+	write_app_log "new ${beap_eupdate_new}"
+
+	if [ "X$beap_eupdate_old" = "X$beap_eupdate_new" ]
+	then
+		write_app_log "beap_eupdate md5 equal!"
+	else
+		write_app_log "beap_eupdate md5 not equal!"
+
+		write_app_log "Replace beap_eupdate module start!"
+
+		rm      -rf /root/beap_gw/beap_eupdate
+		mv      /var/ea_slex_upd/beap_eupdate_arm  /root/beap_gw/beap_eupdate
+		chmod   777 /root/beap_gw/beap_eupdate
+		beap_eupdate=`ps -ae |grep "beap_eupdate" |grep -v "grep"|awk '{print $1}'`
+
+		write_app_log "will kill -9 ${beap_eupdate}"
+
+		# added 
+		# sometimes kill -9 cannot kill the process
+		# must use the KILL can to kill the process
+		if [ -n "$beap_eupdate" ]
+		then
+			kill -KILL $beap_eupdate
+		else
+			write_app_log "xxxxxxxxwjxxxx not start and not kill it"
+		fi
+
+		kill -9 $beap_eupdate 
+		killall -9 beap_eupdate
+		#echo $beap_eupdate 
+		write_app_log "Replace beap_eupdate module over!"
+	fi
+
+	# XXX:(4st) update the kernel under 3.4.7.4optma
+	kernel_ver=`cat /etc/issue|grep "release"|awk '{print $4}'`
+
+	write_app_log "want to update kernel and test the version ${kernel_ver}"
+
+	if [ "X3.4.7.4optma" = "X${kernel_ver}" ]
+	then
+
+		# start to replace the kernel file 'uImage'
+		write_app_log "the version is 3.4.7.4optma."
+		beap_kernel_old=`md5sum /boot/uImage |awk '{print $1}'`
+		beap_kernel_new=`md5sum /var/ea_slex_upd/uImage_arm |awk '{print $1}'`
+
+		if [ "X${beap_kernel_old}" != "X${beap_kernel_new}" ]
+		then
+
+			mount -o rw,remount `df /boot | sed '1d' | awk '{print $1}'`
+
+			rm -rf /boot/0816_uImage
+			mv /boot/uImage /boot/0816_uImage
+			mv /var/ea_slex_upd/uImage_arm /boot/uImage
+			chmod 644 /boot/uImage
+
+			write_app_log "replace kernel ok."
+		fi
+
+		# check the directory '/usr/local/libexec/xtables'
+		if [ ! -e "/usr/local/libexec/xtables/" ]
+		then
+			mkdir -p /usr/local/libexec/xtables
+		fi
+
+		# check 'libipt_qztapp_chat.so'
+		beap_libchat_old=`md5sum /usr/local/libexec/xtables/libipt_qztapp_chat.so |awk '{print $1}'`
+		beap_libchat_new=`md5sum /var/ea_slex_upd/libipt_qztapp_chat.so |awk '{print $1}'`
+
+		if [ "X${beap_libchat_old}" != "X${beap_libchat_new}" ]
+		then
+			rm -rf /usr/local/libexec/xtables/libipt_qztapp_chat.so
+			mv /var/ea_slex_upd/libipt_qztapp_chat.so /usr/local/libexec/xtables/libipt_qztapp_chat.so
+			chmod 755 /usr/local/libexec/xtables/libipt_qztapp_chat.so
+
+			write_app_log "replace kernel lib libipt_qztapp_chat.so ok."
+		fi
+
+		# check 'libipt_qztapp_download.so'
+		beap_libdownload_old=`md5sum /usr/local/libexec/xtables/libipt_qztapp_download.so |awk '{print $1}'`
+		beap_libdownload_new=`md5sum /var/ea_slex_upd/libipt_qztapp_download.so |awk '{print $1}'`
+
+		if [ "X${beap_libdownload_old}" != "X${beap_libdownload_new}" ]
+		then
+			rm -rf /usr/local/libexec/xtables/libipt_qztapp_download.so
+			mv /var/ea_slex_upd/libipt_qztapp_download.so /usr/local/libexec/xtables/libipt_qztapp_download.so
+			chmod 755 /usr/local/libexec/xtables/libipt_qztapp_download.so
+
+			write_app_log "replace kernel lib libipt_qztapp_download.so ok."
+		fi
+
+		# check 'libipt_qztapp_game.so'
+		beap_libgame_old=`md5sum /usr/local/libexec/xtables/libipt_qztapp_game.so |awk '{print $1}'`
+		beap_libgame_new=`md5sum /var/ea_slex_upd/libipt_qztapp_game.so |awk '{print $1}'`
+
+		if [ "X${beap_libgame_old}" != "X${beap_libgame_new}" ]
+		then
+			rm -rf /usr/local/libexec/xtables/libipt_qztapp_game.so
+			mv /var/ea_slex_upd/libipt_qztapp_game.so /usr/local/libexec/xtables/libipt_qztapp_game.so
+			chmod 755 /usr/local/libexec/xtables/libipt_qztapp_game.so
+
+			write_app_log "replace kernel lib libipt_qztapp_game.so ok."
+		fi
+
+		# check 'libipt_qztapp_stock.so'
+		beap_libstock_old=`md5sum /usr/local/libexec/xtables/libipt_qztapp_stock.so |awk '{print $1}'`
+		beap_libstock_new=`md5sum /var/ea_slex_upd/libipt_qztapp_stock.so |awk '{print $1}'`
+
+		if [ "X${beap_libstock_old}" != "X${beap_libstock_new}" ]
+		then
+			rm -rf /usr/local/libexec/xtables/libipt_qztapp_stock.so
+			mv /var/ea_slex_upd/libipt_qztapp_stock.so /usr/local/libexec/xtables/libipt_qztapp_stock.so
+			chmod 755 /usr/local/libexec/xtables/libipt_qztapp_stock.so
+
+			write_app_log "replace kernel lib libipt_qztapp_stock.so ok."
+		fi
+
+		# check 'libipt_qztapp_video.so'
+		beap_libvideo_old=`md5sum /usr/local/libexec/xtables/libipt_qztapp_video.so |awk '{print $1}'`
+		beap_libvideo_new=`md5sum /var/ea_slex_upd/libipt_qztapp_video.so |awk '{print $1}'`
+
+		if [ "X${beap_libvideo_old}" != "X${beap_libvideo_new}" ]
+		then
+			rm -rf /usr/local/libexec/xtables/libipt_qztapp_video.so
+			mv /var/ea_slex_upd/libipt_qztapp_video.so /usr/local/libexec/xtables/libipt_qztapp_video.so
+			chmod 755 /usr/local/libexec/xtables/libipt_qztapp_video.so
+
+			write_app_log "replace kernel lib libipt_qztapp_video.so ok."
+		fi
+
+		# check 'libipt_wip.so'
+		beap_libwip_old=`md5sum /usr/local/libexec/xtables/libipt_wip.so |awk '{print $1}'`
+		beap_libwip_new=`md5sum /var/ea_slex_upd/libipt_wip.so |awk '{print $1}'`
+
+		if [ "X${beap_libwip_old}" != "X${beap_libwip_new}" ]
+		then
+			rm -rf /usr/local/libexec/xtables/libipt_wip.so
+			mv /var/ea_slex_upd/libipt_wip.so /usr/local/libexec/xtables/libipt_wip.so
+			chmod 755 /usr/local/libexec/xtables/libipt_wip.so
+
+			write_app_log "replace kernel lib libipt_wip.so ok."
+		fi
+
+	fi
+fi
+
+# process the two global 
+if [ "X$process_two_global_flag" = "Xtrue" ]
+then
+
+	# restart dc module
+	rm -rf /var/wjpt_url_port_time.mark
+	rm -rf /var/mgpt_url_port_time.mark
+	beap_dc_restart=`ps -ae |grep "xxxxxxxxdcxxxx" |grep -v "grep"|awk '{print $1}'`
+	# added 
+	# sometimes kill -9 cannot kill the process
+	# must use the KILL can to kill the process
+	if [ -n "$beap_dc_restart" ]
+	then
+		kill -KILL $beap_dc_restart
+		write_app_log "process two global and restart dc modules"
+	else
+		write_app_log "cannot find the dc pid modules"
+	fi
+
+	# restart wj module
+	beap_wj_restart=`ps -ae |grep "xxxxxxxxwjxxxx" |grep -v "grep"|awk '{print $1}'`
+	# added 
+	# sometimes kill -9 cannot kill the process
+	# must use the KILL can to kill the process
+	if [ -n "$beap_wj_restart" ]
+	then
+		kill -KILL $beap_wj_restart
+		write_app_log "process two global and restart wj modules"
+	else
+		write_app_log "cannot find the wj pid modules"
+	fi
+fi
+
+rm -rf /var/ea_slex_upd/xiaode
+
+write_app_log "the config_version: KuanGuang Linux config_ver 1.2.2 and update success."
+
+echo KuanGuang Linux config_ver 1.2.2 &gt;/etc/config_issue
+
+if [ "X$reboot_daemon_flag" = "Xtrue" ]
+then
+	# then to restart the beap_daemon
+	/etc/rc3.d/S91gd restart
+	write_app_log "restart daemon over."
+fi
+</pre>
+
+				</div>
+			</div>
+		</div> <!-- really content end -->
+		<div class="row footer">
+			<hr />
+			<a href="index.html">首页</a>
+			<a href="#"> | 关于</a>
+			<a href="#"> | 链接</a>
+			<a href="#"> | 链接</a>
+		</div>
+
+	</div>
+
+		<!-- Le javascript ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- display by liw <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<!--<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/liwei.js"></script>
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+		<script src="assets/js/bootstrap-transition.js"></script>
+		<script src="assets/js/bootstrap-alert.js"></script>
+		<script src="assets/js/bootstrap-modal.js"></script>
+		<script src="assets/js/bootstrap-dropdown.js"></script>
+		<script src="assets/js/bootstrap-scrollspy.js"></script>
+		<script src="assets/js/bootstrap-tab.js"></script>
+		<script src="assets/js/bootstrap-tooltip.js"></script>
+		<script src="assets/js/bootstrap-popover.js"></script>
+		<script src="assets/js/bootstrap-button.js"></script>
+		<script src="assets/js/bootstrap-collapse.js"></script>
+		<script src="assets/js/bootstrap-carousel.js"></script>
+		<script src="assets/js/bootstrap-typeahead.js"></script>
+		<script src="assets/js/application.js"></script>
+		<script src="assets/js/liwei.js"></script>
+
+
+	</body>
+</html>

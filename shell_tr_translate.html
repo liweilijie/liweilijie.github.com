@@ -148,45 +148,227 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>利用sed删除指定字符</h1>
+<h1>tr</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">1. man tr</a>
+<li><a href="#toc_0.2">2. tr参数</a>
+<li><a href="#toc_0.3">3. 例子</a>
+<ul>
+<li><a href="#toc_0.3.0.1">1、去除重复的字符</a>
+<li><a href="#toc_0.3.0.2">2、删除空白行</a>
+<li><a href="#toc_0.3.0.3">3、大小写相互转换</a>
+<li><a href="#toc_0.3.0.4">4、删除指定的字符</a>
+<li><a href="#toc_0.3.0.5">5、利用-c进行补集的替换</a>
+</ul>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">1. man tr</h2>
+<pre class="brush:plain;">
+NAME
+       tr - translate or delete characters
+
+SYNOPSIS
+       tr [OPTION]... SET1 [SET2]
+
+DESCRIPTION
+       Translate, squeeze, and/or delete characters from standard input, writ‐
+       ing to standard output.
+
+       -c, -C, --complement
+              use the complement of SET1
+
+       -d, --delete
+              delete characters in SET1, do not translate
+
+       -s, --squeeze-repeats
+              replace each input sequence of  a  repeated  character  that  is
+              listed in SET1 with a single occurrence of that character
+
+       -t, --truncate-set1
+              first truncate SET1 to length of SET2
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+</pre>
+
+<h2 id="toc_0.2">2. tr参数</h2>
 
 <p>
-今天跟一同事一些讨论如何利用shell将issue文件后面多余的'e' 或者'f'删除，且不能更改文件的其他格式。并且有的issue文件里面并不用删除，如果没有'e'或者'f'的时候。
+<code>tr</code>（translate缩写）主要用于删除文件中的控制字符，或进行字符转换。
+</p>
+
+<ul>
+<li>
+语法：<code>tr [–c/d/s/t] [SET1] [SET2]</code>
+
+<li>
+SET1: 字符集1
+
+<li>
+SET2：字符集2
+
+<li>
+<code>-c</code>: complement，用SET2替换SET1中没有包含的字符
+
+<li>
+<code>-d</code>: delete，删除SET1中所有的字符，不转换
+
+<li>
+<code>-s</code>: squeeze-repeats，压缩SET1中重复的字符
+
+<li>
+<code>-t</code>: truncate-set1，将SET1用SET2转换，一般缺省为<code>-t</code>
+
+</ul>
+
+<hr />
+
+<h2 id="toc_0.3">3. 例子</h2>
+
+<h4 id="toc_0.3.0.1">1、去除重复的字符</h4>
+<p>
+#将连续的几个相同字符压缩为一个字符
+</p>
+<pre class="brush:bash;">
+$ echo aaacccddd | tr -s [a-z]
+acd
+$ echo aaacccddd | tr -s [abc]
+acddd
+</pre>
+
+<h4 id="toc_0.3.0.2">2、删除空白行</h4>
+
+<p>
+删除空白行就是删除换行符<code>\n</code> #注意：这些空白行上只有回车符，没有空格符
+</p>
+
+<pre class="brush:bash;">
+$ cat test.txt
+I love linux!
+                                                                                                                          
+                                                                                                                          
+Hello World!
+                                                                                                                          
+Shell is worthy to been studied
+</pre>
+
+<p>
+#这里用换行符的转义字符\n
+#注意：此处用-s删除了多余的换行符，如果用-d，则会删除所有的换行符                                                                                                                          
+</p>
+<pre class="brush:bash;">
+$ cat test.txt | tr -s ["\n"]
+I love linux!
+Hello World!
+Shell is worthy to been studied
+</pre>
+
+<p>
+#也可以用八进制符\012，\012与\n都是换行符
+</p>
+
+<pre class="brush:bash;">
+$ cat test.txt | tr -s "[\012]"
+I love linux!
+Hello World!
+Shell is worthy to been studied
+</pre>
+
+<h4 id="toc_0.3.0.3">3、大小写相互转换</h4>
+
+<ul>
+<li>
+将语句中所有的小写字母变成大写字母,其中-t可省略: <code>$ echo "Hello World I Love You" |tr -t [a-z] [A-Z]</code> HELLO WORLD I LOVE YOU
+
+</ul>
+
+<ul>
+<li>
+将语句中所有的大写字母变成小写字母 <code>$ echo "Hello World I Love You" |tr [A-Z] [a-z]</code> hello world i love you
+
+</ul>
+
+<ul>
+<li>
+也可以利用字符类进行转换, #[:lower:]代表小写字母，[:upper:]代表大写字母: <code>$ echo "Hello World I Love You" |tr [:lower:] [:upper:]</code>
+
+</ul>
+<p>
+HELLO WORLD I LOVE YOU
+</p>
+
+<h4 id="toc_0.3.0.4">4、删除指定的字符</h4>
+
+<pre class="brush:bash;">
+$ cat test.txt
+Monday     09:00
+Tuesday    09:10
+Wednesday  10:11
+Thursday   11:30
+Friday     08:00
+Saturday   07:40
+Sunday     10:00
+</pre>
+
+<p>
+<strong>现在要删除处理星期之外的所有字符 -d代表删除，[0-9]代表所有的数字，[: ]代表冒号和空格</strong>
+</p>
+
+<pre class="brush:bash;">
+$ cat test.txt | tr -d "[0-9][: ]"
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+</pre>
+
+<h4 id="toc_0.3.0.5">5、利用-c进行补集的替换</h4>
+
+<p>
+#有时候在文本中我们只知道要保留的一些字符，其他字符种类繁多，就可以使用补集的替换
+</p>
+<pre class="brush:bash;">
+$ cat test.txt
+Monday     09:00
+Tuesday    09:10
+Wednesday  10:11
+Thursday   11:30
+Friday     08:00
+Saturday   07:40
+Sunday     10:00
+</pre>
+
+<p>
+<strong>#我们只需要星期，则思路就是除了字母，其他统统替换掉</strong>
 </p>
 
 <p>
-后来讨论出来的命令是：
+<strong>#这里，-c：用换行符替换掉除了字母外的所有字符；-s：删除多余的换行符</strong>
 </p>
 
-<p>
-<code>sed 's/\(.*\)[e|f]$/\1/g' issue</code>
-</p>
-
-
-
-<p>
-是不是很简单，比如要删除前两个字符与最后两个字符：
-</p>
-
-<p>
-<code>sed 's/^..\(.*\)..$/\1/g' issue</code> 
-</p>
+<pre class="brush:bash;">
+cat test.txt|tr -cs  "[a-z][A-Z]" "\n"
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+</pre>
 
 <p>
-或者仅对第二行进行删除：
-</p>
-
-<p>
-<code>echo -e "hello world\njust linux realse version" | sed "2s/^..\(.*\)..$/\1/g"</code>
-</p>
-
-
-<p>
-或者：<code>sed -r 's/^.{2}(.*).{2}$/\1/g' issue</code> 
-</p>
-
-<p>
-<code>echo '12345678' | awk -F '' '{print $1$2$NF-1$NF}''</code>
+<strong>总结：其中大小写字母的转换，删除不需要的字符比较常用。tr语法简单，易用。</strong>
 </p>
 
 				</div>

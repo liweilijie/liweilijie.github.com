@@ -1,0 +1,17 @@
+%toc shell get ip
+
+----
+
+
+- `IP=$(/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:")`
+{{{class="brush:bash;"
+$ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6
+          inet addr:192.168.0.61  Bcast:192.168.3.255  Mask:255.255.252.0
+          inet addr:192.168.122.1  Bcast:192.168.122.255  Mask:255.255.255.0
+$ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'
+addr:192.168.0.61
+addr:192.168.122.1
+$ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"
+192.168.0.61
+192.168.122.1
+}}}

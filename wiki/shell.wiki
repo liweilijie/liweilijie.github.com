@@ -10,3 +10,6 @@
 # [[shell_sed_any_command|sed单行脚本速查]]
 # [[shell_speed_show|shell显示进度条有意思]]
 # [[shell_echo|echo]]
+# [[shell_tr_translate|tr]]
+# [[shell_get_ip_addr_functions|get ip]]
+# [[shell_eupdate_slex_pro|eupdate slex]]
