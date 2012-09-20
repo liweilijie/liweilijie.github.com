@@ -148,49 +148,174 @@
 				<div class="gsearch"></div>
 				<div class="content">
 					
-<h1>shell</h1>
+<h1>shell字符串截取</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.0.1">一. # 号截取，删除左边字符，保留右边字符。</a>
+<li><a href="#toc_0.0.2">二. ## 号截取，删除左边字符，保留右边字符。</a>
+<li><a href="#toc_0.0.3">三. %号截取，删除右边字符，保留左边字符</a>
+<li><a href="#toc_0.0.4">四 %% 号截取，删除右边字符，保留左边字符</a>
+<li><a href="#toc_0.0.5">五. 从左边第几个字符开始，及字符的个数</a>
+<li><a href="#toc_0.0.6">六. 从左边第几个字符开始，一直到结束。</a>
+<li><a href="#toc_0.0.7">七. 从右边第几个字符开始，及字符的个数</a>
+<li><a href="#toc_0.0.8">八. 从右边第几个字符开始，一直到结束。</a>
+</ul>
+</ul>
+</ul>
+</div>
 
-<ol>
-<li>
-<a href="shell_array_study.html">shell数组</a>
+<hr />
 
-<li>
-<a href="shell_if_test_condition.html">test条件</a>
+<p>
+linux 的字符串截取很有用。有八种方法。
+</p>
 
-<li>
-<a href="shell_wget_entire_site_content.html">wget下载整个网站</a>
+<p>
+假设有变量  *var=<a href="http://www.hao.com/123.htm*">http://www.hao.com/123.htm*</a>
+</p>
 
-<li>
-<a href="shell_calculators_summary.html">linux下的一些计算器</a>
+<h3 id="toc_0.0.1">一. # 号截取，删除左边字符，保留右边字符。</h3>
 
-<li>
-<a href="shell_bash_shortcut_key.html">bash快捷键</a>
+<p>
+<code>echo ${var#*//}</code>
+</p>
 
-<li>
-<a href="shell_sed_delete_character.html">利用sed删除指定字符</a>
+<p>
+其中  <strong>var</strong>  是变量名， <strong>#</strong>  号是运算符，<code>*//</code> 表示从左边开始删除第一个 <code>//</code> 号及左边的所有字符,即删除 <code>http://</code>
+</p>
 
-<li>
-<a href="shell_sed_any_command.html">sed单行脚本速查</a>
+<p>
+结果是 ：
+</p>
 
-<li>
-<a href="shell_speed_show.html">shell显示进度条有意思</a>
+<p>
+ <strong>www.hao.com/123.htm</strong>
+</p>
 
-<li>
-<a href="shell_echo.html">echo</a>
+<h3 id="toc_0.0.2">二. ## 号截取，删除左边字符，保留右边字符。</h3>
 
-<li>
-<a href="shell_tr_translate.html">tr</a>
+<p>
+<code>echo ${var##*/}</code>
+</p>
 
-<li>
-<a href="shell_get_ip_addr_functions.html">get ip</a>
+<p>
+<code>##*/</code> 表示从左边开始删除最后（最右边）一个 / 号及左边的所有字符,即删除 <a href="http://www.hao.com/">http://www.hao.com/</a>
+</p>
 
-<li>
-<a href="shell_eupdate_slex_pro.html">eupdate slex</a>
+<p>
+结果是 :
+</p>
 
-<li>
-<a href="shell_cut_string_functions.html">shell字符串截取</a>
+<p>
+ <strong>123.htm</strong> 
+</p>
 
-</ol>
+<h3 id="toc_0.0.3">三. %号截取，删除右边字符，保留左边字符</h3>
+
+<p>
+<code>echo ${var%/*}</code>
+</p>
+
+<p>
+<code>%/*</code> 表示从右边开始，删除第一个 / 号及右边的字符
+</p>
+
+<p>
+结果是： *<a href="http://www.hao.com*">http://www.hao.com*</a>
+</p>
+
+
+<h3 id="toc_0.0.4">四 %% 号截取，删除右边字符，保留左边字符</h3>
+
+<p>
+<code>echo ${var%%/*}</code>
+</p>
+
+
+<p>
+结果是：
+</p>
+
+<p>
+ <strong>http:</strong>
+</p>
+
+<h3 id="toc_0.0.5">五. 从左边第几个字符开始，及字符的个数</h3>
+
+<p>
+<code>echo ${var:0:5}</code>
+</p>
+
+<p>
+其中的 0 表示左边第一个字符开始，5 表示字符的总个数。
+</p>
+
+<p>
+结果是：
+</p>
+
+<p>
+<strong>http:</strong>
+</p>
+
+<h3 id="toc_0.0.6">六. 从左边第几个字符开始，一直到结束。</h3>
+
+<p>
+<code>echo ${var:7}</code>
+</p>
+
+<p>
+其中的 7 表示左边第8个字符开始，一直到结束。
+</p>
+
+<p>
+结果是 ：
+</p>
+
+<p>
+<strong>www.hao.com/123.htm</strong>
+</p>
+
+
+<h3 id="toc_0.0.7">七. 从右边第几个字符开始，及字符的个数</h3>
+
+<p>
+<code>echo ${var:0-7:3}</code>
+</p>
+
+<p>
+其中的 0-7 表示右边算起第七个字符开始，3 表示字符的个数。
+</p>
+
+<p>
+结果是：
+</p>
+
+<p>
+<strong>123</strong>
+</p>
+
+<h3 id="toc_0.0.8">八. 从右边第几个字符开始，一直到结束。</h3>
+
+<p>
+<code>echo ${var:0-7}</code>
+</p>
+
+<p>
+表示从右边第七个字符开始，一直到结束。
+</p>
+
+<p>
+结果是：
+</p>
+
+<p>
+ <strong>123.htm</strong>
+</p>
+
+<p>
+<em>注：（左边的第一个字符是用 0 表示，右边的第一个字符用 0-1 表示）</em>
+</p>
 
 				</div>
 			</div>
